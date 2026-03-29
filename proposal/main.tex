@@ -72,7 +72,7 @@
     \begin{center}
     %Tên đề tài phải VIẾT HOA
         
-        \textbf{\huge Khung phương pháp phân tích sắc thái người dùng Youtube Việt thông qua kiến trúc Transformer.} 
+        \textbf{\huge Khung phương pháp phân tích sắc cảm xúc thái người dùng Youtube Việt thông qua kiến trúc Transformer.} 
         \\
         
     %Tên đề tài bằng tiếng Anh (nếu có)
@@ -147,7 +147,7 @@
     
     Và một bài toán nan giải khác nằm ở sự khác biệt trong hành vi người dùng giữa hai dạng tương tác \textbf{tĩnh (VOD - Video on Demand)} và \textbf{động (Livestream)} \cite{huo2025live}. Với tương tác tĩnh, người dùng có thời gian suy ngẫm và trau chuốt nội dung bình luận. Ngược lại, tương tác trong livestream (Live Chat) đòi hỏi sự phản hồi tức thì, ngắn gọn và mang tính bộc phát. Hệ quả là các mô hình truyền thống thường bị giảm độ chính xác hoặc mất đi khả năng xử lý do độ nhiễu cực cao và sự không nhất quán về mặt cấu trúc câu trong dữ liệu thời gian thực.
     
-    Cuối cùng, với những dữ liệu có độ dài, người dùng thường có xu hướng lồng ghép nhiều luồng cảm xúc trái ngược (ví dụ như "giọng hay nhưng nội dung tệ"). Và nếu chúng ta chỉ dừng lại ở việc phân loại đơn giản "tích cực" hoặc "tiêu cực", thì mô hình sẽ làm mất đi các giá trị thông tin cốt lõi. Điều này đòi hỏi bài toán phân tích sắc thái cảm xúc ban đầu trở thành Phân tích cảm xúc dựa trên khía cạnh (Aspect-Based Sentiment Analysis - ABSA) để bóc tách chính xác thái độ của người dùng đối với từng thuộc tính cụ thể của đối tượng.
+    %Cuối cùng, với những dữ liệu có độ dài, người dùng thường có xu hướng lồng ghép nhiều luồng cảm xúc trái ngược (ví dụ như "giọng hay nhưng nội dung tệ"). Và nếu chúng ta chỉ dừng lại ở việc phân loại đơn giản "tích cực" hoặc "tiêu cực", thì mô hình sẽ làm mất đi các giá trị thông tin cốt lõi. Điều này đòi hỏi bài toán phân tích sắc thái cảm xúc ban đầu trở thành Phân tích cảm xúc dựa trên khía cạnh (Aspect-Based Sentiment Analysis - ABSA) để bóc tách chính xác thái độ của người dùng đối với từng thuộc tính cụ thể của đối tượng.
 
     Với những vấn đề trên, đặt ra một vấn đề thực tiễn hết sức cấp thiết, đó là làm thế nào để xây dựng một khung phương pháp (framework) chuẩn, có thể phân tích sắc thái cảm xúc dựa trên kiến trúc Transformer, nhằm giải quyết các thách thức đặc thù của dữ liệu YouTube Việt Nam. Đây không chỉ là một bài toán học thuật mà còn mang tính ứng dụng cao, khi kết quả có thể hỗ trợ đắc lực cho các nhà sáng tạo nội dung và doanh nghiệp trong việc thấu hiểu cộng đồng người dùng, từ đó đưa ra các chiến lược phát triển nội dung và kinh doanh hiệu quả hơn.
 
@@ -171,27 +171,131 @@
         \item \textbf{Cấp độ khía cạnh (Aspect-level):} Xác định hướng cảm xúc đối với từng khía cạnh cụ thể $f_j$ của đối tượng $o$ được đề cập trong câu $s_i$, biểu diễn bằng bộ $(s_i, f_j, so)$. Đây là cấp độ chi tiết nhất, cho phép xử lý các văn bản chứa nhiều ý kiến phức tạp và trái ngược nhau.
     \end{itemize}
 
-    \subsubsection{Khung phương pháp (Framework)}
+    \subsubsection{Khung phương pháp luận (Methodological Framework)}
+    Hiện nay, cộng đồng học thuật vẫn chưa có một định nghĩa chính thức về \textbf{khung phương pháp luận (methodological framework)}. Tuy nhiên, có một sự đồng thuận ngầm rằng đây là một công cụ giúp dẫn dắt người thực hiện đi qua một chuỗi các bước có trình tự để hoàn thành một quy trình cụ thể. Trong đó, \textbf{phương pháp luận} được hiểu là tập hợp các phương pháp trong một lĩnh vực chuyên biệt, còn \textbf{khung} đóng vai trò là cấu trúc của các quy tắc hoặc ý tưởng nền tảng. Việc áp dụng khung phương pháp luận không chỉ giúp cải thiện tính nhất quán, tính chặt chẽ mà còn chuẩn hóa các cách tiếp cận, từ đó tối đa hóa độ tin cậy của các kết quả nghiên cứu \cite{mcmeekin2020methodological}.
+
+    Dựa trên các tiền đề đó, một khung phương pháp luận chất lượng cần đáp ứng các tiêu chí cốt lõi sau.
+
+    \begin{itemize}
+        \item \textbf{Tính hệ thống (Systematicity)}: Các bước phải được sắp xếp theo trình tự logic, có sự liên kết chặt chẽ và nhất quán xuyên suốt quy trình.
+        \item \textbf{Tính toàn diện (Comprehensiveness)}: Bao quát đầy đủ các giai đoạn cần thiết, từ khâu xác định bằng chứng đến khâu thực thi và đánh giá.
+        \item \textbf{Tính linh hoạt (Flexibility)}: Có khả năng điều chỉnh và thích nghi với các bối cảnh nghiên cứu khác nhau mà không phá vỡ cấu trúc cốt lõi.
+        \item \textbf{Tính khả thi và Thực chứng (Feasibility \& Evidence-based)}: Khung phải được xây dựng dựa trên dữ liệu thực tế, kinh nghiệm chuyên gia và có khả năng ứng dụng thực tiễn cao thông qua việc thử nghiệm (pilot).
+    \end{itemize}
+
+    Với phạm vi đề tài, trong các nghiên cứu gần đây về xây dựng khung phương pháp cho bài toán phân tích cảm xúc (Sentiment Analysis), dù thực hiện trên dữ liệu tiếng Việt hay các ngôn ngữ khác, quy trình thực hiện đa phần đều tuân thủ các giai đoạn chuẩn hóa bao gồm: thu thập dữ liệu, tiền xử lý, tách từ (tokenization) và vector hóa, huấn luyện mô hình, và cuối cùng là đánh giá, biểu diễn kết quả (\cite{el2025transformer}, \cite{singh2021youtube}). Quy trình hệ thống này cũng tương đồng với khung phương pháp luận do Uma Maheswari cùng các cộng sự đề xuất (Hình \ref{fig:sa_framework}).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/framework_sample.png}
+        \caption{Khung phương pháp luận chung cho bài toán phân tích sắc thái cảm xúc được Uma Maheswari cùng các cộng sự đề xuất \cite{Maheswari2024Sentiment}.}
+        \label{fig:sa_framework}
+    \end{figure}
+
+    Ngoài ra, khi khảo sát các công trình nghiên cứu chuyên biệt về văn bản tiếng Việt cho thấy, trọng tâm hiện nay chủ yếu tập trung vào việc cải tiến cấu trúc các mô hình học máy nhằm tối ưu hóa độ chính xác (\cite{minh2024fine}, \cite{nguyen2025like}, \cite{quoc2023vietnamese}). Tuy nhiên, xu hướng này dẫn đến việc ưu tiên quá mức các chỉ số định lượng (như Accuracy, F1-score) trên các bộ dữ liệu mẫu (benchmark datasets) mà chưa chú trọng đúng mức đến việc xây dựng một quy trình xử lý chuẩn hóa có tính thích ứng cao. Hệ quả là các mô hình thường đạt hiệu suất tối ưu trong môi trường thực nghiệm nhưng lại bộc lộ hạn chế về tính linh hoạt khi triển khai trên dữ liệu thực tế — nơi ngôn ngữ biến đổi liên tục và có độ nhiễu cao như các bình luận trên nền tảng YouTube.
+
+    \subsubsection{Transformer-based models}
+    \textbf{Kiến trúc Transformer}, được giới thiệu bởi Vaswani và các cộng sự \cite{vaswani2017attention}, đã tạo nên một bước ngoặt quan trọng trong lĩnh vực xử lý ngôn ngữ tự nhiên (NLP). Mà trọng tâm của kiến trúc này là cơ chế tự chú ý (Self-Attention) (Hình \ref{fig:attetion}), cho phép mô hình tính toán mối quan hệ giữa các từ trong một chuỗi văn bản một cách hiệu quả, bất kể khoảng cách giữa chúng.
+
+    Về mặt cấu trúc, Transformer bao gồm hai thành phần cốt lõi, bộ mã hóa (Encoder) và bộ giải mã (Decoder) (Hình \ref{fig:transformer}), được xếp chồng lên nhau thành nhiều lớp. Trong đó:
     
-    - Transformer-based models ?
-    - Vietnamese YouTube data ?
-    - Framework hoạt động?
+    \begin{itemize}
+        \item \textbf{Bộ mã hóa}: Đảm nhận việc xử lý dữ liệu đầu vào để tạo ra các biểu diễn ngữ nghĩa (embeddings) đa chiều và phong phú.
+        \item \textbf{Bộ giải mã}: Khai thác các biểu diễn này để sinh ra chuỗi đầu ra mục tiêu.
+    \end{itemize}
+    
+    Đồng thời, cơ chế tự chú ý cũng đóng vai trò quyết định giúp mô hình tập trung vào các thành phần quan trọng trong văn bản, từ đó tối ưu hóa khả năng hiểu ngữ cảnh và các liên kết ngữ nghĩa phức tạp. Mà dựa trên nền tảng này, các nghiên cứu sau đó cũng đã phát triển thành các nhánh mô hình chủ đạo.
+    
+    \begin{itemize}
+        \item \textbf{Họ mô hình chỉ có bộ mã hóa (Encoder-only)}: Điển hình là BERT \cite{devlin2019bert} và RoBERTa \cite{liu2019roberta}. Nhóm này tập trung vào việc trích xuất đặc trưng ngữ nghĩa sâu sắc, phục vụ các tác vụ như phân loại văn bản, trích xuất thông tin và phân tích cảm xúc.
+
+        \item \textbf{Họ mô hình chỉ có bộ giải mã (Decoder-only)}: Tiêu biểu là dòng GPT \cite{radford2018improving}, được tối ưu hóa cho việc sinh văn bản tự nhiên, hỗ trợ hiệu quả các nhiệm vụ như trả lời câu hỏi, tóm tắt và sáng tạo nội dung.
+    \end{itemize}
+
+    Và hiện nay, hầu hết các nghiên cứu tiên tiến về phân tích sắc thái cảm xúc đều kế thừa sức mạnh từ các kiến trúc dựa trên Transformer nhằm đạt được hiệu suất tối ưu (\cite{minh2024fine}, \cite{nguyen2025like}, \cite{quoc2023vietnamese}).
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/attention.png}
+        \caption{Kiến trúc cơ chế tự chú ý (Self-Attention) trong Transformer \cite{vaswani2017attention}.}
+        \label{fig:attetion}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/transformer.png}
+        \caption{Kiến trúc tổng thể của Transformer với các lớp Encoder và Decoder \cite{vaswani2017attention}.}
+        \label{fig:transformer}
+    \end{figure}
 
     \subsection{Cách tiếp cận dự kiến}
-    Để giải quyết bài toán phân tích sắc thái cảm xúc trên dữ liệu YouTube Việt Nam, đề tài sẽ áp dụng một cách tiếp cận dự kiến bao gồm các bước chính sau đây:
-    - Từng bước pipeline ở đây
 
+    \subsubsection{Phát biểu bài toán}
+    Như đã đề cập trước đó, việc xây dựng một khung phương pháp luận chuẩn hóa cho bài toán phân tích sắc thái cảm xúc (Sentiment Analysis) người dùng Việt Nam trên YouTube là yêu cầu cấp thiết. Mà trọng tâm là tối ưu hóa các kiến trúc dựa trên nền tảng Transformer nhằm giải quyết những thách thức đặc thù từ dữ liệu.
+
+    Tuy nhiên, dữ liệu trên YouTube vốn mang tính đa miền (multi-domain), chứa đựng nhiều yếu tố nhiễu và sự biến động không ngừng của ngôn ngữ mạng. Do đó, một quy trình hệ thống không chỉ hướng tới việc tối ưu hóa độ chính xác của mô hình, mà còn phải đảm bảo tính nhất quán và khả năng xử lý nhạy bén các đặc trưng văn hóa, ngôn ngữ đặc thù của tiếng Việt. Và tuân theo triết lý của George Fuechsel — "\textit{Garbage In, Garbage Out}" — thì nghiên cứu này phải đặt ưu tiên hàng đầu vào việc xây dựng dữ liệu đầu vào có chất lượng cao, toàn vẹn và giàu ngữ nghĩa. Có như vậy, mô hình mới có thể phát huy tối đa hiệu năng.
+
+    Và như vậy, dựa trên việc kế thừa và tổng hợp kinh nghiệm từ các công trình nghiên cứu đi trước (\cite{el2025transformer}, \cite{singh2021youtube}), khung phương pháp luận cho bài toán này được chuẩn hóa thành bốn giai đoạn then chốt. Thu thập dữ liệu, Tiền xử lý dữ liệu, Huấn luyện mô hình và Biểu diễn kết quả.
+
+    Cuối cùng, trong khuôn khổ phạm vi của đề tài, chúng ta sẽ chỉ tập trung vào việc thiết lập một cấu trúc chuẩn hóa cho khâu Chuẩn bị dữ liệu (Data Preparation). Giai đoạn này đóng vai trò "màng lọc" và "khuôn mẫu", đảm bảo mọi nguồn dữ liệu thô dù có được thu thập qua bất cứ cách nào cũng đều phải được quy chuẩn hóa về một định dạng thống nhất trước khi đưa vào các tầng xử lý chuyên sâu.
+
+    \subsubsection{Khâu chuẩn bị dữ liệu}
+    Về cơ bản, dữ liệu phản hồi dữ liệu phản hồi của người dùng, chỉ được khai thác trong phạm vi các bình luận công khai trên YouTube. Mà trên nền tảng một bình luận được cấu trúc bởi hai cấp $d_1$ và $d_2$ \ref{fig:comment_struct}. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/comment.png}
+        \caption{Hình minh họa cấu trúc phân cấp của một bình luận trên YouTube.}
+        \label{fig:comment_struct}
+    \end{figure}
+    Nhưng cũng cần lưu ý rằng, các bình luận vẫn chỉ dừng lại ở trong nội dung video đó, vì vậy ta cũng phải đảm bảo thêm dữ liệu từ chủ thể video mà người dùng đang bình luận tương tác, như tiêu đề, mô tả, thẻ (tags),... Và hơn cả chính là nội dung trực tiếp bên trong video đó, gọi là \textit{metadata}.
+
+    Nhưng vì các mô hình cũng chỉ giới hạn số lượng ngữ cảnh (token biểu diễn) cho nên ở khâu chuẩn bị dữ liệu, việc bổ sung metadata nhất định không thể thiếu, nhưng không thể thu được toàn bộ, mà chỉ có thể lọc và lấy đi những đặc trưng quan trọng để bổ sung. Hệ quả dẫn tới, ở khâu chuẩn bị dữ liệu, đối với mỗi metadata, chúng ta cần phải thực hiện tóm lượt và trích xuất ra các ngữ cảnh (context) $c_i$ quan trọng trong metadata ban đầu.
+
+    Mà như vậy, kết quả của khâu chuẩn bị dữ liệu sẽ là một tập các dữ liệu là một tập hợp của các cặp $(c_i, d_{1i}, d_{2i})$ (Hình \ref{fig:prepare}).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/preparation.png}
+        \caption{Hình minh họa kết quả của khâu chuẩn bị dữ liệu, với mỗi cặp $(c_i, d_{1i}, d_{2i})$ đại diện cho một bình luận đã được bổ sung ngữ cảnh quan trọng từ metadata.}
+        \label{fig:prepare}
+    \end{figure}
+
+    Ngoài ra, vì để huấn luyện mô hình, chúng ta cầ phải có dữ liệu được gán nhãn. Mà để gán nhãn đúng đắn cho dữ liệu, ta có thể dựa theo một số chiến lượt như Wanfeng Ding và cộng đã làm (\cite{ding2026scope}), nhưng hiệu chỉnh một chút để cho phù hợp với việc gán nhãn thủ công. Gồm, đầu tiên, chúng ta cần gán nhãn thủ công cho một số lượng nhỏ các bình luận mẫu, phải trải qua ba người kiểm chứng để đưa ra kết quả chuẩn xác, tiếp theo, chúng ta sử dụng một mô hình mạnh để tinh chỉnh mà tự động gán nhãn cho phần còn lại. Sau đó thì tiếp tục kiểm chứng chéo một lần nữa để đảm bảo độ chính xác của dữ liệu đã được gán nhãn tự động. Và cuối cùng, quy trình này được lặp đi lặp lại cho đến khi đạt được một tập dữ liệu đủ lớn và có chất lượng cao để đưa vào huấn luyện mô hình.
+
+    \subsubsection{Khâu tiền xử lý dữ liệu}
+    Ở phân đoạn này, ta hoàn toàn có thể dựa vào các công việc tiền xử lý ở công trình nghiên cứu trước (Hình \ref{fig:preprocessing}), nhưng ta cần phải cân nhắc điều chỉnh một số bước để giải quyết các thách thức đã nêu ra đối với dữ liệu tiếng Việt.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[angle=270,width=0.8\textwidth]{images/preprocessing.png}
+        \caption{Hình minh họa quy trình tiền xử lý dữ liệu, bao gồm các bước như làm sạch dữ liệu, chuẩn hóa ngôn ngữ và trích xuất đặc trưng \cite{el2025transformer}.}
+        \label{fig:preprocessing}
+    \end{figure}
+
+    \subsubsection{Khâu huấn luyện mô hình}
+    Trong giai đoạn này, nghiên cứu tập trung vào việc hiện thực hóa sức mạnh của các kiến trúc dựa trên nền tảng Transformer để giải quyết bài toán phân tích sắc thái cảm xúc đa miền và miền chéo ($\textit{cross-domain}$). Mô hình không chỉ tiếp nhận các bình luận đơn lẻ mà còn phải xử lý cấu trúc dữ liệu phức tạp đã được chuẩn hóa ở khâu chuẩn bị là $(c_i, d_{1i}, d_{2i})$.
+
+    Mục tiêu của giai đoạn này, chính là phát triển một mô hình thông qua quá trình tinh chỉnh và kết hợp dựa trên các mô hình ngôn ngữ chuẩn như PhoBERT hoặc ViBERT, nhằm giải quyết bài toán nhận đầu vào là một cặp dữ liệu đã được gán nhãn $(c_i, d_{1i}, d_{2i})$ và trả về một xu hướng cảm xúc (gồm tích cực, tiêu cực, hoặc trung tính) cho từng bình luận. Đồng thời, mô hình cũng cần có khả năng thích ứng cao với các biến thể ngôn ngữ và sự thay đổi liên tục của ngôn ngữ mạng, đảm bảo hiệu suất ổn định khi triển khai trên dữ liệu thực tế.
+
+    \subsubsection{Khâu biểu diễn kết quả}
+    Khâu biểu diễn kết quả không chỉ dừng lại ở việc báo cáo các con số, mà còn phải minh chứng được tính hiệu quả và thực tiễn của khung phương pháp luận đã đề xuất thông qua một hệ thống đánh giá toàn diện:
+    \begin{itemize}
+        \item \textbf{Đánh giá định lượng (Quantitative Evaluation):} Sử dụng các chỉ số đo lường tiêu chuẩn bao gồm Accuracy, Precision, Recall và đặc biệt là F1-score để đánh giá khả năng phân loại trên các miền dữ liệu khác nhau. Việc so sánh hiệu năng giữa việc "có" và "không có" metadata ($c_i$) sẽ được thực hiện để khẳng định giá trị của khâu chuẩn bị dữ liệu.
+        \item \textbf{Trực quan hóa dữ liệu (Data Visualization):} Kết quả phân tích sắc thái từ lượng lớn bình luận YouTube sẽ được chuyển đổi thành các biểu đồ trực quan (như biểu đồ nhiệt, biểu đồ xu hướng cảm xúc theo thời gian). Điều này giúp chuyển đổi các kết quả kỹ thuật phức tạp thành thông tin hữu ích, dễ tiếp cận cho người dùng cuối hoặc các nhà quản trị nội dung.
+    \end{itemize}
+    
     \subsection{Kết quả dự kiến của đề tài}
     Trong phạm vi khóa luận, các kết quả dự kiến có thể đạt được được trình bày như sau:
     \begin{itemize}
-        \item Hoàn thiện được một hình mẫu (framework) hậu diễn giải cho mô hình Meta-Learning cụ thể là các phương pháp dựa trên Gradient-based thông qua các phương pháp hậu diễn giải.
+        \item Hoàn thiện một khung phương pháp (framework) chuẩn hóa cho việc xử lý và phân tích sắc thái cảm xúc tiếng Việt đặc thù trên nền tảng YouTube.
+        \item \textbf{Về mặt kỹ thuật:} Phát triển một mô hình phân loại sắc thái cảm xúc dựa trên Transformer đạt hiệu năng vượt trội so với các phương pháp truyền thống, đặc biệt là trong việc xử lý dữ liệu đa miền và giàu tính nhiễu.
+        \item \textbf{Về mặt ứng dụng:} Đề xuất được quy trình trực quan hóa kết quả phân tích, giúp người dùng dễ dàng nắm bắt tâm lý cộng đồng thông qua các chỉ số cảm xúc được hệ thống tổng hợp.
     \end{itemize}
     
     
     \subsection{Kế hoạch thực hiện}
     Đề tài nghiên cứu luận văn cao học được thực hiện tại Khoa Công nghệ thông tin Kinh doanh, trường Đại học Kinh tế TPHCM.
     
-    Thời gian thực hiện đề tài nghiên cứu 06 tháng kể từ tháng xx/2026 đến xx/2026. Kế hoạch thực hiện chi tiết cho đề tài nghiên cứu được liệt kê như trong bảng \ref{tab:kehoach}.
+    Thời gian thực hiện đề tài nghiên cứu 0x tháng kể từ tháng xx/2026 đến xx/2026. Kế hoạch thực hiện chi tiết cho đề tài nghiên cứu được liệt kê như trong bảng \ref{tab:kehoach}.
 
     \begin{table}[htbp]
         \centering
@@ -200,12 +304,12 @@
         \hline
         \rowcolor[gray]{0.9}
         \textbf{Công việc} & \textbf{Thời gian thực hiện} \\ \hline
-        Tìm hiểu các hướng tiếp cận và công trình liên quan & 01/01/2026 - 15/02/2026 \\ \hline
-        Khảo sát, đánh giá các công trình tiêu biểu và hoàn thiện đề cương & 16/02/2026 - 16/03/2026 \\ \hline
-        Nghiên cứu các phương pháp giải quyết bài toán diễn giải cho Meta-Learning & 17/03/2026 - 20/04/2026 \\ \hline
-        Đề xuất phương pháp cải tiến, thực nghiệm và báo cáo giữa kỳ & 21/04/2026 - 06/05/2026 \\ \hline
-        Thực hiện thực nghiệm bổ sung, đánh giá kết quả và viết bản thảo luận văn & 07/05/2026 - 30/06/2026 \\ \hline
-        Hoàn thiện quyển luận văn, chỉnh sửa theo góp ý của GVHD và chuẩn bị bảo vệ & 01/07/2026 - 15/07/2026 \\ \hline
+        Tìm hiểu các hướng tiếp cận và công trình liên quan &  \\ \hline
+        Khảo sát, đánh giá các công trình tiêu biểu và hoàn thiện đề cương &  \\ \hline
+        Nghiên cứu các phương pháp giải quyết bài toán &  \\ \hline
+        Thu thập dữ liệu &  \\ \hline
+        Huấn luyện mô hình &  \\ \hline
+        Hoàn thiện quyển luận văn, chỉnh sửa theo góp ý của GVHD và chuẩn bị bảo vệ &  \\ \hline
         \end{tabularx}
         \caption{Bảng kế hoạch thực hiện đề tài khóa luận}
         \label{tab:kehoach}
