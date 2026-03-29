@@ -1,4 +1,4 @@
-\documentclass{article}[14pt]
+\documentclass{article}[12pt]
 \usepackage[utf8]{vietnam}
 \usepackage{enumerate}
 \usepackage{enumitem}
@@ -139,35 +139,59 @@
     
     Và trong bối cảnh hiện nay, bên cạnh các dữ liệu mang đặc tính có cấu trúc, thì với sự phát triển đột phá của học máy (Machine Learning) đã mở ra khả năng khai thác sâu sắc các nguồn dữ liệu phi cấu trúc, đặc biệt là văn bản. Vốn là nguồn dữ liệu quan trọng chứa đựng các trạng thái nội tâm (private states), như ý kiến ý kiến, niềm tin, suy nghĩ, tình cảm, cảm xúc, mục tiêu, đánh giá và phán đoán của con người \cite{wiebe2005annotating}. Hệ quả tất yếu là sự kết hợp với bài toán đánh giá tính phân cực cảm xúc trong văn bản, hay còn gọi là \textbf{Phân tích sắc thái cảm xúc (Sentiment Analysis - SA)} nhằm bổ sung khai thác dữ liệu mạng xã hội.
 
-    Cũng như đề cập ở trên, nền tảng YouTube đối với đối với dữ liệu công khai rất đa dạng, với nhiều kênh cho nhiều lĩnh vực khác nhau, dẫn tới kho dữ liệu này có thể xem là một kho dữ liệu đa miền (multi-domain). Với bài toán này, đối với các ngôn ngữ phổ biến khác, đã và đang giải quyết, tuy nhiên đối với tiếng Việt thì hầu như đa số chỉ tập trung vào phần ngách ở một miền cụ thể.
+    Như đã đề cập, dữ liệu công khai trên nền tảng YouTube rất phong phú với sự đa dạng về lĩnh vực, hình thành nên một kho dữ liệu đa miền (multi-domain) khổng lồ. Trong khi bài toán phân tích sắc thái cảm xúc ở các ngôn ngữ phổ biến đã đạt được nhiều thành tựu đáng kể (\cite{shen2025zero}, \cite{zhao2024multi}, \cite{lee2026dimabsa}, \cite{zhao2025interpretable}, \cite{guo2024mvindemo}), các nghiên cứu đối với tiếng Việt hiện nay phần lớn vẫn chỉ tập trung vào các tập dữ liệu ngách thuộc một miền cụ thể (\cite{nguyen2025like}, \cite{minh2024fine}, \cite{le2025hybrid}).
 
-    Ngoài ra, tuy tiếng Việt nằm trong top 20 ngôn ngữ có cộng đồng sử dụng nhiều nhất, nhưng nó đồng thời cũng gặp phải rào cản vùng miền địa lý, khi có nhiều từ địa phương khác nhau. Đồng thời, với sự hội nhập sâu rộng của văn hóa ngoại quốc mà vốn từ điển vốn có của người Việt hiện đại ngày càng mở rộng, phá vỡ đi các lối mòn truyền thống, như việc trộn mã (code-switching) dví dụ như "sản phẩm này nhìn rất chill", đang rất phổ biến tại Việt Nam. Và điều này diễn ra một cách bùng nổ theo thời gian. Cũng có nghĩa là, với một video cụ thể, theo thời gian ta có thể thu được nhiều cách diễn đạt thay đổi với vốn từ thay đổi cho cùng một loại cảm xúc. Điều đó đặt ra cho mô hình cần phải mang tính thích nghi cao với sự biến động này.
+    Bên cạnh đó, dù nằm trong top 20 ngôn ngữ có lượng người dùng lớn nhất \cite{Ethnologue2026}, tiếng Việt vẫn đối mặt với những thách thức đặc thù. Sự khác biệt về phương ngữ và từ địa phương tạo ra rào căn không nhỏ cho việc xử lý ngôn ngữ tự nhiên. Đồng thời, sự hội nhập văn hóa sâu rộng đã thúc đẩy hiện tượng trộn mã (code-switching) (ví dụ: "sản phẩm nhìn rất chill") trở nên phổ biến và biến đổi không ngừng theo thời gian. Sự thay đổi trong cách diễn đạt cảm xúc cùng vốn từ vựng mới đòi hỏi các mô hình học máy phải có tính thích nghi cao (adaptability) để tránh hiện tượng lỗi thời trước những biến động ngôn ngữ xã hội.
 
-    Đồng thời, khi xét đến phương diện tiếng Việt hiện đại, đều dùng chữ Quốc ngữ, thuần âm để biểu đạt, thì vẫn có sự nhập nhằng trong cách sử dụng khi mà từ Hán - Việt chiếm tới xấp xỉ 70\% vốn từ. 
-    - Có quá nhiều bài toán phân tích sắc thái với đầu ra khác nhau và chưa có một khung phương pháp chuẩn.
-    - 
-    - Khung phương pháp chuẩn gồm ...
+    Đồng thời, khi xét đến phương diện ngôn ngữ học, tiếng Việt có hơn một nửa vốn từ là Hán - Việt \cite{phanngoc2000}. Những từ ngữ này đều mang một sắc thái ngữ nghĩa (hay tu từ) khiến cho nó khác biệt rõ rệt so với các từ thuần Việt đồng nghĩa \cite{cao2003tiengviet}. Ngoài ra, việc sử dụng chữ Quốc ngữ cũng triệt tiêu đi khả năng phân biệt thị giác giữa các từ đồng âm khác nghĩa \cite{cao2003tiengviet}. Điều này khiến các mô hình học máy gặp phải khó khăn trong việc bóc tách các sắc thái biểu cảm vốn ẩn chứa trong tầng nghĩa từ nguyên, đặc biệt khi ngữ cảnh bình luận trên YouTube thường ngắn, rời rạc và chứa nhiều thông tin nhiễu.
     
+    Và một bài toán nan giải khác nằm ở sự khác biệt trong hành vi người dùng giữa hai dạng tương tác \textbf{tĩnh (VOD - Video on Demand)} và \textbf{động (Livestream)} \cite{huo2025live}. Với tương tác tĩnh, người dùng có thời gian suy ngẫm và trau chuốt nội dung bình luận. Ngược lại, tương tác trong livestream (Live Chat) đòi hỏi sự phản hồi tức thì, ngắn gọn và mang tính bộc phát. Hệ quả là các mô hình truyền thống thường bị giảm độ chính xác hoặc mất đi khả năng xử lý do độ nhiễu cực cao và sự không nhất quán về mặt cấu trúc câu trong dữ liệu thời gian thực.
+    
+    Cuối cùng, với những dữ liệu có độ dài, người dùng thường có xu hướng lồng ghép nhiều luồng cảm xúc trái ngược (ví dụ như "giọng hay nhưng nội dung tệ"). Và nếu chúng ta chỉ dừng lại ở việc phân loại đơn giản "tích cực" hoặc "tiêu cực", thì mô hình sẽ làm mất đi các giá trị thông tin cốt lõi. Điều này đòi hỏi bài toán phân tích sắc thái cảm xúc ban đầu trở thành Phân tích cảm xúc dựa trên khía cạnh (Aspect-Based Sentiment Analysis - ABSA) để bóc tách chính xác thái độ của người dùng đối với từng thuộc tính cụ thể của đối tượng.
+
+    Với những vấn đề trên, đặt ra một vấn đề thực tiễn hết sức cấp thiết, đó là làm thế nào để xây dựng một khung phương pháp (framework) chuẩn, có thể phân tích sắc thái cảm xúc dựa trên kiến trúc Transformer, nhằm giải quyết các thách thức đặc thù của dữ liệu YouTube Việt Nam. Đây không chỉ là một bài toán học thuật mà còn mang tính ứng dụng cao, khi kết quả có thể hỗ trợ đắc lực cho các nhà sáng tạo nội dung và doanh nghiệp trong việc thấu hiểu cộng đồng người dùng, từ đó đưa ra các chiến lược phát triển nội dung và kinh doanh hiệu quả hơn.
+
     \subsection{Phạm vi của đề tài}
     
-    \subsubsection{Phát biểu bài toán}
+    \subsubsection{Phân tích sắc thái cảm xúc (Sentiment Analysis - SA)}
+
+    \textbf{Phân tích sắc thái cảm xúc}, hay còn gọi là khai thác ý kiến (Opinion mining), được định nghĩa là lĩnh vực nghiên cứu các quan điểm, thái độ và cảm xúc của con người được diễn đạt thông qua văn bản. Về mặt kỹ thuật, quá trình này liên quan đến việc trích xuất và phân loại các thông tin mang tính chủ quan nhằm xác định thái độ của người viết đối với một thực thể cụ thể \cite{liu2010sentiment}.
+    Thông thường, thuật ngữ \textit{đối tượng} ($o$) được dùng để chỉ thực thể mục tiêu mà người viết hướng tới, chẳng hạn như sản phẩm, dịch vụ, cá nhân hoặc tổ chức. Về mặt cấu trúc, một đối tượng $o$ có thể được phân tách thành một hệ thống phân cấp bao gồm các thành phần ($T$) và các thuộc tính ($A$).
+    
+    \textit{Ví dụ:} Nếu xét đối tượng $o$ là một "Video", các thành phần $T$ có thể bao gồm "nội dung", "âm thanh", "diễn viên"; các thuộc tính $A$ tương ứng có thể là "độ chân thực" hay "kỹ năng diễn xuất". Và trong đó, thành phần "nội dung" lại có thể được chia ra với các thành phần con $T_1$ như "phân cảnh", "thông điệp truyền tải", "lời thoại",... và các thuộc tính con $A_1$ như "độ hấp dẫn", "độ sâu sắc", "tính logic",...
+    
+    Dựa trên định nghĩa này, đối tượng $o$ có thể được biểu diễn dưới dạng một cấu trúc cây phân cấp $o: (T, A)$, trong đó gốc là chính đối tượng $o$, các nút nội bộ là các thành phần và các lá đại diện cho các thuộc tính chi tiết. Mặc dù cảm xúc có thể được biểu đạt tại bất kỳ nút nào trên cây, nhưng việc khai thác trực tiếp trên cấu trúc này thường gặp khó khăn do độ phức tạp về mặt tính toán và xử lý ngôn ngữ tự nhiên.
+    
+    Do vậy, để tối ưu hóa quá trình khai thác, cấu trúc cây thường được đơn giản hóa bằng phương pháp "làm phẳng" (flattening). Khi đó, tất cả các thành phần và thuộc tính được đại diện bằng thuật ngữ \textbf{khía cạnh} (aspect) hoặc \textbf{đặc tính} (feature), ký hiệu là $f$. Và một cảm xúc trực tiếp lúc này được mô hình hóa bằng một \textit{bộ 5 thành phần (quintuple)}, $(o, f, so, h, t)$. Trong đó, $so$ là hướng cảm xúc (sentiment orientation) (ví dụ như tích cực, tiêu cực hoặc trung tính); $h$ là chủ thể diễn đạt cảm xúc (holder); và $t$ là thời điểm cảm xúc được biểu đạt.
+    
+    Đối với một văn bản $d = \langle s_1, s_2, \dots, s_m \rangle$, trong đó $s_i$ là các câu cấu thành, mục tiêu của việc phân tích cảm xúc được phân định rõ ràng qua ba cấp độ nghiên cứu chính:
+    \begin{itemize}
+        \item \textbf{Cấp độ văn bản (Document-level):} Xác định hướng cảm xúc tổng thể của toàn bộ văn bản $d$ đối với đối tượng $o$, thường được biểu diễn bằng cặp $(o, so)$.
+        \item \textbf{Cấp độ câu (Sentence-level):} Xác định cảm xúc của từng câu $s_i$ đối với đối tượng $o$. Cấp độ này thường đi kèm với nhiệm vụ phân loại tính chủ quan (subjectivity classification) để phân tách câu chứa ý kiến và câu nêu sự thật.
+        \item \textbf{Cấp độ khía cạnh (Aspect-level):} Xác định hướng cảm xúc đối với từng khía cạnh cụ thể $f_j$ của đối tượng $o$ được đề cập trong câu $s_i$, biểu diễn bằng bộ $(s_i, f_j, so)$. Đây là cấp độ chi tiết nhất, cho phép xử lý các văn bản chứa nhiều ý kiến phức tạp và trái ngược nhau.
+    \end{itemize}
+
+    \subsubsection{Khung phương pháp (Framework)}
+    
+    - Transformer-based models ?
+    - Vietnamese YouTube data ?
+    - Framework hoạt động?
 
     \subsection{Cách tiếp cận dự kiến}
+    Để giải quyết bài toán phân tích sắc thái cảm xúc trên dữ liệu YouTube Việt Nam, đề tài sẽ áp dụng một cách tiếp cận dự kiến bao gồm các bước chính sau đây:
+    - Từng bước pipeline ở đây
 
     \subsection{Kết quả dự kiến của đề tài}
-    Trong phạm vi khóa luận, các kết quả dự kiến có thể đạt được được trình bày như
-sau:
+    Trong phạm vi khóa luận, các kết quả dự kiến có thể đạt được được trình bày như sau:
     \begin{itemize}
-        \item Mô hình đạt được kết quả cạnh tranh trong khi vẫn cân bằng được với khả
-năng diễn giải của mô hình.
         \item Hoàn thiện được một hình mẫu (framework) hậu diễn giải cho mô hình Meta-Learning cụ thể là các phương pháp dựa trên Gradient-based thông qua các phương pháp hậu diễn giải.
     \end{itemize}
     
     
     \subsection{Kế hoạch thực hiện}
-    Đề tài nghiên cứu của luận văn được thực hiện tại Khoa Công nghệ Thông tin, trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Thành phố Hồ Chí Minh.
+    Đề tài nghiên cứu luận văn cao học được thực hiện tại Khoa Công nghệ thông tin Kinh doanh, trường Đại học Kinh tế TPHCM.
     
-    Thời gian thực hiện đề tài nghiên cứu 06 tháng kể từ tháng 01/2026 đến 06/2026. Kế hoạch thực hiện chi tiết cho đề tài nghiên cứu được liệt kê như trong bảng \ref{tab:kehoach}.
+    Thời gian thực hiện đề tài nghiên cứu 06 tháng kể từ tháng xx/2026 đến xx/2026. Kế hoạch thực hiện chi tiết cho đề tài nghiên cứu được liệt kê như trong bảng \ref{tab:kehoach}.
 
     \begin{table}[htbp]
         \centering
