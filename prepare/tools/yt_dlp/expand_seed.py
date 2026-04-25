@@ -12,7 +12,6 @@ def expand_youtube_channels_by_tags():
     for channel in channels_list:
         known_channels.add(str(channel["channel_id"]))
 
-
     main_proxy = (
         "http://pcVyRk0aXV-res-vn:PC_4Ywuqw5KzJEOLJJwM@proxy-us.proxy-cheap.com:5959"
     )
