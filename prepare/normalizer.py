@@ -10,10 +10,10 @@ BATCH_SIZE = 1_000_000
 # Compile regex outside the function for performance optimization
 RE_ICON_REPEAT = regex.compile(r"((?!\d)(?=\p{Emoji})\X)\1{2,}")
 RE_ICON_CLUSTER = regex.compile(r"((?:(?!\d)(?=\p{Emoji})\X|[\p{Zs}\t])+?)\1+")
-RE_BRACKET_ELONG = regex.compile(r'([()\[\]{}])\1{2,}')
-RE_SIGN_ELONG = regex.compile(r'([<>=:;-])\1{2,}')
+RE_BRACKET_ELONG = regex.compile(r"([()\[\]{}])\1{2,}")
+RE_SIGN_ELONG = regex.compile(r"([<>=:;-])\1{2,}")
 RE_CHAR_ELONG = regex.compile(r"(\p{L})\1{2,}")
-RE_TEXT_CLUSTER = regex.compile(r'(.{2,}?)\1{2,}')
+RE_TEXT_CLUSTER = regex.compile(r"(.{2,}?)\1{2,}")
 
 ############################################################################################
 ##                                 Helper Functions (Scalar Level)                        ##
@@ -35,7 +35,7 @@ def _clean_text_scalar(text: str | None) -> str | None:
     prev_text = None
     while text != prev_text:
         prev_text = text
-        text = RE_ICON_CLUSTER.sub(r'\1', text)
+        text = RE_ICON_CLUSTER.sub(r"\1", text)
 
     return text
 
@@ -48,7 +48,7 @@ def _trim_all_elongations(text: str) -> str:
     # Limit consecutive brackets/parentheses to a maximum of 3
     # (e.g., "(((((" -> "(((", ":))))" -> ":)))")
     text = RE_BRACKET_ELONG.sub(r"\1\1\1", text)
-    
+
     # Limit consecutive signs to a maximum of 2
     # (e.g., ">>>>>>" -> ">>", "=====D" -> "==D")
     text = RE_SIGN_ELONG.sub(r"\1\1", text)

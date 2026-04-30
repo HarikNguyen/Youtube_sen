@@ -12,3 +12,8 @@ prepare/*.csv
 prepare/*/*.csv
 prepare/*/*.bin
 prepare/*.bin
+prepare/*/*.npy
+annotation/*.parquet
+annotation/*.npy
+annotation/*.csv
+annotation/*.bin
