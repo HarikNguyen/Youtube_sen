@@ -17,3 +17,5 @@ annotation/**/*.csv
 annotation/**/*.bin
 annotation/**/*.bin
 annotation/**/*.zip
+
+models/**/*.parquet
