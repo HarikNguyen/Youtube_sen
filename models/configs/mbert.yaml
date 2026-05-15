@@ -1,0 +1,32 @@
+# Project
+project_name: "ViEmo-Sentiment-Analysis"
+mode: "train"  # train hoặc test
+
+# Data
+data:
+  data_root: "data/"
+  text_col: "text"
+  label_col: "labels"
+  n_classes: 28
+  max_len: 512
+
+# Model
+model:
+  type: "m_bert" # pho_bert, m_bert, m_modern_bert
+  checkpoint_dir: "checkpoints/m_bert"
+
+# Strategy
+train:
+  batch_size: 32
+  accumulate_steps: 2
+  lr: 2.0e-5
+  fp16: true
+  epochs: 20
+  num_workers: 24
+  shuffle_size: 500000
+  shuffle_seed: 43
+
+# Loss
+loss:
+  ghm_bins: 10
+  cb_beta: 0.999
