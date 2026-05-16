@@ -8,20 +8,20 @@ data:
   text_col: "text"
   label_col: "labels"
   n_classes: 28
-  max_len: 512
+  max_len: 256
 
 # Model
 model:
   type: "pho_bert" # pho_bert, m_bert, m_modern_bert
-  checkpoint_dir: "checkpoints/pho_bert"
+  checkpoint_dir: "checkpoints"
 
 # Strategy
 train:
-  batch_size: 4
-  accumulate_steps: 8
+  batch_size: 32
+  accumulate_steps: 2
   fp16: true
   lr: 2.0e-5
-  epochs: 30
+  epochs: 15
   num_workers: 24
   shuffle_size: 500000
   shuffle_seed: 43

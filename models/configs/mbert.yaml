@@ -13,7 +13,7 @@ data:
 # Model
 model:
   type: "m_bert" # pho_bert, m_bert, m_modern_bert
-  checkpoint_dir: "checkpoints/m_bert"
+  checkpoint_dir: "checkpoints"
 
 # Strategy
 train:
@@ -21,7 +21,7 @@ train:
   accumulate_steps: 2
   lr: 2.0e-5
   fp16: true
-  epochs: 20
+  epochs: 15
   num_workers: 24
   shuffle_size: 500000
   shuffle_seed: 43

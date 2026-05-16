@@ -8,9 +8,6 @@ from torch.utils.data import IterableDataset
 # Transformers
 from datasets import load_dataset
 
-# pyvi NLP toolkit (https://github.com/trungtv/pyvi)
-from pyvi.ViTokenizer import tokenize as vi_tokenizer  # for phoBERT
-
 
 class ViEmoDataset(IterableDataset):
     def __init__(
@@ -38,8 +35,6 @@ class ViEmoDataset(IterableDataset):
             split=self.split,
             streaming=True,
         )
-        # Initialize tokenizer
-        self.vitokenizer = vi_tokenizer if use_vitokenizer else None  # for phoBERT
 
         # Define custom tokens for special fields
         self.field_tokens = [
@@ -56,11 +51,6 @@ class ViEmoDataset(IterableDataset):
         for example in self.dataset:
             text = example[self.text_col]
             label = example[self.label_col]
-
-            # Tokenize text
-            if self.vitokenizer is not None:
-                text = self.vitokenizer(text)
-
             yield {"text": text, "labels": self.label2id[label]}
 
     def shuffle(self, seed, buffer_size):

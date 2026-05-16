@@ -3,6 +3,10 @@ import random
 from torch.utils.data import DataLoader
 from .datasets import ViEmoDataset
 
+# pyvi NLP toolkit (https://github.com/trungtv/pyvi)
+from pyvi.ViTokenizer import tokenize as vi_tokenizer  # for phoBERT
+
+
 LABELS = [
     "amusement",
     "excitement",
@@ -45,9 +49,11 @@ def get_label_converter(shuffle=False, rd_state=58):
     return label2id, id2label
 
 class ViEmoCollator:
-    def __init__(self, tokenizer, max_len=512):
+    def __init__(self, tokenizer, max_len=512, use_vitokenizer=False, field_tokens=None):
         self.tokenizer = tokenizer
         self.max_len = max_len
+        self.vitokenizer = vi_tokenizer if use_vitokenizer else None
+        self.field_tokens = field_tokens if field_tokens is not None else []
 
     def __call__(self, batch):
         """Collate function to encoding."""
@@ -59,6 +65,21 @@ class ViEmoCollator:
         texts = [
             truncate_text(text, self.max_len - 2) for text in texts
         ]  # 2 for [CLS] and [SEP] tokens
+
+        # if using phoBERT, run pyvi tokenize
+        if self.vitokenizer is not None:
+            processed_texts = []
+            for text in texts:
+                segmented = self.vitokenizer(text)
+
+                # re-clean special tokens
+                for field_token in self.field_tokens:
+                    # ex: [TITLE] -> [ TITLE ]
+                    broken_token = f"[ {field_token[1:-1]} ]"
+                    segmented = segmented.replace(broken_token, field_token)
+                
+                processed_texts.append(segmented)
+            texts = processed_texts
 
         # encode texts with tokenizer
         encodings = self.tokenizer(
@@ -89,7 +110,6 @@ def get_dataloader(
         split=split,
         text_col=text_col,
         label_col=label_col,
-        use_vitokenizer=use_vitokenizer,
     )
 
     # torch dataloader with IterableDataset not support shuffle, so we will shuffle the dataset with batch level
@@ -100,7 +120,7 @@ def get_dataloader(
     tokenizer.add_tokens(dataset.field_tokens)  # add custom tokens to tokenizer
 
     # create dataloader
-    collate_fn = ViEmoCollator(tokenizer, max_len=max_len)
+    collate_fn = ViEmoCollator(tokenizer, max_len=max_len, use_vitokenizer=use_vitokenizer, field_tokens=dataset.field_tokens)
     dataloader = DataLoader(
         dataset,
         batch_size=batch_size,
