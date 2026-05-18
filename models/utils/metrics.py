@@ -6,6 +6,7 @@ from sklearn.metrics import (
     classification_report,
     balanced_accuracy_score,
 )
+from sklearn.utils import resample
 
 def compute_metrics(all_labels, all_preds, id2label):
     # F1 macro (trọng tâm imbalance)
@@ -32,3 +33,34 @@ def compute_metrics(all_labels, all_preds, id2label):
     )
 
     return f1_macro, avg_acc, balanced_acc, label_acc_dict, report
+
+
+def compute_bootstrap_ci(all_labels, all_preds, metric_name, n_bootstraps=1000, **kwargs):
+    """Compute bootstrap confidence interval for a given metric function."""
+    np.random.seed(59)
+
+    labels_arr = np.array(all_labels)
+    preds_arr = np.array(all_preds)
+    n = len(labels_arr)
+
+    if metric_name == "f1_macro":
+        metric_func = f1_score
+        if "average" not in kwargs:
+            kwargs["average"] = "macro"
+    elif metric_name == "balanced_acc":
+        metric_func = balanced_accuracy_score
+    else:
+        raise ValueError(f"Invalid metric name: {metric_name}")
+
+    bstr_scores = []
+    
+    for _ in range(n_bootstraps):
+        indices = np.random.randint(0, n, size=n)
+        score = metric_func(labels_arr[indices], preds_arr[indices], **kwargs)
+        bstr_scores.append(score)
+
+    # compute 95% confidence interval
+    std_err = np.std(bstr_scores)
+    ci_half_width = 1.96 * std_err
+    return ci_half_width
+

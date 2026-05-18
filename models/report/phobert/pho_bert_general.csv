@@ -1,0 +1,2 @@
+model,F1 macro,Avg acc,Balanced acc
+pho_bert,82.99 ± 0.36%,83.84 ± 0.18%,82.99 ± 0.43%

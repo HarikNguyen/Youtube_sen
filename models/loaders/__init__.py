@@ -96,7 +96,7 @@ class ViEmoCollator:
 
 
 def get_dataloader(
-    data_root, tokenizer, max_len=512, batch_size=16, num_workers=4, shuffle=True, shuffle_size=500_000, shuffle_seed=49, labels_shuffle=False, split="train", text_col="text", label_col="labels", use_vitokenizer=False, return_vocab_size=False, return_label_dict=False, return_label_stats=False, return_num_o_iter=False, return_num_o_set=False,
+    data_root, tokenizer, max_len=512, batch_size=16, num_workers=4, streaming=True, shuffle=True, shuffle_size=500_000, shuffle_seed=49, labels_shuffle=False, split="train", text_col="text", label_col="labels", use_vitokenizer=False, return_vocab_size=False, return_label_dict=False, return_label_stats=False, return_num_o_iter=False, return_num_o_set=False,
 ):
     """Returns a DataLoader for the ViEmoDataset."""
 
@@ -110,11 +110,12 @@ def get_dataloader(
         split=split,
         text_col=text_col,
         label_col=label_col,
+        streaming=streaming,
     )
 
     # torch dataloader with IterableDataset not support shuffle, so we will shuffle the dataset with batch level
     if shuffle:
-        dataset = dataset.shuffle(seed=shuffle_seed, buffer_size=shuffle_size)
+        dataset = dataset.shuffle(seed=shuffle_seed, buffer_size=shuffle_size if streaming else None)
 
     # define a collate function to encode the text and labels
     tokenizer.add_tokens(dataset.field_tokens)  # add custom tokens to tokenizer

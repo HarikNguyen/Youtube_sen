@@ -9,11 +9,14 @@ data:
   label_col: "labels"
   n_classes: 28
   max_len: 256
+  streaming: false
 
 # Model
 model:
   type: "pho_bert" # pho_bert, m_bert, m_modern_bert
   checkpoint_dir: "checkpoints"
+  result_dir: "report"
+  dropout: 0.1
 
 # Strategy
 train:
@@ -21,7 +24,7 @@ train:
   accumulate_steps: 2
   fp16: true
   lr: 2.0e-5
-  epochs: 15
+  epochs: 12
   num_workers: 24
   shuffle_size: 500000
   shuffle_seed: 43

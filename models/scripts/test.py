@@ -1,5 +1,6 @@
 import os
 import json
+import pandas as pd
 import torch
 import torch.optim as optim
 from torch.cuda.amp import autocast
@@ -8,7 +9,7 @@ from tqdm import tqdm
 
 from models import SAClassifier, is_correct_model, get_model_name
 from loaders import get_dataloader
-from utils import GHMC_Loss, get_cb_weights, compute_metrics
+from utils import GHMC_Loss, get_cb_weights, compute_metrics, compute_bootstrap_ci
 
 def run_test(args):
     # set device
@@ -29,6 +30,7 @@ def run_test(args):
         max_len=args.max_len,
         batch_size=args.batch_size,
         num_workers=args.num_workers,
+        streaming=args.streaming,
         shuffle=True,
         shuffle_size=args.shuffle_size,
         shuffle_seed=args.shuffle_seed,
@@ -45,9 +47,9 @@ def run_test(args):
     label2id, id2label = label_dict
 
     # define model
-    model = SAClassifier(args.model, n_classes=args.n_classes, tokenizer_len=vocab_size)
+    model = SAClassifier(args.model, n_classes=args.n_classes, tokenizer_len=vocab_size, dropout=args.dropout)
 
-    checkpoint_path = os.path.join(checkpoint_dir, f"{args.model}_best.pth")
+    checkpoint_path = os.path.join(args.checkpoint_dir, f"{args.model}_best.pth")
     if not os.path.exists(checkpoint_path):
         raise ValueError(f"Checkpoint not found at {checkpoint_path}")
 
@@ -85,16 +87,32 @@ def run_test(args):
             all_labels.extend(labels.cpu().numpy())
 
     # compute metrics
-    avg_loss = test_loss / len(test_loader)
+    avg_loss = test_loss / num_o_testiter
     metrics = compute_metrics(all_labels, all_preds, id2label)
+    ci_acc = 1.96 * (((metrics[1] * (1 -  metrics[1])) / len(all_labels)) ** 0.5)
+    ci_f1_macro = compute_bootstrap_ci(all_labels, all_preds, "f1_macro", n_bootstraps=1000)
+    ci_balanced_acc = compute_bootstrap_ci(all_labels, all_preds, "balanced_acc", n_bootstraps=1000)
 
     # print metrics
     print("\n"+"-"*50)
     print("Test results")
     print(f"> Test loss: {avg_loss:.4f}")
-    print(f"> F1 macro: {metrics[0]:.4f}")
-    print(f"> Avg acc: {metrics[1]:.4f}")
-    print(f"> Balanced acc: {metrics[2]:.4f}")
+    print(f"> F1 macro: {metrics[0] * 100:.2f} ± {ci_f1_macro * 100:.2f}%")
+    print(f"> Avg acc: {metrics[1] * 100:.2f} ± {ci_acc * 100:.2f}%")
+    print(f"> Balanced acc: {metrics[2] * 100:.2f} ± {ci_balanced_acc * 100:.2f}%")
     print(f"> Acc per label: {metrics[3]}")
     print(f"> Report:\n{metrics[4]}")
     print("-"*50)
+
+    # write to csv
+    if not os.path.exists(args.result_dir):
+        os.makedirs(args.result_dir)
+    general_df = pd.DataFrame({
+        "model": [args.model],
+        "F1 macro": f"{metrics[0] * 100:.2f} ± {ci_f1_macro * 100:.2f}%",
+        "Avg acc": f"{metrics[1] * 100:.2f} ± {ci_acc * 100:.2f}%",
+        "Balanced acc": f"{metrics[2] * 100:.2f} ± {ci_balanced_acc * 100:.2f}%",
+    })
+    general_df.to_csv(os.path.join(args.result_dir, f"{args.model}_general.csv"), index=False)
+    report_df = pd.DataFrame(metrics[4]).transpose()
+    report_df.to_csv(os.path.join(args.result_dir, f"{args.model}_report.csv"), index=True, index_label="labels")

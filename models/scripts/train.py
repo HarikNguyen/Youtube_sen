@@ -1,7 +1,7 @@
 import os
 import torch
 import torch.optim as optim
-from torch.cuda.amp import GradScaler, autocast
+from torch.amp import GradScaler, autocast
 from transformers import AutoTokenizer
 from tqdm import tqdm
 
@@ -29,6 +29,7 @@ def run_train(args):
         max_len=args.max_len,
         batch_size=args.batch_size,
         num_workers=args.num_workers,
+        streaming=args.streaming,
         shuffle=True,
         shuffle_size=args.shuffle_size,
         shuffle_seed=args.shuffle_seed,
@@ -51,6 +52,7 @@ def run_train(args):
         max_len=args.max_len,
         batch_size=args.batch_size,
         num_workers=args.num_workers,
+        streaming=args.streaming,
         shuffle=False,
         shuffle_size=args.shuffle_size,
         shuffle_seed=args.shuffle_seed,
@@ -63,7 +65,7 @@ def run_train(args):
     )
 
     # define model
-    model = SAClassifier(args.model, n_classes=args.n_classes, tokenizer_len=vocab_size)
+    model = SAClassifier(args.model, n_classes=args.n_classes, tokenizer_len=vocab_size, dropout=args.dropout)
     model.to(device)
 
     # define loss
@@ -74,7 +76,7 @@ def run_train(args):
     accumulate_steps = getattr(
         args, "accumulate_steps", 1
     )  # for gradient accumulation (batch_size_truth = batch_size * accumulate_steps)
-    scaler = GradScaler(enabled=args.fp16)
+    scaler = GradScaler("cuda", enabled=args.fp16)
     optimizer = optim.AdamW(model.parameters(), lr=args.lr)
 
     # train loop
@@ -96,11 +98,13 @@ def run_train(args):
         # training stage
         for bid, batch in pbar:
             input_ids = batch["input_ids"].to(device)
-            attention_mask = batch["attention_mask"].to(device)
+            attention_mask = batch["attention_mask"]
+            att_shape = attention_mask.shape
+            attention_mask = attention_mask.to(device)
             labels = batch["labels"].to(device)
 
             # forward using autocast fp16
-            with autocast(enabled=args.fp16):
+            with autocast("cuda", enabled=args.fp16):
                 logits = model(input_ids, attention_mask)
                 loss = criterion(logits, labels)
                 loss = loss / accumulate_steps
@@ -117,7 +121,10 @@ def run_train(args):
                 optimizer.zero_grad()  # reset gradient after step
 
             train_loss += loss.item() * accumulate_steps
-            pbar.set_postfix({"loss": loss.item() * accumulate_steps})
+            print_postfix = {"loss": loss.item() * accumulate_steps}
+            if args.debug:
+                print_postfix["shape"] = att_shape
+            pbar.set_postfix(print_postfix)
 
         # validating stage
         avg_train_loss = train_loss / num_o_trainiter
@@ -167,7 +174,7 @@ def validate(model, val_loader, num_o_valiter, criterion, device, id2label, fp16
             attention_mask = batch["attention_mask"].to(device)
             labels = batch["labels"].to(device)
 
-            with autocast(enabled=fp16):
+            with autocast("cuda", enabled=fp16):
                 outputs = model(input_ids, attention_mask)
                 loss = criterion(outputs, labels)
             val_loss += loss.item()

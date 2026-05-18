@@ -1,0 +1,2 @@
+model,F1 macro,Avg acc,Balanced acc
+m_modern_bert,88.94 ± 0.34%,91.53 ± 0.14%,89.80 ± 0.38%
