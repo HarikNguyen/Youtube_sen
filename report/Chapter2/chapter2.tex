@@ -1,4 +1,4 @@
-\chapter{LƯỢC KHẢO CƠ SỞ LÝ THUYẾT VÀ NGHIÊN CỨU TRƯỚC}
+\chapter{LƯỢC KHẢO CƠ SỞ LÝ THUYẾT VÀ CÁC NGHIÊN CỨU LIÊN QUAN}
 \label{Chapter2}
 
 \section{Tổng quan về bài toán phân tích sắc thái cảm xúc}
@@ -9,6 +9,7 @@ Trong cuộc sống hàng ngày, khái niệm cảm xúc (emotion) và sắc th�
 Ngược lại, sắc thái tâm trạng (sentiment) là một thái độ tinh thần mang tính tổ chức cao, được bồi đắp và hình thành dựa trên nền tảng của các cảm xúc sơ cấp. Định nghĩa này nhấn mạnh rằng "sentiment" được sử dụng để truyền tải những suy nghĩ của một cá nhân bắt nguồn từ chính cảm xúc của họ. Không giống như cảm xúc, "sentiment" tiến xa hơn một bước và không bị giới hạn trong các chiều không gian tâm lý thuần túy \parencite{yue2019survey}. Theo \textcite{mcdougall2015introduction}, sắc thái tâm trạng đóng vai trò như cầu nối giữa cảm xúc cốt lõi và chuỗi hành động có chủ đích. Nói cách khác, các loại cảm xúc đa dạng đóng vai trò như những nhân tố cấu thành nên sắc thái tâm trạng tổng thể của một cá nhân đối với một sự vật, sự việc.
 
 \subsection{Cơ sở thần kinh học của sự biểu hiện và hiện tượng suy hao cảm xúc trong văn bản}
+\label{subsec:cs_than_kinh}
 Dựa trên cơ sở lý thuyết của các nhà tâm lý học, các nhà khoa học thần kinh đã tiến sâu vào giải mã cơ chế sinh học của quá trình hình thành và truyền đạt cảm xúc.
 
 Khi con người tiếp nhận một kích thích từ môi trường, tín hiệu ngay lập tức được truyền qua đồi thị (Thalamus) đến hạch hạnh nhân (Amygdala) - trung tâm xử lý cảm xúc cốt lõi, đồng thời truyền đến vỏ não trước trán (Prefrontal Cortex) để phân tích nhận thức \parencite{ledoux2013emotion}. Sau đó, hệ thần kinh tự chủ (Autonomic Nervous System) phản ứng bằng cách thay đổi nhịp tim, nhịp thở, tạo ra các "cảm giác" về mặt thể chất. Kết quả của quá trình này là các hành vi biểu hiện cảm xúc ra bên ngoài thông qua nét mặt, cử chỉ hoặc ngôn ngữ.
@@ -46,44 +47,77 @@ Như đã lập luận ở phần cơ sở thần kinh học, quá trình chuy�
 
 Để giải quyết thách thức này, các phương pháp tiếp cận dựa trên Học máy (Machine Learning) và Học sâu (Deep Learning) ra đời, đóng vai trò như một "hệ thống nơ-ron gương kỹ thuật số". Thay vì dựa vào các quy tắc cứng nhắc, các thuật toán học máy có khả năng tự động trích xuất các biểu diễn đặc trưng phi tuyến tính (non-linear representations) từ các tập dữ liệu lớn. Thông qua việc phân tích tần suất xuất hiện, vị trí, và mối liên kết ngữ cảnh giữa các từ, hệ thống có thể học cách suy luận và dự đoán sắc thái tâm trạng một cách tự động và chính xác.
 
-Sự phát triển của phân tích sắc thái cảm xúc trên nền tảng học máy trải qua các giai đoạn chính:
+Sự phát triển của phân tích sắc thái cảm xúc trên nền tảng học máy cũng đồng hành và không thể tách rời với các giai đoạn chính trong lĩnh vực xử lý ngôn ngữ tự nhiên, bao gồm:
 \begin{itemize}
     \item \textbf{Học máy truyền thống (Traditional Machine Learning):} Các thuật toán như Support Vector Machine (SVM), Naive Bayes, hay Logistic Regression sử dụng các kỹ thuật trích xuất đặc trưng thủ công như Bag-of-Words (BoW) hoặc TF-IDF. Mặc dù mang lại hiệu quả cao hơn phương pháp từ điển, nhóm này vẫn gặp hạn chế lớn trong việc hiểu chuỗi ngữ cảnh dài và thứ tự từ vựng.
     \item \textbf{Học sâu (Deep Learning):} Sự ra đời của các Mạng nơ-ron nhân tạo (Artificial Neural Networks) như RNN, CNN, LSTM và đặc biệt là kiến trúc Transformer đã tạo ra bước đột phá. Các mô hình này có khả năng nhúng từ vựng vào một không gian véc-tơ đa chiều (Word Embeddings), giúp biểu diễn trọn vẹn mối quan hệ ngữ nghĩa tinh vi và tự động phân tách đối tượng $o$ cùng khía cạnh $f$ trong bộ năm thành phần $(o, f, so, h, t)$.
 \end{itemize}
 
-Về mặt định nghĩa toán học, quá trình phân tích sắc thái cảm xúc bằng học máy là việc xấp xỉ một hàm mục tiêu để ánh xạ từ không gian văn bản đầu vào sang không gian nhãn cảm xúc. Gọi $\mathcal{D} = \{d_1, d_2, \dots, d_n\}$ là tập hợp các văn bản (hoặc câu, bình luận) cần phân tích. Gọi $\mathcal{E}$ là không gian nhãn cảm xúc được định nghĩa trước (ví dụ: $\mathcal{E} = \{Tích\ cực, Tiêu\ cực, Trung\ tính\}$ đối với phân loại 3 cực).
+Về mặt định nghĩa toán học, quá trình phân tích sắc thái cảm xúc bằng học máy là việc xấp xỉ một hàm mục tiêu để ánh xạ từ không gian văn bản đầu vào sang không gian nhãn cảm xúc. Gọi $\mathcal{D} = \{d_1, d_2, \dots, d_n\}$ là tập hợp các văn bản (hoặc câu, bình luận) cần phân tích. Gọi $\mathcal{E}$ là không gian nhãn cảm xúc được định nghĩa trước (ví dụ: $\mathcal{E} = \{\text{Tích cực}, \text{Tiêu cực}, \text{Trung tính}\}$ đối với phân loại 3 cực).
+
+Mục tiêu của mô hình học máy là tối ưu hóa hàm ánh xạ $f$ sao cho sai số dự đoán trên tập dữ liệu thực tế là nhỏ nhất. Tùy thuộc vào yêu cầu của bài toán, hàm $f$ có thể được định nghĩa theo hai dạng:
+
+\begin{itemize}
+    \item \textbf{Phân loại đơn nhãn (Single-label Classification):} Mô hình dự đoán một nhãn cảm xúc chủ đạo duy nhất cho mỗi văn bản:
+    \begin{equation}
+        f: \mathcal{D} \rightarrow \mathcal{E}
+    \end{equation}
+    
+    \item \textbf{Phân loại đa nhãn (Multi-label):} Mô hình đưa ra một véc-tơ phân phối xác suất liên tục, thể hiện mức độ xuất hiện của toàn bộ các trạng thái trong không gian nhãn đối với văn bản đầu vào:
+    \begin{equation}
+        f: \mathcal{D} \rightarrow [0, 1]^{|\mathcal{E}|}
+    \end{equation}
+\end{itemize}
 
 \subsection{Tổng quan về các thách thức phân tích sắc thái cảm xúc trên nền tảng YouTube}
+Trong bối cảnh kỷ nguyên số, nền tảng YouTube do Google phát triển, không chỉ đơn thuần là một nền tảng chia sẻ video nội dung số mà đã phát triển thành một hệ sinh thái mạng xã hội đa phương tiện khổng lồ, nơi hành vi tương tác của người dùng mang tính tổng hợp cao. Mà trong đó, người dùng tiếp nhận các kích thích đa giác quan (hình ảnh chuyển động, âm thanh, ngữ điệu của chủ thể sáng tạo nội dung) và phản hồi bằng cách để lại các văn bản dưới mục bình luận (comments). Chính đặc thù tương tác này khiến dữ liệu bình luận trên YouTube trở thành một trong những dạng dữ liệu thách thức nhất đối với bài toán phân tích sắc thái cảm xúc, đặc biệt khi xử lý ngôn ngữ tiếng Việt. Và các thách thức cốt lõi này được phân tích dưới hai góc độ: đặc điểm phi cấu trúc của văn bản và sự giới hạn của không gian nhãn truyền thống.
+
+\textbf{Đặc điểm phi cấu trúc của ngôn ngữ mạng xã hội:}
+
+Văn bản bình luận trên YouTube mang tính khẩu ngữ hóa rất cao, được viết một cách tự phát và không tuân theo các quy tắc ngữ pháp chuẩn mực của tiếng Việt. Nhằm mục đích bù đắp cho sự sụt giảm thông tin, người dùng mạng xã hội có xu hướng phát triển các cấu trúc ngôn ngữ biến thể để khuếch đại hoặc cụ thể hóa cảm xúc của mình. Hệ quả là đã tạo ra các rào cản kỹ thuật nghiêm trọng đối với các hệ thống xử lý ngôn ngữ tự nhiên truyền thống:
+\begin{itemize}[label=-]
+    \item Người dùng sử dụng dày đặc các icon (như \twemoji[height=1ex]{joy}, \twemoji[height=1ex]{sob}, \dots) hoặc ký tự biểu cảm (như $:D$, $:3$, \textasciicircum{}\textasciicircum{}. Các biểu tượng này đôi khi đóng vai trò quyết định sắc thái câu, hoặc thậm chí được dùng để mỉa mai, làm đảo ngược hoàn toàn ngữ nghĩa của văn bản chữ viết đi kèm.
+    \item Các từ ngữ bị cố ý biến đổi hình thái theo thói quen của người dùng mạng (ví dụ: "quá" thành "oá", "biết" thành "bít", "rồi" thành "gòi") hoặc viết tắt (như "vcl", "ko", "đc").
+    \item Do xu hướng toàn cầu hóa, người dùng Việt Nam thường xuyên lồng ghép các từ mượn tiếng Anh hoặc các thuật ngữ viết tắt tiếng Anh (như "chill", "flop", "visual", "cringe") vào mạch văn tiếng Việt, gây khó khăn cho các mô hình ngôn ngữ chỉ được huấn luyện trên văn bản đơn ngữ thuần túy.
+    \item Các hành vi kéo dài nguyên âm, viết loạn xạ hoặc viết hoa toàn bộ câu nhằm nhấn mạnh cảm xúc (ví dụ: "hayyyy tooooáaaaa") đã dẫn tới việc tạo ra các từ ngoài từ điển (Out-Of-Vocabulary - OOV), làm suy giảm nghiêm trọng hiệu suất của các bộ tách từ (tokenizers) truyền thống.
+\end{itemize}
+
+\textbf{Sự giới hạn của không gian nhãn phân cực truyền thống đối với cảm xúc vi mô:}
+
+Bên cạnh các thách thức về mặt xử lý ngôn ngữ thô, việc ánh xạ dữ liệu YouTube vào không gian nhãn truyền thống $\mathcal{E} = \{\text{Tích cực}, \text{Tiêu cực}, \text{Trung tính}\}$ bộc lộ những giới hạn lớn về mặt thông tin, làm phẳng và triệt tiêu các chiều cảm xúc sâu sắc của người dùng.
+
+Trong môi trường mạng xã hội phức tạp, một nhãn phân cực thô không đủ sức truyền tải bản chất hành vi. Ví dụ, hai bình luận cùng bị gán nhãn "Tiêu cực" dưới một video tin tức có thể mang hai trạng thái tinh thần hoàn toàn biệt lập: một bình luận thể hiện sự \textit{Tức giận (Anger)} đối với hành vi của nhân vật, trong khi bình luận khác lại thể hiện sự \textit{Buồn bã, Cảm thông (Sadness/Sympathy)} đối với một số phận ngặt nghèo. Dưới góc độ thần kinh học và phân tích hành vi, hai trạng thái này kích hoạt các vùng vỏ não khác nhau và dẫn đến các hành động phản hồi hoàn toàn khác nhau của người dùng. Tương tự, một phản hồi "Tích cực" có thể là sự \textit{Ngưỡng mộ (Admiration)} hướng về tài năng của người làm video, hoặc lại là sự \textit{Thèm muốn (Craving)} đối với một video đánh giá ẩm thực.
+
+Sự thiếu hụt một không gian nhãn có "độ mịn" cao (fine-grained emotions) khiến các hệ thống trí tuệ nhân tạo (AI) hiện tại chưa thể hiểu sâu sắc động lực hành vi tương tác của người dùng. Thách thức này đặt ra nhu cầu tất yếu về việc dịch chuyển bài toán từ phân tích sắc thái phân cực cơ bản sang phân loại cảm xúc tinh vi, dựa trên các mô hình tâm lý học mở rộng như mô hình phổ cảm xúc liên tục 27 chiều của \textcite{demszky2020goemotions} đề xuất. Việc kết hợp các chiều cảm xúc tinh vi này cùng một nhãn trung tính đại diện cho các bình luận rác hoặc câu hỏi thông tin thuần túy (\textbf{không gian nhãn 27+1}) chính là đích đến để giải quyết triệt để sự suy hao thông tin dữ liệu trên nền tảng YouTube.
 
 \section{Tổng quan về phương pháp luận - Methodological Framework}
-Hiện nay, cộng đồng học thuật vẫn chưa có một định nghĩa chính thức về \textbf{khung phương pháp luận (methodological framework)}. Tuy nhiên, có một sự đồng thuận ngầm rằng đây là một công cụ giúp dẫn dắt người thực hiện đi qua một chuỗi các bước có trình tự để hoàn thành một quy trình cụ thể. Trong đó, \textbf{phương pháp luận} được hiểu là tập hợp các phương pháp trong một lĩnh vực chuyên biệt, còn \textbf{khung} đóng vai trò là cấu trúc của các quy tắc hoặc ý tưởng nền tảng. Việc áp dụng khung phương pháp luận không chỉ giúp cải thiện tính nhất quán, tính chặt chẽ mà còn chuẩn hóa các cách tiếp cận, từ đó tối đa hóa độ tin cậy của các kết quả nghiên cứu \parencite{mcmeekin2020methodological}.
-
+\label{sec:methodological_framework}
+Mặc dù hiện nay giới học thuật chưa có một định nghĩa thống nhất hoàn toàn về \textbf{khung phương pháp luận (methodological framework)}, tuy nhiên, khái niệm này nhìn chung được thừa nhận là một hệ thống mang tính định hướng, dẫn dắt nhà nghiên cứu qua một chuỗi các bước có trình tự nhằm giải quyết một bài toán cụ thể. Về mặt ngữ nghĩa, \textbf{phương pháp luận (methodological)} bao hàm tập hợp các phương pháp và nguyên lý đặc thù trong một lĩnh vực chuyên sâu, trong khi \textbf{khung (framework)} đóng vai trò là cấu trúc định hình các quy tắc và tư tưởng nền tảng. Theo \textcite{mcmeekin2020methodological}, việc áp dụng khung phương pháp luận không chỉ củng cố tính nhất quán và chặt chẽ của quy trình nghiên cứu, mà còn chuẩn hóa các phương pháp tiếp cận, qua đó tối ưu hóa độ tin cậy và giá trị khoa học của kết quả đạt được.
 Dựa trên các tiền đề đó, một khung phương pháp luận chất lượng cần đáp ứng các tiêu chí cốt lõi sau.
 
-    \begin{itemize}
-        \item \textbf{Tính hệ thống (Systematicity)}: Các bước phải được sắp xếp theo trình tự logic, có sự liên kết chặt chẽ và nhất quán xuyên suốt quy trình.
-        \item \textbf{Tính toàn diện (Comprehensiveness)}: Bao quát đầy đủ các giai đoạn cần thiết, từ khâu xác định bằng chứng đến khâu thực thi và đánh giá.
-        \item \textbf{Tính linh hoạt (Flexibility)}: Có khả năng điều chỉnh và thích nghi với các bối cảnh nghiên cứu khác nhau mà không phá vỡ cấu trúc cốt lõi.
-        \item \textbf{Tính khả thi và Thực chứng (Feasibility \& Evidence-based)}: Khung phải được xây dựng dựa trên dữ liệu thực tế, kinh nghiệm chuyên gia và có khả năng ứng dụng thực tiễn cao thông qua việc thử nghiệm (pilot).
-    \end{itemize}
+\begin{itemize}
+    \item \textbf{Tính hệ thống (Systematicity)}: Các bước phải được sắp xếp theo trình tự logic, có sự liên kết chặt chẽ và nhất quán xuyên suốt quy trình.
+    \item \textbf{Tính toàn diện (Comprehensiveness)}: Bao quát toàn diện và đầy đủ các giai đoạn thiết yếu, từ khâu xác định cơ sở lý luận, thu thập dữ liệu cho đến khâu thực thi và đánh giá.
+    \item \textbf{Tính linh hoạt (Flexibility)}: Có khả năng tinh chỉnh và thích ứng với đa dạng bối cảnh nghiên cứu cũng như đặc thù của từng loại dữ liệu mà không làm phá vỡ cấu trúc tổng thể.
+    \item \textbf{Tính khả thi và Thực chứng (Feasibility \& Evidence-based)}: Khung phải được kiến tạo dựa trên nền tảng dữ liệu thực tế, tri thức và kinh nghiệm của chuyên gia và đã được kiểm chứng về tính ứng dụng thực tiễn thông qua các nghiên cứu thử nghiệm (pilot studies).
+\end{itemize}
 
-    Với phạm vi đề tài, trong các nghiên cứu gần đây về xây dựng khung phương pháp cho bài toán phân tích cảm xúc (Sentiment Analysis), dù thực hiện trên dữ liệu tiếng Việt hay các ngôn ngữ khác, quy trình thực hiện đa phần đều tuân thủ các giai đoạn chuẩn hóa bao gồm: thu thập dữ liệu, tiền xử lý, tách từ (tokenization) và vector hóa, huấn luyện mô hình, và cuối cùng là đánh giá, biểu diễn kết quả (\cite{el2025transformer}, \cite{singh2021youtube}). Quy trình hệ thống này cũng tương đồng với khung phương pháp luận do Uma Maheswari cùng các cộng sự đề xuất (Hình \ref{fig:sa_framework}).
+Ứng dụng vào phạm vi của bài toán phân tích sắc thái cảm xúc (Sentiment Analysis), các nghiên cứu đương đại, bất kể được thực hiện trên tiếng Việt hay các ngôn ngữ khác, phần lớn đều hội tụ về một quy trình chuẩn hóa. Cụ thể, quy trình này bao gồm các giai đoạn có tính tuần tự, lần lượt là: thu thập dữ liệu, tiền xử lý, tách từ (tokenization), véc-tơ hóa (vectorization), huấn luyện mô hình học máy và cuối cùng là đánh giá hiệu năng của mô hình \parencite{el2025transformer, singh2021youtube}. Cấu trúc hệ thống này cũng thể hiện sự tương đồng sâu sắc với khung phương pháp luận tổng quát do \textcite{Maheswari2024Sentiment} đề xuất (như Hình \ref{fig:sa_framework}).
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{Images/framework_sample.png}
-        \caption{Khung phương pháp luận chung cho bài toán phân tích sắc thái cảm xúc được Uma Maheswari cùng các cộng sự đề xuất \cite{Maheswari2024Sentiment}.}
-        \label{fig:sa_framework}
-    \end{figure}
-
-    Ngoài ra, khi khảo sát các công trình nghiên cứu chuyên biệt về văn bản tiếng Việt cho thấy, trọng tâm hiện nay chủ yếu tập trung vào việc cải tiến cấu trúc các mô hình học máy nhằm tối ưu hóa độ chính xác (\cite{minh2024fine}, \cite{nguyen2025like}, \cite{quoc2023vietnamese}). Tuy nhiên, xu hướng này dẫn đến việc ưu tiên quá mức các chỉ số định lượng (như Accuracy, F1-score) trên các bộ dữ liệu mẫu (benchmark datasets) mà chưa chú trọng đúng mức đến việc xây dựng một quy trình xử lý chuẩn hóa có tính thích ứng cao. Hệ quả là các mô hình thường đạt hiệu suất tối ưu trong môi trường thực nghiệm nhưng lại bộc lộ hạn chế về tính linh hoạt khi triển khai trên dữ liệu thực tế — nơi ngôn ngữ biến đổi liên tục và có độ nhiễu cao như các bình luận trên nền tảng YouTube.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/framework_sample.png}
+    \caption{Khung phương pháp luận chung cho bài toán phân tích sắc thái cảm xúc.}
+    \label{fig:sa_framework}
+    {\small Nguồn: \textcite{Maheswari2024Sentiment}}
+\end{figure}
+Ngoài ra, khi đi sâu khảo sát các công trình nghiên cứu chuyên biệt về phân tích cảm xúc trên văn bản tiếng Việt, có thể nhận thấy xu hướng chủ đạo hiện nay là tập trung tinh chỉnh kiến trúc của các mô hình học sâu nhằm tối đa hóa độ chính xác dự đoán tổng thể (overall accuracy) \parencite{minh2024fine, nguyen2025like, quoc2023vietnamese}. Tuy nhiên, hướng tiếp cận này vô hình trung dẫn đến việc đề cao quá mức các chỉ số đánh giá định lượng (như Accuracy, F1-score) trên các tập dữ liệu chuẩn (benchmark datasets), trong khi chưa đầu tư đúng mức cho việc thiết kế một khung phương pháp luận có tính ứng dụng cao. Hệ quả tất yếu là các mô hình dù đạt mức hiệu năng tối ưu trong môi trường thực nghiệm được kiểm soát, song lại bộc lộ rõ sự thiếu hụt về tính bền vững (robustness) và khả năng khái quát hóa (generalization) khi đối mặt với dữ liệu thực tế, đặc biệt là trong bối cảnh ngôn ngữ mạng xã hội có mức độ biến thiên liên tục, phi cấu trúc và chứa nhiều nhiễu như hệ sinh thái bình luận trên nền tảng YouTube.
 
 \section{Tổng quan về các mô hình dựa trên Transformer}
 
-\textbf{Kiến trúc Transformer}, được giới thiệu bởi Vaswani và các cộng sự \cite{vaswani2017attention}, đã tạo nên một bước ngoặt quan trọng trong lĩnh vực xử lý ngôn ngữ tự nhiên (NLP). Mà trọng tâm của kiến trúc này là cơ chế tự chú ý (Self-Attention) (Hình \ref{fig:attetion}), cho phép mô hình tính toán mối quan hệ giữa các từ trong một chuỗi văn bản một cách hiệu quả, bất kể khoảng cách giữa chúng.
+\textbf{Kiến trúc Transformer}, được giới thiệu bởi Vaswani và các cộng sự \textcite{vaswani2017attention}, đã tạo nên một bước ngoặt quan trọng trong lĩnh vực xử lý ngôn ngữ tự nhiên (NLP). Mà trọng tâm của kiến trúc này là cơ chế tự chú ý (Self-Attention) (Hình \ref{fig:attetion}), cho phép mô hình tính toán mối quan hệ giữa các từ trong một chuỗi văn bản một cách hiệu quả, bất kể khoảng cách giữa chúng.
 
-    Về mặt cấu trúc, Transformer bao gồm hai thành phần cốt lõi, bộ mã hóa (Encoder) và bộ giải mã (Decoder) (Hình \ref{fig:transformer}), được xếp chồng lên nhau thành nhiều lớp. Trong đó:
+    Về mặt kiến trúc, Transformer bao gồm hai thành phần cốt lõi, bộ mã hóa (Encoder) và bộ giải mã (Decoder) (Hình \ref{fig:transformer}), được xếp chồng lên nhau thành nhiều lớp. Trong đó:
     
     \begin{itemize}
         \item \textbf{Bộ mã hóa}: Đảm nhận việc xử lý dữ liệu đầu vào để tạo ra các biểu diễn ngữ nghĩa (embeddings) đa chiều và phong phú.
@@ -93,25 +127,27 @@ Dựa trên các tiền đề đó, một khung phương pháp luận chất lư
     Đồng thời, cơ chế tự chú ý cũng đóng vai trò quyết định giúp mô hình tập trung vào các thành phần quan trọng trong văn bản, từ đó tối ưu hóa khả năng hiểu ngữ cảnh và các liên kết ngữ nghĩa phức tạp. Mà dựa trên nền tảng này, các nghiên cứu sau đó cũng đã phát triển thành các nhánh mô hình chủ đạo.
     
     \begin{itemize}
-        \item \textbf{Họ mô hình chỉ có bộ mã hóa (Encoder-only)}: Điển hình là BERT \cite{devlin2019bert} và RoBERTa \cite{liu2019roberta}. Nhóm này tập trung vào việc trích xuất đặc trưng ngữ nghĩa sâu sắc, phục vụ các tác vụ như phân loại văn bản, trích xuất thông tin và phân tích cảm xúc.
+        \item \textbf{Họ mô hình chỉ có bộ mã hóa (Encoder-only)}: Điển hình là BERT \parencite{devlin2019bert} và RoBERTa \parencite{liu2019roberta}. Nhóm này tập trung vào việc trích xuất đặc trưng ngữ nghĩa sâu sắc, phục vụ các tác vụ như phân loại văn bản, trích xuất thông tin và phân tích cảm xúc.
 
         \item \textbf{Họ mô hình chỉ có bộ giải mã (Decoder-only)}: Tiêu biểu là dòng GPT \cite{radford2018improving}, được tối ưu hóa cho việc sinh văn bản tự nhiên, hỗ trợ hiệu quả các nhiệm vụ như trả lời câu hỏi, tóm tắt và sáng tạo nội dung.
     \end{itemize}
 
-    Và hiện nay, hầu hết các nghiên cứu tiên tiến về phân tích sắc thái cảm xúc đều kế thừa sức mạnh từ các kiến trúc dựa trên Transformer nhằm đạt được hiệu suất tối ưu (\cite{minh2024fine}, \cite{nguyen2025like}, \cite{quoc2023vietnamese}).
+    Và hiện nay, hầu hết các nghiên cứu tiên tiến về phân tích sắc thái cảm xúc đều kế thừa sức mạnh từ các kiến trúc dựa trên Transformer nhằm tận dụng được cơ chế tự chú ý để nắm bắt các thông tin ngữ cảnh một cách tự động và tối ưu hiệu suất phân lớp. Điều này đặt ra một lời giải chung cho các bài toán phân tích sắc thái cảm xúc trong nước lẫn quốc tế (\parencite{minh2024fine}, \parencite{nguyen2025like}, \parencite{quoc2023vietnamese}).
     
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{Images/attention.png}
-        \caption{Kiến trúc cơ chế tự chú ý (Self-Attention) trong Transformer \cite{vaswani2017attention}.}
+        \caption{Minh họa cơ chế tự chú ý (Self-Attention).}
         \label{fig:attetion}
+        {\small Nguồn: Được \textcite{benvenisteTransformerV2} minh họa, tham khảo từ cơ chế Self-Attention mà \textcite{vaswani2017attention} đề xuất.}
     \end{figure}
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{Images/transformer.png}
-        \caption{Kiến trúc tổng thể của Transformer với các lớp Encoder và Decoder \cite{vaswani2017attention}.}
+        \includegraphics[width=0.6\textwidth]{Images/transformer.jpg}
+        \caption{Kiến trúc tổng thể của Transformer với các lớp Encoder và Decoder.}
         \label{fig:transformer}
+        {\small Nguồn: \textcite{vaswani2017attention}}
     \end{figure}
 
 \section{Các nghiên cứu liên quan}
@@ -119,9 +155,38 @@ Dựa trên các tiền đề đó, một khung phương pháp luận chất lư
 \subsection{Tình hình nghiên cứu ngoài nước}
 Trên thế giới, bài toán phân tích sắc thái cảm xúc đối với các ngôn ngữ phổ biến đã đạt được rất nhiều thành tựu đáng kể. Phần lớn các nghiên cứu tiên tiến nhất hiện nay đều đã chuyển dịch sang việc áp dụng các mô hình học máy dựa trên kiến trúc Transformer để giải quyết hiệu quả các bài toán phân tích đa miền (multi-domain). Bên cạnh việc tối ưu độ chính xác của mô hình, các nghiên cứu quốc tế cũng đã đề xuất và áp dụng thành công các khung phương pháp luận hệ thống chuyên biệt để xử lý dữ liệu mạng xã hội, bao gồm các bước chuẩn hóa từ việc trích xuất API, tiền xử lý văn bản nhiễu cho đến trực quan hóa kết quả đầu ra.
 
+\textcite{demszky2020goemotions} đã xây dựng tập dữ liệu quy mô lớn GoEmotions tiên phong trong việc phân lớp các loại cảm xúc vi mô, giúp cải thiện đáng kể khả năng nhận diện các cảm xúc phức tạp (fine-grained emotions) trong văn bản tiếng Anh, vượt trội hơn so với các phương pháp phân loại tích cực hay tiêu cực truyền thống.
+
+\textcite{gan2023usa} đã đề xuất mô hình phân tích cảm xúc phổ quát (Universal Sentiment Analysis - USA), đồng thời đóng góp một tập dữ liệu phân loại văn bản cảm xúc và từ loại chuyên biệt dành cho tiếng Nhật.
+
+\textcite{Maheswari2024Sentiment} đã triển khai một hệ thống tổng hợp cảm xúc (Sentiment Synthesis) nhằm chuyển hóa các bình luận trên nền tảng YouTube thành những thông tin chi tiết mang tính chiến lược. Kết quả nghiên cứu chứng minh rằng việc áp dụng các thuật toán xử lý ngôn ngữ vào bình luận trực tuyến giúp các nhà sáng tạo nội dung và doanh nghiệp nắm bắt chính xác phản ứng của người xem.
+
+\textcite{zhao2025interpretable} đề xuất một khung học sâu có khả năng diễn giải và trực quan hóa (Interpretable and Visual Deep Learning Framework) nhằm giải quyết bài toán phân tích cảm xúc trong các tình huống dịch vụ đa miền (multi-domain) và chuyên biệt cho tiếng Hàn.
+
+\textcite{ding2026scope} đã trình bày khung phương pháp SCOPE dựa trên kiến trúc Transformer để phân tích cảm xúc của công chúng Trung Quốc đối với các vấn đề xã hội, như chính sách trì hoãn nghỉ hưu. Nghiên cứu cũng trình bày cách tổ chức dữ liệu phân cấp và phương pháp gán nhãn tự động với lượng dữ liệu lớn. 
+
 \subsection{Tình hình nghiên cứu trong nước}
 Tại Việt Nam, mặc dù tiếng Việt thuộc nhóm 20 ngôn ngữ có quy mô cộng đồng sử dụng lớn nhất thế giới, các nghiên cứu về phân tích cảm xúc hiện nay phần lớn vẫn chỉ tập trung vào các tập dữ liệu ngách thuộc một miền (domain) cụ thể. Trọng tâm của các công trình nghiên cứu chuyên biệt về văn bản tiếng Việt chủ yếu tập trung vào việc cải tiến cấu trúc các mô hình học máy để tối ưu hóa các chỉ số định lượng (như Accuracy, F1-score) trên các bộ dữ liệu mẫu (benchmark datasets).
 
-Tuy nhiên, xu hướng này dẫn đến một hạn chế lớn là chưa chú trọng đúng mức đến việc xây dựng một quy trình xử lý chuẩn hóa có tính thích ứng cao. Hệ quả là các mô hình thường đạt hiệu suất tốt trong môi trường thực nghiệm nhưng lại bộc lộ nhiều điểm yếu về tính linh hoạt khi triển khai trên dữ liệu thực tế – nơi ngôn ngữ biến đổi liên tục và có độ nhiễu cao như bình luận trên YouTube. Ngoài ra, tiếng Việt còn đối mặt với nhiều thách thức đặc thù về ngôn ngữ chưa được giải quyết triệt để như sự khác biệt phương ngữ, hiện tượng trộn mã (code-switching), hệ thống từ Hán - Việt mang sắc thái tu từ riêng, và sự thiếu phân biệt thị giác giữa các từ đồng âm khác nghĩa do đặc trưng của chữ Quốc ngữ.
+\textcite{le2021nghiencuu} đã triển khai thử nghiệm áp dụng các kỹ thuật làm giàu dữ liệu (data augement) kết hợp cùng kiến trúc PhoBERT Base trên đa dạng các lĩnh vực như giáo dục, dịch vụ lưu trú và thương mại điện tử. Và thực hiện đánh giá mô hình được đánh giá toàn diện qua 5 thang đo tiêu chuẩn (bao gồm Accuracy và các biến thể của F1-score).
 
-\subsection{Tổng hợp và nhận định nghiên cứu}
+\textcite{quoc2023vietnamese} đã đề xuất mô hình kết hợp PhoBERT-CNN để phát hiện ngôn từ kích động thù hận và xúc phạm (hate and offensive speech) trong tiếng Việt nhằm mở rộng bài toán sang việc nhận diện các nội dung tiêu cực trên không gian mạng. Điểm đặc biệt của công trình này là việc khai thác nguồn dữ liệu luồng (streaming data) trực tiếp từ các nền tảng mạng xã hội, giúp mô hình tối ưu hóa khả năng xử lý các văn bản mang tính cập nhật liên tục và chứa nhiều ngôn ngữ mạng phức tạp.
+
+\textcite{minh2024fine} đã tập trung tinh chỉnh (fine-tuning) kiến trúc PhoBERT nhằm phục vụ bài toán phân tích sắc thái cảm xúc của người dùng đối với các bài đánh giá điện thoại bằng tiếng Việt nhằm chuyên biệt hóa trong lĩnh vực thương mại điện tử. Nghiên cứu đã chứng minh tính hiệu quả của mô hình ngôn ngữ tiền huấn luyện khi được tối ưu hóa cho một miền dữ liệu cụ thể, giúp các doanh nghiệp công nghệ khai thác sâu sắc phản hồi của khách hàng.
+
+\textcite{nguyen2025like} đã mở rộng phạm vi ứng dụng sang dữ liệu đa phương tiện thông qua trường hợp nghiên cứu về các video ẩm thực đường phố Việt Nam trên nền tảng YouTube. Bằng cách phân tích phản hồi và tương tác của người xem, nhóm tác giả đã cung cấp một góc nhìn thực tiễn về xu hướng hành vi, thị hiếu và sắc thái cảm xúc của cộng đồng trực tuyến đối với các nội dung văn hóa số.
+
+\textcite{hung2026vigoemotions} gần đây nhất đã giới thiệu ViGoEmotions, một bộ dữ liệu chuẩn quy mô lớn dành cho bài toán nhận diện cảm xúc vi mô (fine-grained emotion detection) trên văn bản tiếng Việt. Công trình này không chỉ đóng góp một tài nguyên học thuật giá trị cho cộng đồng nghiên cứu trong nước mà còn nâng cao năng lực xử lý bối cảnh ngữ nghĩa tinh tế, tạo tiền đề cho các hệ thống trí tuệ nhân tạo thấu hiểu tâm lý người dùng Việt sâu sắc hơn.
+
+\section{Tổng hợp và nhận định nghiên cứu}
+Dựa trên các phân tích về cơ sở lý thuyết và lược khảo các công trình nghiên cứu trong và ngoài nước, có thể rút ra một số nhận định tổng quan như sau:
+
+\textbf{Thứ nhất}, như đã trình bày ở phần \ref{subsec:cs_than_kinh}, ngôn từ ở dạng văn bản thuần túy chỉ giữ lại khoảng 7\% lượng thông tin cảm xúc nguyên bản do sự vắng mặt hoàn toàn của các tín hiệu phi ngôn ngữ. Sự khuyết thiếu nghiêm trọng này đòi hỏi các hệ thống phân tích ngôn ngữ tự nhiên phải có khả năng suy luận ngữ cảnh cao và năng lực trích xuất các đặc trưng ngữ nghĩa tiềm ẩn một cách tinh vi. Trong bối cảnh đó, các mô hình học sâu dựa trên kiến trúc Transformer, đặc biệt là nhờ cơ chế tự chú ý (Self-Attention), đã và đang giải quyết rất hiệu quả rào cản này bằng cách tự động mô phỏng lại các liên kết cảm xúc phức tạp bị ẩn giấu trong câu.
+
+\textbf{Thứ hai}, đặc thù của ngôn ngữ mạng xã hội nói riêng và ngôn ngữ nói chung luôn biến thiên và thay đổi không ngừng do sự phát triển và va chạm giữa các nền văn hóa, lối sống trong giao tiếp. Sự bất ổn định này đòi hỏi các mô hình phân tích phải có khả năng thích ứng cao với các từ vựng mới (OOV) và cấu trúc ngữ pháp dị thường. Đồng thời, nó đặt ra yêu cầu khắt khe về việc toàn bộ quá trình nghiên cứu, huấn luyện và triển khai mô hình phải được hệ thống hóa một cách chặt chẽ theo các tiêu chuẩn công nghệ hiện đại, nhằm tối ưu hóa vòng đời phát triển phần mềm, tiết kiệm tài nguyên máy tính và tối ưu chi phí vận hành thực tế.
+
+\textbf{Thứ ba}, hiện đang tồn tại sự chênh lệch lớn về mức độ hoàn thiện của các hệ thống phân tích giữa trong và ngoài nước. Trên thế giới, các nền kinh tế phát triển đã và đang áp dụng thành công các hệ thống phân tích tự động quy mô lớn, được dẫn dắt bởi những khung phương pháp luận hoàn chỉnh. Trong khi đó, tại Việt Nam, dù tiếng Việt nằm trong top 20 ngôn ngữ có quy mô sử dụng lớn nhất toàn cầu, nhưng vẫn chưa có những công trình nghiên cứu đủ mạnh mẽ để kiến tạo một khung phương pháp luận chung. Hầu hết các nghiên cứu trong nước hiện nay vẫn còn phân tán, chủ yếu xoay quanh việc tối ưu hóa chỉ số cho các tập dữ liệu ngách nhỏ lẻ, thiếu tính chuyên biệt hóa và chưa đủ độ mở để sẵn sàng triển khai thành các hệ thống ứng dụng thực tiễn.
+
+\textbf{Cuối cùng}, phần lớn các nghiên cứu trong nước vẫn đang bị giới hạn ở các bài toán phân loại phân cực cơ bản, dẫn đến việc phân tích sắc thái cảm xúc ở mức độ vi mô (fine-grained emotions) chưa được khai thác và đa dạng hóa đúng mức.
+
+Từ những nhận định trên, có thể thấy việc xây dựng một quy trình nghiên cứu, phát triển và triển khai tổng thể, lấy sức mạnh của kiến trúc Transformer làm cốt lõi, kết hợp với việc ánh xạ vào không gian nhãn cảm xúc vi mô (27+1), và được cô đọng một cách hệ thống thông qua một khung phương pháp luận (methodological framework) là một yêu cầu tất yếu. Đây không chỉ là giải pháp bù đắp cho những giới hạn của các nghiên cứu đi trước, mà còn là chìa khóa để giải quyết triệt để bài toán thấu hiểu tâm lý và hành vi người dùng trên các hệ sinh thái phức tạp như nền tảng YouTube.

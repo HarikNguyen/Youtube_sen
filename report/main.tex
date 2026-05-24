@@ -1,4 +1,5 @@
 \documentclass[oneside,a4paper]{extreport}
+\pdfminorversion=7
 \usepackage[fontsize=13pt]{fontsize}
 % Vietnamee Font 
 \usepackage[T5]{fontenc}
@@ -9,6 +10,12 @@
 \usepackage{tgtermes}
 \usepackage[lite]{mtpro2}
 %\usepackage{newtxmath}
+
+% Add emoji
+\usepackage{twemojis}
+
+% PDF
+\usepackage{pdfpages}
 
 % References
 \usepackage[
@@ -127,22 +134,54 @@
 \newcommand{\nameStudent}{Nguyễn~Hữu~Tuấn}
 \newcommand{\topicName}{Khung~phương~pháp~phân~tích~sắc~thái~cảm~xúc\\của~người~dùng~Việt~Nam~trên~nền~tảng~Youtube\\dựa~trên~kiến~trúc~Transformer}
 \newcommand{\mentorName}{Ngô~Tấn~Vũ~Khanh}
-\newcommand{\chuyenNganh}{chuyên~ngành~?}
-\newcommand{\huongDaoTao}{hướng~đào~tạo~?}
-\newcommand{\maSoChuyenNganh}{mã~số~chuyên~ngành~?}
+\newcommand{\chuyenNganh}{Công~nghệ~thiết~kế~thông~tin~và~truyền~thông}
+\newcommand{\huongDaoTao}{Ứng~dụng}
+\newcommand{\maSoChuyenNganh}{8340405}
 
-% Fix chapter space before
+% Fix index fontsize and spacing
+% CHAPTER
 \usepackage{titlesec}
-\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
+\titleformat{\chapter}[block]{\normalfont\bfseries\filcenter}{\chaptername~\thechapter:\ }{0pt}{\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{-1.5pt}{1.5pt}
+% SECTION
+\titleformat{\section}{\normalfont\bfseries}{\thesection\ }{0pt}{}
+\titlespacing*{\section}{0pt}{-1.5pt}{1.5pt}
+% SUBSECTION
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection\ }{0pt}{}
+\titlespacing*{\subsection}{0pt}{-1.5pt}{1.5pt}
+% SUBSUBSECTION
+\titleformat{\subsubsection}{\normalfont\bfseries}{\thesubsubsection\ }{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{-1.5pt}{1.5pt}
 
 % Fix toc
-\usepackage{tocloft}
+\usepackage[titles]{tocloft}
 \renewcommand{\cftchappresnum}{{\chaptername~} }
 \renewcommand{\cftchapaftersnum}{: }
 \addtolength{\cftchapnumwidth}{55pt}
+\renewcommand{\cfttoctitlefont}{\normalfont\bfseries}
+%\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\normalfont\bfseries}
+%\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\normalfont\bfseries}
+%\renewcommand{\cftafterlottitle}{\hfill}
+
+\setlength{\cftbeforetoctitleskip}{-1.5pt}
+\setlength{\cftaftertoctitleskip}{1.5pt}
+\setlength{\cftbeforeloftitleskip}{-1.5pt}
+\setlength{\cftafterloftitleskip}{1.5pt}
+\setlength{\cftbeforelottitleskip}{-1.5pt}
+\setlength{\cftafterlottitleskip}{1.5pt}
+
+\renewcommand{\cftchapfont}{\normalfont\bfseries}
+\renewcommand{\cftchappagefont}{\normalfont\bfseries}
 
 % Item-listings
 \usepackage{enumitem}
+
+% từ viết tắt
+\usepackage[acronym,toc,nonumberlist]{glossaries}
+\makeglossaries
+\loadglsentries{Glossary/glossary.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% MAIN DOCUMENT!!!                                                                     %%%
@@ -152,7 +191,10 @@
 
 \input{Title/title.tex}
 
-\pagenumbering{roman} % Đánh số i, ii, iii, ...
+%\pagenumbering{roman} % Đánh số i, ii, iii, ...
+\pagestyle{empty} % Không đánh số
+\fancypagestyle{plain}{\pagestyle{empty}}
+\addtocontents{toc}{\cftpagenumbersoff{chapter}}
 
 \clearpage
 \phantomsection
@@ -166,10 +208,30 @@
 
 \clearpage
 \phantomsection
+\includepdf[pages={1}]{InPDFs/nhanxetmentor.pdf}
+
+\clearpage
+\phantomsection
+\includepdf[pages={1}]{InPDFs/nxhoidong.pdf}
+
+\clearpage
+\phantomsection
 % Mục lục, danh sách hình, danh sách bảng
 \addcontentsline{toc}{chapter}{MỤC LỤC}
 \tableofcontents
+
+\clearpage
+\phantomsection
+\printglossary[type=\acronymtype, title={DANH MỤC CÁC TỪ VIẾT TẮT}]
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
 
 \clearpage
@@ -178,8 +240,14 @@
 \include{Appendix/abstract}
 
 \clearpage
-
+\addtocontents{toc}{\cftpagenumberson{chapter}}
 \pagenumbering{arabic} % Đánh số 1, 2, 3, ...
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
 
 % Các chương nội dung
 \include{Chapter1/chapter1}

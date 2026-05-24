@@ -1,2 +1,31 @@
 \chapter{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
 \label{Chapter5}
+
+\section{Kết luận chung}
+Nghiên cứu đã tiến hành xây dựng và thực nghiệm thành công một khung phương pháp (framework) toàn diện, khép kín từ khâu thu thập, tiền xử lý, gán nhãn cho đến khâu tinh chỉnh mô hình nhằm giải quyết bài toán phân loại cảm xúc vi mô trên ngữ liệu mạng xã hội tiếng Việt. Giá trị cốt lõi của khung phương pháp nằm ở khả năng giải quyết triệt để các thách thức đặc thù của dữ liệu thực tiễn: văn bản thiếu hụt ngữ cảnh, độ nhiễu cao và sự mất cân bằng phân phối nghiêm trọng. Việc thiết lập một quy trình chuẩn hóa không chỉ giúp tối ưu hóa nguồn lực tính toán mà còn cung cấp một nền tảng linh hoạt, có khả năng mở rộng cao cho các bài toán phân tích ngữ nghĩa phức tạp. Từ các cơ sở lý thuyết và minh chứng thực nghiệm định lượng, nghiên cứu rút ra những kết luận trọng tâm sau.
+
+\textbf{Thứ nhất, về tính thực tiễn của quy trình gán nhãn bán tự động:} Việc ứng dụng kết hợp giữa tập luật từ vựng (rule-based) và các Mô hình Ngôn ngữ Lớn (LLMs) dựa trên tập hạt giống (seed data) đã minh chứng được hiệu quả vượt trội. Khung phương pháp này đã giải quyết thành công nút thắt về thời gian và chi phí so với phương pháp gán nhãn chuyên gia truyền thống trên các tập dữ liệu có quy mô lớn. Đặc biệt, phân phối nhãn thu được phản ánh trung thực cấu trúc đuôi dài (long-tail distribution) tự nhiên của ngôn ngữ mạng xã hội, đảm bảo tính khắt khe và hạn chế tối đa hiện tượng gán nhãn sai (false-positives) cho các nhóm cảm xúc thiểu số.
+
+\textbf{Thứ hai, về năng lực mô hình và kỹ thuật xử lý mất cân bằng dữ liệu:} Kết quả thực nghiệm đã khẳng định sự ưu việt tuyệt đối của kiến trúc \textbf{mModernBERT} với các cải tiến về cơ chế Attention và mở rộng ngữ cảnh, đạt chỉ số F1-Macro vượt ngưỡng $88\%$. Thành tựu này có sự đóng góp mang tính quyết định từ chiến lược xử lý dữ liệu mất cân bằng: việc áp dụng kỹ thuật giảm mẫu đa số (Undersampling) kết hợp cùng hàm mất mát hỗn hợp \textbf{Mixture Loss} (tích hợp CB-Loss và GHM-Loss). Sự cộng hưởng này đã điều hướng thành công trọng số học tập của mô hình, giúp hệ thống không bị áp đảo bởi các nhãn phổ biến mà vẫn duy trì độ nhạy bén cao đối với các cảm xúc tiêu cực vi mô, hiếm gặp như sợ hãi (\texttt{fear}), hối hận (\texttt{remorse}) hay thương tiếc (\texttt{grief}).
+
+\textbf{Tóm lại,} sự kết hợp đồng bộ giữa quy trình dữ liệu tự động hóa và các kỹ thuật điều chuẩn mô hình chuyên sâu đã chứng minh được tính đúng đắn, độ tin cậy và sự toàn diện của khung phương pháp đề xuất. Nghiên cứu không chỉ đóng góp một giải pháp học máy tối ưu cho bài toán Phân tích Cảm xúc tiếng Việt, mà còn khẳng định tiềm năng ứng dụng mạnh mẽ vào thực tiễn; tạo tiền đề vững chắc để triển khai các hệ thống lắng nghe xã hội (social listening) và giám sát dư luận tự động với độ chính xác cao.
+
+\section{Hướng phát triển}
+
+Mặc dù khung phương pháp (framework) đề xuất đã đạt được những kết quả thực nghiệm khả quan và chứng minh được tính khả thi, nghiên cứu vẫn còn tồn tại một số giới hạn nhất định. Dựa trên các điểm còn tồn đọng này, các hướng nghiên cứu trong tương lai được định hình nhằm tiếp tục hoàn thiện và mở rộng khả năng ứng dụng của hệ thống.
+
+Nghiên cứu hiện tại chỉ tập trung khai thác và phân tích đặc trưng ngữ nghĩa trên dữ liệu văn bản (text-based). Tuy nhiên, trên các nền tảng mạng xã hội, cảm xúc của người dùng thường bị chi phối mạnh mẽ bởi bối cảnh của video, hình ảnh và âm thanh đi kèm. Việc thiếu hụt dữ liệu đa phương thức có thể dẫn đến sai lệch khi phân tích các bình luận mang tính chất mỉa mai (sarcasm), châm biếm, hoặc sử dụng tiếng lóng phụ thuộc vào ngữ cảnh.
+
+Dù quy trình tạo nhãn giả (pseudo-labeling) đã được kiểm soát chặt chẽ, việc phụ thuộc vào kết quả sinh của các Mô hình Ngôn ngữ Lớn (LLMs) vẫn tiềm ẩn rủi ro sai số (noise) đối với các trạng thái cảm xúc ranh giới (borderline emotions).
+
+Các kiến trúc Transformer kích thước lớn như mModernBERT đòi hỏi năng lực xử lý phần cứng cao, dẫn đến rào cản về độ trễ (latency) khi triển khai hệ thống phân tích theo thời gian thực (real-time streaming) trên quy mô dữ liệu khổng lồ.
+
+Nhằm khắc phục các hạn chế nêu trên, các hướng phát triển tiếp theo của nghiên cứu sẽ tập trung vào những khía cạnh.
+
+Tích hợp các luồng dữ liệu trích xuất từ âm thanh (audio features) và khung hình video (visual features) kết hợp cùng văn bản để tạo ra một biểu diễn không gian ngữ nghĩa toàn diện. Điều này hứa hẹn sẽ giải quyết triệt để bài toán nhận diện cảm xúc mỉa mai và các ngữ cảnh ẩn.
+
+Tích hợp cơ chế Học chủ động (Active Learning) vào khung phương pháp. Hệ thống sẽ tự động trích xuất những mẫu dữ liệu mà mô hình có độ tin cậy dự đoán thấp nhất để gửi cho chuyên gia con người thẩm định, sau đó cập nhật lại vào tập huấn luyện nhằm liên tục tinh chỉnh chất lượng dữ liệu.
+
+Áp dụng các kỹ thuật như lượng tử hóa (Quantization) hoặc chưng cất tri thức (Knowledge Distillation) để thu gọn kiến trúc mModernBERT thành các phiên bản nhẹ hơn, đảm bảo tốc độ suy luận (inference speed) cao nhưng vẫn giữ vững hiệu năng phân lớp, phục vụ trực tiếp cho các hệ thống giám sát mạng xã hội theo thời gian thực.
+
+Thực nghiệm và đối chiếu hiệu năng của hệ thống hiện tại với các phương pháp tiếp cận dựa trên Prompt Engineering (Few-shot/Zero-shot learning) của các mô hình sinh tiên tiến để đánh giá tiềm năng thay thế hoặc kết hợp.

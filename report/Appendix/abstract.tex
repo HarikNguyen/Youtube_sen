@@ -1,8 +1,27 @@
 \chapter*{TÓM TẮT}
 \label{tomtat}
+Trong bối cảnh YouTube sở hữu lượng người dùng khổng lồ tại Việt Nam, việc phân tích dữ liệu văn bản mang lại tiềm năng to lớn cho các bài toán trong lĩnh vực lắng nghe mạng xã hội. Tuy nhiên, quá trình xử lý ngôn ngữ tiếng Việt trên không gian mạng hiện đang đối mặt với nhiều thách thức do hiện tượng trộn mã (code-switching), sự đa dạng phương ngữ địa phương và biến đổi liên tục của ngôn ngữ mạng. Làm cho các phương pháp máy học truyền thống bộc lộ nhiều hạn chế khi xử lý loại dữ liệu phức tạp này, từ đó tạo động lực cho nghiên cứu nhằm ứng dụng các giải pháp học sâu hiện đại để cải thiện độ chính xác.
 
-Trình bày tóm tắt vấn đề nghiên cứu, các hướng tiếp cận, cách giải quyết vấn đề và một số kết quả đạt được. 
+Mục tiêu của nghiên cứu này chính là xây dựng một khung phương pháp (framework) chuẩn dựa trên kiến trúc Transformer nhằm phân tích sắc thái cảm xúc của người dùng trên YouTube. Đề tài giải quyết bài toán nhận diện trạng thái tâm lý bằng cách bóc tách 27 trạng thái cảm xúc vi mô có độ hạt mịn cùng một trạng thái trung tính. Khoảng trống nghiên cứu chính là sự thiếu hụt các mô hình có khả năng phân loại cảm xúc chi tiết thay vì chỉ đánh giá phân cực tích cực hay tiêu cực cơ bản.
+
+Nghiên cứu áp dụng phương pháp thực nghiệm định lượng kết hợp các kỹ thuật Xử lý ngôn ngữ tự nhiên tiên tiến. Quy trình thực hiện bao gồm việc thu thập dữ liệu, gán nhãn bán tự động có sự tham gia của Mô hình ngôn ngữ lớn và chuyên gia (LLM-Human-in-the-loop), hiệu chỉnh (fine-tuning) các mô hình ngôn ngữ như mBERT, PhoBERT, mModernBERT kết hợp các kỹ thuật xử lý mất cân bằng lớp.
+
+Kết quả nghiên cứu cho thấy đề tài đã hoàn thiện thành công một chuỗi quy trình chuẩn hóa có khả năng nhận diện chính xác sự phức tạp trong tâm lý người dùng. Quá trình huấn luyện các mô hình đạt được hiệu năng cao, được đánh giá toàn diện qua các độ đo khách quan như F1-macro và Balanced Accuracy để phản ánh trung thực khả năng phân loại trên dữ liệu thực tế.
+
+Kết quả nghiên cứu khẳng định khung phương pháp này có thể áp dụng làm nền tảng kỹ thuật đắc lực cho các hệ thống Lắng nghe mạng xã hội (SociTrong bối cảnh YouTube sở hữu lượng người dùng khổng lồ tại Việt Nam, việc phân tích dữ liệu văn bản mang lại tiềm năng to lớn cho lĩnh vực lắng nghe mạng xã hội. Tuy nhiên, quá trình xử lý ngôn ngữ tiếng Việt trên không gian mạng hiện đang đối mặt với nhiều thách thức do hiện tượng trộn mã (code-switching), sự đa dạng phương ngữ và từ vựng biến đổi liên tục. Các phương pháp máy học truyền thống bộc lộ nhiều hạn chế khi xử lý loại dữ liệu phức tạp này, từ đó tạo động lực cho nghiên cứu nhằm ứng dụng các giải pháp học sâu hiện đại để cải thiện độ chính xác.
+
+\textbf{Từ khóa:} \textit{Phân tích cảm xúc}, \textit{Transformer}, \textit{YouTube}, \textit{Tiếng Việt}, \textit{Social Media Listening}.
 
 \chapter*{ABSTRACT}
 \label{abstract}
-This chapter provides a summary of the research problem, the approach, the solution and the results.
+In the context of YouTube possessing a massive user base in Vietnam, text data analysis offers immense potential for the field of social media listening. However, processing the Vietnamese language in cyberspace currently faces numerous challenges due to code-switching phenomena, dialectal diversity, and constantly evolving vocabulary. Traditional machine learning methods reveal many limitations when handling this complex data type, thereby creating the motivation for this research to apply modern deep learning solutions to improve accuracy.
+
+The objective of this study is to develop a standardized methodological framework based on the Transformer architecture to analyze the emotional nuances of users on YouTube. The research addresses the problem of psychological state recognition by extracting 27 fine-grained micro-emotional states along with a neutral state. The main research gap lies in the lack of models capable of detailed emotion classification, rather than just basic positive or negative sentiment evaluation.
+
+The study applies quantitative experimental methods combined with advanced Natural Language Processing techniques. The implementation process involves data collection, semi-automatic labeling with the participation of Large Language Models and experts (LLM-Human-in-the-loop), and fine-tuning language models such as mBERT, PhoBERT, and mModernBERT, combined with class imbalance processing techniques.
+
+The research results show that the project has successfully developed a standardized pipeline capable of accurately recognizing the complexity of users' psychological states. The training process of the models achieved high performance, comprehensively evaluated through objective metrics such as F1-macro and Balanced Accuracy to truthfully reflect the classification capability on real-world data.
+
+The findings confirm that this methodological framework can be effectively applied as a solid technical foundation for Social Media Listening systems in Vietnam. Businesses and content creators will directly benefit from understanding the community to optimize their business and development strategies. The implication for future research is to continue expanding the dataset and applying this architecture for analysis across various other social media platforms.
+
+\textbf{Keywords:} \textit{Sentiment analysis}, \textit{Transformer}, \textit{YouTube}, \textit{Vietnamese}, \textit{Social Media Listening}.

@@ -1,32 +1,51 @@
-\contentsline {chapter}{LỜI CAM ĐOAN}{i}{section*.1}%
-\contentsline {chapter}{LỜI CẢM ƠN}{ii}{section*.3}%
-\contentsline {chapter}{MỤC LỤC}{iii}{section*.5}%
-\contentsline {chapter}{TÓM TẮT - ABSTRACT}{vi}{section*.6}%
+\cftpagenumbersoff {chapter}
+\contentsline {chapter}{LỜI CAM ĐOAN}{1}{section*.1}%
+\contentsline {chapter}{LỜI CẢM ƠN}{2}{section*.3}%
+\contentsline {chapter}{MỤC LỤC}{5}{section*.7}%
+\contentsline {chapter}{DANH MỤC CÁC TỪ VIẾT TẮT}{8}{section*.10}%
+\contentsline {chapter}{DANH MỤC CÁC HÌNH}{9}{section*.12}%
+\contentsline {chapter}{DANH MỤC CÁC BẢNG}{10}{section*.14}%
+\contentsline {chapter}{TÓM TẮT - ABSTRACT}{11}{section*.16}%
 \contentsline {chapter}{\numberline {1}XÁC ĐỊNH VẤN ĐỀ NGHIÊN CỨU}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Tính cấp thiết của đề tài}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Mục tiêu nghiên cứu}{4}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Mục tiêu chung}{4}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Mục tiêu cụ thể}{5}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Đối tượng nghiên cứu}{6}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.2}Mục tiêu nghiên cứu}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Mục tiêu chung}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Mục tiêu cụ thể}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Đối tượng nghiên cứu}{5}{subsection.1.2.3}%
 \contentsline {subsection}{\numberline {1.2.4}Phạm vi nghiên cứu}{6}{subsection.1.2.4}%
-\contentsline {section}{\numberline {1.3}Phương pháp nghiên cứu}{7}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Bố cục của đề án}{9}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Khoảng trống và động lực nghiên cứu}{10}{section.1.5}%
-\contentsline {chapter}{\numberline {2}LƯỢC KHẢO CƠ SỞ LÝ THUYẾT VÀ NGHIÊN CỨU TRƯỚC}{13}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Tổng quan về bài toán phân tích sắc thái cảm xúc}{13}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Cảm xúc và sắc thái tâm trạng qua lăng kính tâm lý học}{13}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Cơ sở thần kinh học của sự biểu hiện và hiện tượng suy hao cảm xúc trong văn bản}{14}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Bài toán phân tích sắc thái cảm xúc và các cấp độ phân tích}{15}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Phân tích sắc thái cảm xúc trên nền tảng học máy}{17}{subsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.1.5}Tổng quan về các thách thức phân tích sắc thái cảm xúc trên nền tảng YouTube}{18}{subsection.2.1.5}%
-\contentsline {section}{\numberline {2.2}Tổng quan về phương pháp luận - Methodological Framework}{18}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Tổng quan về các mô hình dựa trên Transformer}{20}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Các nghiên cứu liên quan}{23}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Tình hình nghiên cứu ngoài nước}{23}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Tình hình nghiên cứu trong nước}{23}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Tổng hợp và nhận định nghiên cứu}{24}{subsection.2.4.3}%
-\contentsline {chapter}{\numberline {3}XÂY DỰNG KHUNG PHƯƠNG PHÁP}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}}{25}{section.3.1}%
-\contentsline {chapter}{\numberline {4}THỰC NGHIỆM VÀ ĐÁNH GIÁ KẾT QUẢ NGHIÊN CỨU}{26}{chapter.4}%
-\contentsline {chapter}{\numberline {5}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{27}{chapter.5}%
-\contentsline {chapter}{DANH MỤC TÀI LIỆU THAM KHẢO}{28}{section*.9}%
+\contentsline {section}{\numberline {1.3}Phương pháp nghiên cứu}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Bố cục của đề án}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Khoảng trống và động lực nghiên cứu}{9}{section.1.5}%
+\cftpagenumberson {chapter}
+\contentsline {chapter}{\numberline {2}LƯỢC KHẢO CƠ SỞ LÝ THUYẾT VÀ CÁC NGHIÊN CỨU LIÊN QUAN}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tổng quan về bài toán phân tích sắc thái cảm xúc}{12}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Cảm xúc và sắc thái tâm trạng qua lăng kính tâm lý học}{12}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Cơ sở thần kinh học của sự biểu hiện và hiện tượng suy hao cảm xúc trong văn bản}{12}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Bài toán phân tích sắc thái cảm xúc và các cấp độ phân tích}{13}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Phân tích sắc thái cảm xúc trên nền tảng học máy}{15}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Tổng quan về các thách thức phân tích sắc thái cảm xúc trên nền tảng YouTube}{17}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}Tổng quan về phương pháp luận - Methodological Framework}{19}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Tổng quan về các mô hình dựa trên Transformer}{21}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Các nghiên cứu liên quan}{24}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Tình hình nghiên cứu ngoài nước}{24}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Tình hình nghiên cứu trong nước}{25}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Tổng hợp và nhận định nghiên cứu}{27}{section.2.5}%
+\contentsline {chapter}{\numberline {3}XÂY DỰNG KHUNG PHƯƠNG PHÁP}{29}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Tổng quan tiến trình thực hiện}{29}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Quy trình xây dựng và thu thập dữ liệu}{30}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Quy trình xử lý dữ liệu}{33}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Xây dựng quy trình gán nhãn bán tự động}{35}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Xây dựng mô hình Transformer}{38}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Xử lý mất cân bằng dữ liệu (Handling Imbalanced Data)}{38}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Lựa chọn mô hình thực nghiệm}{42}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Các phương pháp đánh giá}{42}{section.3.6}%
+\contentsline {chapter}{\numberline {4}THỰC NGHIỆM VÀ ĐÁNH GIÁ KẾT QUẢ NGHIÊN CỨU}{44}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Quy trình thực nghiệm}{44}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Kết quả thực nghiệm}{45}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Kết quả quá trình thu thập, xây dựng, tiền xử lý và gán nhãn dữ liệu}{45}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Kết quả quá trình huấn luyện mô hình}{50}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Kết quả quá trình kiểm thử mô hình}{51}{subsection.4.2.3}%
+\contentsline {chapter}{\numberline {5}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{54}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kết luận chung}{54}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Hướng phát triển}{55}{section.5.2}%
+\contentsline {chapter}{DANH MỤC TÀI LIỆU THAM KHẢO}{57}{section*.19}%

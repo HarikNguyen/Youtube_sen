@@ -53,5 +53,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tex-gyre \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    texlive-pictures \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    perl \
+    && rm -rf /var/lib/apt/lists/*
+
+
 # Default cmd
 CMD ["pdflatex"]

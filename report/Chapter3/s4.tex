@@ -1,0 +1,40 @@
+Mặc dù dữ liệu đã được chuẩn hóa và loại bỏ nhiễu trong khi vẫn bảo toàn được phần lớn thông tin, bước gán nhãn dữ liệu (data labeling) vẫn là một yêu cầu bắt buộc. Theo các phương pháp truyền thống, quá trình này đòi hỏi sự tham gia độc lập của ít nhất ba chuyên gia để đảm bảo tính khách quan và độ tin cậy. Tuy nhiên, cách tiếp cận này tiêu tốn nhiều thời gian, chi phí và khó có thể mở rộng cho các tập ngữ liệu quy mô lớn lên đến hàng triệu mẫu.
+
+Do đó, việc phát triển một quy trình gán nhãn bán tự động (semi-automated labeling) kết hợp giữa con người và máy tính là một yêu cầu cấp thiết. Cùng với sự phát triển mạnh mẽ của các Mô hình Ngôn ngữ Lớn (LLMs), phương pháp này đã được nhiều công trình nghiên cứu áp dụng như một quy trình chuẩn \parencite{hung2026vigoemotions, ding2026scope, wang2023self, ratner2017snorkel}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/anno_proc.png}
+    \caption{Quy trình gán nhãn bán tự động}
+    \label{fig:gannhanbantudong}
+    \vspace{0.1cm}
+\end{figure}
+
+Dựa trên phương pháp tiếp cận của \textcite{ding2026scope}, quy trình gán nhãn bán tự động trong nghiên cứu này được thực hiện theo sơ đồ minh họa tại Hình \ref{fig:gannhanbantudong}. Quá trình này được triển khai theo các bước sau:
+
+\textbf{Xây dựng tập hạt giống và cân bằng dữ liệu.}
+
+Ban đầu, một tập dữ liệu hạt giống (seed dataset) gồm 10.000 mẫu được trích xuất ngẫu nhiên từ tập dữ liệu đã qua tiền xử lý. Để giải quyết vấn đề mất cân bằng dữ liệu đối với các nhãn hiếm (ví dụ: \texttt{grief}, \texttt{nervousness}, \texttt{remorse}, \dots), phương pháp trích xuất dựa trên tập luật từ vựng (rule-based) được tích hợp nhằm thu thập thêm mẫu. Cụ thể:
+
+\begin{itemize}[label=-]
+    \item Các văn bản chứa những từ khóa như \textit{"chia buồn"}, \textit{"xót xa"}, \textit{"mất mát"}, \textit{"vĩnh biệt"} hoặc \textit{"rip"} có xác suất cao thuộc nhãn \texttt{grief}.
+    \item Các từ khóa \textit{"xin lỗi"}, \textit{"hối hận"}, \textit{"cắn rứt"} được sử dụng để lọc các mẫu có khả năng thuộc nhãn \texttt{remorse}.
+\end{itemize}
+
+Kế tiếp, tập hạt giống được bổ sung thêm dữ liệu từ bộ ngữ liệu \textbf{ViGoEmotions} nhằm gia tăng sự đa dạng về cả số lượng lẫn chất lượng. Hơn nữa, do sự chênh lệch tỷ lệ phân bố lớn (khoảng 1:30) giữa các nhãn hiếm và nhãn phổ biến, kỹ thuật sinh dữ liệu nhân tạo (synthetic data generation) thông qua các mô hình LLMs (như Gemini, GPT, \dots) cũng được áp dụng để làm phong phú thêm tập huấn luyện.
+
+\textbf{Lựa chọn mô hình huấn luyện.}
+
+Sau khi xây dựng thành công tập hạt giống, một mô hình ngôn ngữ dựa trên kiến trúc Encoder – cụ thể là ViSoBert \parencite{nguyen2023visobert}, mô hình đã được huấn luyện trước (pre-trained) trên ngữ liệu mạng xã hội tiếng Việt – được lựa chọn để thực hiện nhiệm vụ phân loại.
+
+\textbf{Vòng lặp gán nhãn giả (Iterative Pseudo-labeling)}
+
+Quy trình lặp (iteration) của hệ thống gán nhãn bắt đầu bằng việc tinh chỉnh (fine-tuning) mô hình trên tập hạt giống nhằm tối ưu hóa hiệu suất (hướng tới việc cực đại hóa chỉ số F1-macro). Sau đó, mô hình đã qua tinh chỉnh được sử dụng để dự đoán (gán nhãn giả - pseudo labeling) cho toàn bộ phần dữ liệu chưa gán nhãn còn lại.
+
+Dựa trên kết quả dự đoán, các mẫu dữ liệu mới được trích xuất để cập nhật vào tập huấn luyện cho vòng lặp tiếp theo bằng chiến lược chọn mẫu động:
+
+\begin{itemize}[label=-]
+    \item \textbf{Giai đoạn đầu (khi tập mồi < 100.000 mẫu hoặc phân bố nhãn chưa đồng đều)}: Thuật toán sẽ trích xuất \texttt{K\_SAMPLE} mẫu có độ tin cậy dự đoán (prediction probability) cao nhất cho mỗi nhãn để đưa vào tập huấn luyện mới.
+    \item \textbf{Giai đoạn sau (khi tập huấn luyện đã đạt kích thước đủ lớn)}: Quy trình tiếp tục bằng việc chỉ trích xuất những mẫu có xác suất dự đoán vượt qua một ngưỡng tin cậy cố định (ví dụ: $> 0.85$ hoặc $> 0.9$).
+\end{itemize}
+

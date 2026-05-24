@@ -13,6 +13,7 @@ all: directories
 	docker run --rm -v $(CURDIR):/workdir -w /workdir $(DOCKER_IMG) sh -c \
     "pdflatex -output-directory=$(OUT_DIR) $(MAIN).tex && \
     ${REF_BE} --output-directory $(OUT_DIR) $(MAIN) && \
+	makeglossaries -d $(OUT_DIR) $(MAIN) && \
     pdflatex -output-directory=$(OUT_DIR) $(MAIN).tex && \
     pdflatex -output-directory=$(OUT_DIR) $(MAIN).tex"
 
