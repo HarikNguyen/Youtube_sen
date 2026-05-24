@@ -1,0 +1,110 @@
+\chapter{XÁC ĐỊNH VẤN ĐỀ NGHIÊN CỨU}
+\label{Chapter1}
+
+\section{Tính cấp thiết của đề tài}
+
+Kể từ khi ra mắt vào năm 2005 và được chính thức bản địa hóa tại Việt Nam vào năm 2014, YouTube không chỉ dừng lại ở một mạng xã hội chia sẻ nội dung số, mà còn tạo ra một kho lưu trữ dữ liệu khổng lồ với giá trị khai thác lớn cho nhiều lĩnh vực. Dẫn chứng bởi nghiên cứu của \textcite{choudhury_2019}, Việt Nam hiện là một trong năm thị trường trọng điểm và nhận được sự đầu tư tâm huyết nhất của YouTube trên thế giới. Tính đến cuối năm 2025, theo thống kê từ DataReportal \parencite{kemp_2026}, YouTube sở hữu tệp người dùng lớn tại Việt Nam với 62,1 triệu tài khoản, tương đương 61\% dân số cả nước. Đồng thời, báo cáo từ Decision Lab \parencite{decision_lab_2025} ghi nhận mức độ thâm nhập của nền tảng này lên tới 87\% trong quý IV/2025 (Hình~\ref{fig:ti_le_tham_nhap}), chỉ xếp sau Facebook, Zalo và vượt qua TikTok. Những số liệu ấn tượng này minh chứng rằng hệ sinh thái YouTube đã mở ra tiềm năng to lớn cho các bài toán thuộc lĩnh vực lắng nghe mạng xã hội (Social Media Listening). Quy trình này được định nghĩa là việc ứng dụng các kỹ thuật khai phá dữ liệu nhằm theo dõi, giám sát và trích xuất tri thức hữu ích từ dòng chảy hội thoại xung quanh một thực thể cụ thể (như thương hiệu hoặc hashtag), từ đó hỗ trợ nhận diện cơ hội kinh doanh, tối ưu hóa chiến dịch marketing và nâng cao trải nghiệm khách hàng \parencite{ducange_2019}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/decision_lab_iv_2025_re.png}
+    \caption{Biểu đồ tỷ lệ thâm nhập của các nền tảng mạng xã hội dẫn đầu tại Việt Nam, từ Decision Lab, quý IV 2025}
+    \label{fig:ti_le_tham_nhap}
+    \vspace{0.1cm}
+    {\small Nguồn: \textcite{decision_lab_2025}}
+\end{figure}
+
+Trong bối cảnh hiện nay, sự phát triển đột phá của học máy (Machine Learning - ML) đã mở ra khả năng khai thác sâu sắc các nguồn dữ liệu phi cấu trúc, đặc biệt là văn bản, bên cạnh các dạng dữ liệu có cấu trúc truyền thống. Văn bản vốn là nguồn tài nguyên quan trọng chứa đựng các trạng thái nội tâm (private states) của con người, bao gồm ý kiến, niềm tin, suy nghĩ, tình cảm, cảm xúc, mục tiêu, đánh giá và phán đoán \parencite{wiebe_2005}. Như một hệ quả tất yếu, việc ứng dụng bài toán phân tích sắc thái cảm xúc (Sentiment Analysis - SA) để đánh giá tính phân cực trong văn bản đã trở thành giải pháp trọng tâm, giúp tối ưu hóa hoạt động khai phá dữ liệu trên mạng xã hội.
+
+Mặc dù nguồn dữ liệu công khai trên nền tảng YouTube vô cùng khổng lồ, phong phú, đa dạng và mang đặc tính đa miền (multi-domain), nhưng hướng tiếp cận hiện nay tại Việt Nam vẫn còn những khoảng trống nhất định. Trong khi bài toán phân tích sắc thái cảm xúc ở các ngôn ngữ phổ biến trên thế giới đã đạt được nhiều thành tựu đáng kể \parencite{guo2024mvindemo, zhao2024multi, shen2025zero, zhao2025interpretable, lee2026dimabsa}, thì các nghiên cứu đối với tiếng Việt phần lớn vẫn chỉ tập trung vào các tập dữ liệu ngách thuộc một vài miền cụ thể \parencite{minh2024fine, le2025hybrid, nguyen2025like}.
+
+Bên cạnh đó, dù nằm trong nhóm 20 ngôn ngữ có số lượng người bản ngữ lớn nhất thế giới \parencite{ethnologue_2026}, tiếng Việt vẫn đặt ra nhiều thách thức đặc thù trong quá trình xử lý. Cụ thể, sự đa dạng của các phương ngữ và từ địa phương tạo ra rào cản không nhỏ đối với các mô hình xử lý ngôn ngữ tự nhiên (Natural Language Processing - NLP). Đồng thời, sự giao thoa văn hóa trên không gian mạng đã thúc đẩy hiện tượng trộn mã (code-switching) (ví dụ: "sản phẩm nhìn rất chill") trở nên phổ biến và không ngừng biến đổi. Ngoài ra, sự thay đổi liên tục trong cách diễn đạt cảm xúc cùng sự xuất hiện của vốn từ vựng mới đòi hỏi các mô hình ML phải có tính thích nghi cao (adaptability) nhằm tránh hiện tượng suy giảm hiệu năng trước những biến động ngôn ngữ xã hội.
+
+Trước những thách thức đặc thù này, các phương pháp truyền thống như hệ thống dựa trên luật (rule-based) hoặc các kiến trúc mạng học sâu thế hệ cũ (như Recurrent Neural Network - RNN hay Long Short-Term Memory - LSTM) dần bộc lộ nhiều điểm hạn chế do gặp khó khăn trong việc ghi nhớ ngữ cảnh dài và bóc tách cấu trúc câu trộn mã phức tạp. Trong bối cảnh đó, sự ra đời của kiến trúc Transformer dựa trên cơ chế tự chú ý (Self-Attention) do \textcite{vaswani2017attention} đề xuất đã tạo nên một bước ngoặt lớn trong lĩnh vực NLP. Nhờ tận dụng khả năng tính toán song song vượt trội, kiến trúc này cho phép nắm bắt toàn bộ ngữ cảnh trong văn bản một cách linh hoạt. Đây là yếu tố đặc biệt quan trọng giúp nâng cao độ chính xác khi giải quyết bài toán phân tích cảm xúc đa miền và tăng cường khả năng thích ứng của mô hình theo thời gian.
+
+Xuất phát từ những yêu cầu thực tiễn cấp thiết nêu trên, câu hỏi đặt ra là làm thế nào để xây dựng một khung phương pháp (framework) chuẩn hóa, ứng dụng kiến trúc Transformer nhằm giải quyết hiệu quả các thách thức đặc thù của dữ liệu YouTube tại Việt Nam. Đây không chỉ là một bài toán có ý nghĩa về mặt học thuật mà còn mang tính ứng dụng thực tiễn cao, hỗ trợ đắc lực cho các nhà sáng tạo nội dung và doanh nghiệp trong việc thấu hiểu cộng đồng người dùng, từ đó đưa ra các chiến lược phát triển nội dung và kinh doanh tối ưu.
+
+\section{Mục tiêu nghiên cứu}
+
+\subsection{Mục tiêu chung}
+Như đã phân tích ở trên, chúng ta thấy rằng việc nghiên cứu, thiết kế và đề xuất một khung phương pháp chuẩn (framework) dựa trên nền tảng kiến trúc Transformer là đòi hỏi cấp thiết đối với bài toán phân tích sắc thái cảm xúc của người dùng trên YouTube nói riêng và trên toàn bộ nền tảng mạng xã hội tại Việt Nam nói chung. Theo đó, mục đích cốt lõi của khung phương pháp này là tối ưu hóa toàn diện quy trình xây dựng và vận hành thực tế của hoạt động khai thác dữ liệu trên không gian mạng xã hội, trải dài từ khâu chuẩn bị dữ liệu, quy trình gán nhãn tự động cho đến khâu mô hình hóa theo đúng với xu thế thời đại.
+
+Dựa trên lược đồ cảm xúc do \textcite{demszky2020goemotions} đề xuất trên cơ sở thực nghiệm của \textcite{cowen2019primacy}, nghiên cứu hướng tới việc bóc tách và làm rõ đặc tính phức tạp, đa chiều của trạng thái tâm lý con người thông qua hệ thống 27 phạm trù cảm xúc vi mô có độ hạt mịn (fine-grained). Hướng tiếp cận này vượt xa các mô hình phân loại sáu lớp cơ bản mà \textcite{ekman1992there} đặt ra hoặc các hệ thống đánh giá phân cực thô sơ truyền thống. Đặc biệt, thông qua việc cấu hình bài toán theo hướng phân loại đơn nhãn độc lập, nghiên cứu này không phủ nhận tính liên tục của không gian cảm xúc, mà thay vào đó là tập trung vào một cơ chế lọc tín hiệu tối ưu nhằm xác định chính xác tâm điểm cảm xúc chủ đạo (dominant emotion) chi phối mạnh nhất trong từng phát ngôn. Cách tiếp cận này vừa tận dụng trọn vẹn mật độ thông tin phong phú từ các khám phá tâm lý học hiện đại, vừa đảm bảo tính dứt khoát và rõ ràng cho các tác vụ ứng dụng thực tế ở hạ nguồn trên không gian mạng xã hội nói chung và nền tảng YouTube nói riêng.
+
+\subsection{Mục tiêu cụ thể}
+Để hiện thực hóa mục tiêu chung đã đề ra, nghiên cứu xác định và tập trung giải quyết bốn mục tiêu dựa trên các phần của một quy trình từ khâu thu thập dữ liệu cho tới mô hình hóa cụ thể như sau:
+\begin{itemize}[label=-]
+    \item Thu thập, xây dựng kho ngữ liệu bình luận (comments) cùng siêu dữ liệu (metadata) xoay quanh các video trên nền tảng YouTube. Đồng thời, thiết lập một quy trình tiền xử lý văn bản nhằm bóc tách và chuẩn hóa các đặc trưng phi cấu trúc theo tiêu chuẩn huấn luyện hiện đại của các mô hình ngôn ngữ lớn. Nhằm xử lý các nhiễu loạn đặc thù của ngôn ngữ mạng, đảm bảo giữ lại trọn vẹn sắc thái ngữ nghĩa ẩn chứa trong từng ký tự và hành vi tương tác.
+    \item Ứng dụng lược đồ 27 trạng thái cảm xúc và một trạng thái trung tính (neutral) mà \textcite{demszky2020goemotions} đã đề xuất, kết hợp với cơ chế gán nhãn bán tự động có sự tham gia của mô hình ngôn ngữ lớn và chuyên gia (LLM-Human-in-the-loop) nhằm xác định chính xác tâm điểm cảm xúc chủ đạo (dominant emotion) trong từng văn bản một cách tối ưu và hợp với thời đại.
+    \item Triển khai hiệu chỉnh (fine-tuning) mô hình dựa trên các kiến trúc Transformer đã được tiền huấn luyện chuyên biệt hoặc đa ngữ dành cho tiếng Việt (như mBERT, PhoBERT, mModernBERT). Đồng thời, áp dụng các kỹ thuật giải quyết vấn đề mất cân bằng phân lớp (class imbalance) mang tính đặc thù của dữ liệu thực tế. Cuối cùng, độ tin cậy và khả năng tổng quát hóa của khung phương pháp sẽ được kiểm chứng thông qua hệ thống các độ đo định lượng chuẩn mực.
+    \item Dựa trên các kết quả đánh giá thực nghiệm, để hoàn thiện một chuỗi quy trình (pipeline) chuẩn hóa có khả năng nhận diện chính xác độ phức tạp trong trạng thái tâm lý người dùng. Khung phương pháp này đóng vai trò là nền tảng kỹ thuật hỗ trợ đắc lực cho các hệ thống lắng nghe mạng xã hội (Social Media Listening) tại Việt Nam. Tạo điều kiện cho các tác vụ hạ nguồn (downstream tasks) mang tính ứng dụng cao như phân tích xu hướng \& đo lường sức khỏe thương hiệu hay quản trị danh tiếng thương hiệu \& xử lý khủng hoảng truyền thông được thực thi một cách tự động, chính xác và có chiều sâu với một mức chi phí tối ưu.
+\end{itemize}
+
+\subsection{Đối tượng nghiên cứu}
+\begin{itemize}[label=-]
+    \item \textbf{Về mặt dữ liệu và ngôn ngữ học:} Đối tượng nghiên cứu là các trạng thái tâm lý, thái độ và biểu hiện cảm xúc đa chiều của người dùng Việt Nam được phản ánh qua ngữ liệu văn bản phi cấu trúc trên nền tảng mạng xã hội YouTube.
+    \item \textbf{Về mặt công nghệ và thuật toán:} Đối tượng nghiên cứu tập trung vào các kiến trúc học sâu tiên tiến dựa trên cơ chế tự chú ý (Transformer-based models) chuyên biệt cho xử lý ngôn ngữ tự nhiên (NLP) đa ngữ và tiếng Việt. Bên cạnh đó, nghiên cứu cũng xem xét việc ứng dụng các Mô hình ngôn ngữ lớn (Large Language Models - LLMs) như một công cụ hỗ trợ quá trình phân tích và tự động hóa khâu gán nhãn dữ liệu.
+\end{itemize}
+
+\subsection{Phạm vi nghiên cứu}
+\begin{itemize}[label=-]
+    \item \textbf{Phạm vi dữ liệu:} Trong khuôn khổ đề án, việc thu thập và khai thác ngữ liệu chỉ dừng lại ở việc giới hạn trong nền tảng YouTube tại thị trường Việt Nam. Nguồn dữ liệu đầu vào bao gồm các bình luận công khai từ các video phát lại (Video on Demand - VOD) và luồng phát trực tiếp (Livestream), kết hợp cùng các siêu dữ liệu (metadata) liên quan trực tiếp đến video như tiêu đề và mô tả.
+\item \textbf{Phạm vi phân loại cảm xúc:} Thay vì tiếp cận theo bài toán phân cực ba nhãn (tích cực, tiêu cực, trung tính) hoặc sáu cảm xúc phổ quát của \textcite{ekman1992there} đề xuất, phạm vi nhận diện của nghiên cứu được mở rộng sang không gian cảm xúc hạt mịn (fine-grained emotion categories). Cụ thể, đề án nghiên cứu áp dụng lược đồ 27 trạng thái cảm xúc vi mô kết hợp với một trạng thái trung tính (neutral) đã được \textcite{demszky2020goemotions} đề xuất, nhằm nắm bắt chính xác các sắc thái biểu đạt phức tạp và đa dạng của người dùng trong thực tế.
+    \item \textbf{Phạm vi công nghệ áp dụng:} Trong quy trình gán nhãn có sự tham gia của chuyên gia (LLM-Human-in-the-loop), đề tài giới hạn việc thử nghiệm trên một số Mô hình ngôn ngữ lớn tiêu biểu hiện nay (như Gemini Flash, Llama 3, Gemma). Đối với khâu phân loại sắc thái cảm xúc, nghiên cứu tập trung thực nghiệm tinh chỉnh (fine-tuning) và đánh giá đối sánh (benchmarking) trên các kiến trúc Transformer đã được tiền huấn luyện (pre-trained) thuộc họ BERT (như mBERT, PhoBERT, mModernBERT).
+\end{itemize}
+
+\section{Phương pháp nghiên cứu}
+Để giải quyết các mục tiêu đã đặt ra, đề án áp dụng phương pháp nghiên cứu thực nghiệm định lượng (quantitative empirical research) kết hợp với các kỹ thuật tiên tiến trong lĩnh vực Xử lý ngôn ngữ tự nhiên (NLP) và Học sâu (Deep Learning). Khung phương pháp này được định hình dựa trên việc tham khảo, kế thừa và tùy biến từ các quy trình phân tích cảm xúc từ hai công trình \parencite{ding2026scope, hung2026vigoemotions}. Từ những nền tảng lý thuyết và thực nghiệm vững chắc đó, đề án đã chuẩn hóa phương pháp triển khai thành một chuỗi quy trình (pipeline) bao gồm bốn giai đoạn trọng tâm như sau:
+
+\textbf{Bước 1: Chuẩn bị dữ liệu}
+\begin{itemize}[label=-]
+    \item Bao gồm, không giới hạn công cụ cho việc xây dựng danh sách tập hạt giống video từ 15 chủ đề được YouTube chia sẵn.
+    \item Cũng đồng thời, không giới hạn công cụ cho quá trình thu thập dữ liệu trên nền tảng YouTube như APIs, Web Scraping,\dots với nội dung bao gồm các thông tin về đối tượng bình luận (gồm nội dung bình luận, thời điểm bình luận) và các thông tin siêu dữ liệu (metadata) các thông tin về đối tượng video được bình luận (gồm tiêu đề, tên kênh, danh mục).
+    \item Tham khảo và xây dựng quy trình tiền xử lý tập dữ liệu thô từ các quy trình chuẩn hiện đại trong những năm gần đây.
+\end{itemize}
+
+\textbf{Bước 2: Gán nhãn bán tự động để xây dựng tập ngữ liệu lớn đã được gán nhãn}
+\begin{itemize}[label=-]
+    \item Lấy mẫu, đánh nhãn thủ công và kết hợp với tập dữ liệu chuẩn (benchmark) ViGoEmotions do \textcite{hung2026vigoemotions} xây dựng để tạo tập hạt giống cho quá trình gán nhãn tự động. 
+    \item Chọn mô hình đã được huấn luyện trên tập ngữ liệu lớn, có độ chính xác cao để thực hiện việc gán nhãn tự động cho tập còn lại.
+    \item Xây dựng một quy trình gán nhãn bán tự động dựa trên mô hình và tập hạt giống, nhằm mở rộng tập hạt giống, cũng chính là tập đã được gán nhãn chính xác.
+\end{itemize}
+
+\textbf{Bước 3: Hiệu chỉnh mô hình}
+\begin{itemize}[label=-]
+    \item Hiệu chỉnh mô hình với các kỹ thuật khử bất cân bằng dữ liệu với các mô hình được chọn để sử dụng cho giai đoạn mô hình hóa.
+    \item Huấn luyện lại mô hình với kỹ thuật học chuyển giao (Transfer Learning) trên tập dữ để đã được gán nhãn ở giai đoạn trước. Nhằm tận dụng sức mạnh của mô hình ngôn ngữ lớn đã được huấn luyện trên các tập ngữ liệu đa dạng, giàu ngữ nghĩa cho việc học nhanh các đặc trưng của ngôn ngữ mạng xã hội phức tạp. 
+\end{itemize}
+
+\textbf{Bước 4: Đánh giá và so sánh kết quả}
+\begin{itemize}[label=-]
+    \item Vì mục tiêu đề án là xây dựng một khung phương pháp để phù hợp với kiến trúc Transformer do đó, cần phải đánh giá quá trình huấn luyện của các mô hình ở bước 3 nhằm đưa ra kết luận chính xác mang tính trung thực khách quan.
+    \item Vì dữ liệu vốn đã mang tính mất cân bằng trong tự nhiên, do đó chúng ta cần phải đánh giá thông qua các độ đo khách quan như F1-macro, Balanced Accuracy nhằm bổ sung cho độ đo độ chính xác tổng thể (Overall Accuracy).  
+\end{itemize}
+
+\section{Bố cục của đề án}
+
+Dựa trên khung phương pháp luận đã đề xuất, cùng các mục tiêu đã đặt ra, nội dung của luận văn được tổ chức thành 5 chương chính với bố cục như sau:
+
+\begin{itemize}
+    \item \textbf{Chương 1: Xác định vấn đề nghiên cứu } - Giới thiệu bối cảnh nghiên cứu, tính cấp thiết của đề tài, xác định mục đích, mục tiêu, đối tượng và phạm vi nghiên cứu, cũng như phương pháp nghiên cứu và cung cấp cái nhìn sơ lược về bố cục của đồ án.
+    \item \textbf{Chương 2: Lược khảo cơ sở lý thuyết và các nghiên cứu trước} - Trình bày các khái niệm liên quan đến quá trình xây dựng khung phương pháp như khung phương pháp, bài toán phân tích sắc thái cảm xúc, kiến trúc Transformer, và các công trình nghiên cứu có liên quan đã được công bố trong và ngoài nước, nhằm cung cấp các định nghĩa tổng thể bài toán.
+    \item \textbf{Chương 3: Phương pháp nghiên cứu} - Mô tả chi tiết quá trình xây dựng khung phương pháp từ quy trình thu thập dữ liệu, tiền xử lý, cho tới khâu mô hình hóa và đánh giá kết quả.
+    \item \textbf{Chương 4: Kết quả nghiên cứu và thảo luận} - Mô tả chi tiết môi trường và các tham số cấu hình thực nghiệm. Tiến hành triển khai đánh giá đối sánh quá trình huấn luyện giữa các mô hình, phân tích định lượng dựa trên các độ đo tiêu chuẩn (Overall Accuracy, Balanced Accuracy, F1-macro) trên tập dữ liệu kiểm định để kiểm chứng hiệu năng thực tế của mô hình nhằm đưa ra các dữ liệu đánh giá khách quan về toàn bộ khung phương pháp.
+    \item \textbf{Chương 5: Kết luận và hàm ý} - Tổng kết những đóng góp của nghiên cứu và
+đề xuất các hướng mở rộng.
+\end{itemize}
+
+\section{Khoảng trống và động lực nghiên cứu}
+
+Như đã đề cập ở các phần trên, mặc dù lĩnh vực phân tích sắc thái cảm xúc (Sentiment Analysis) đã thu hút được nhiều sự quan tâm của giới nghiên cứu, nhưng khi soi chiếu vào bối cảnh thực tế phức tạp của nền tảng YouTube tại Việt Nam, mảng đề tài này vẫn tồn tại những khoảng trống đáng kể cả về mặt lý thuyết lẫn thực tiễn.
+
+Thứ nhất, phần lớn các nghiên cứu trước đây về phân tích cảm xúc tiếng Việt chủ yếu tiếp cận ở mức độ phân cực thô sơ (tích cực, tiêu cực, trung tính) hoặc ứng dụng các mô hình học máy truyền thống và mạng học sâu thế hệ cũ như RNN hay LSTM. Tuy nhiên, chưa có nghiên cứu nào đề xuất và đánh giá hiệu quả của một khung phương pháp (framework) kết hợp Lược đồ 27 trạng thái cảm xúc vi mô và một cảm xúc trung tính với các kiến trúc Transformer tiên tiến (như PhoBERT, mModernBERT) cùng cơ chế gán nhãn LLM-Human-in-the-loop, nhằm tận dụng đồng thời cả hai ưu điểm: khả năng nhận diện cảm xúc hạt mịn (fine-grained) và năng lực bóc tách ngữ cảnh vượt trội của các mô hình ngôn ngữ hiện đại với lượng ngữ liệu lớn.
+
+Thứ hai, một trong những thách thức lớn trong bài toán lắng nghe mạng xã hội là sự nhiễu loạn và phức tạp của ngôn ngữ tự nhiên. Các nghiên cứu trước thường sử dụng dữ liệu đã được làm sạch một cách dứt khoát nhằm đánh đổi tính toàn vẹn của cảm xúc trên ngữ liệu với hiệu năng của mô hình. Hoặc là thu hẹp trong các miền cụ thể (như đánh giá nhà hàng, khách sạn, sản phẩm điện thoại). Trong khi đó, văn bản bình luận trên nền tảng YouTube thực tế mang tính đa miền (multi-domain), chứa nhiều hiện tượng trộn mã (code-switching), từ lóng, và đặc biệt là sự mất cân bằng phân lớp trầm trọng. Và việc xây dựng một quy trình tiền xử lý thực tiễn, bao gồm chuẩn hóa văn bản mạng, bóc tách đặc trưng mang tính hiện đại, phù hợp với các mô hình ngôn ngữ lớn và áp dụng các kỹ thuật khử bất cân bằng dữ liệu hợp lý là rất cần thiết, nhưng vẫn chưa được nghiên cứu kỹ lưỡng trong bối cảnh ứng dụng tại Việt Nam.
+
+Thứ ba, nhiều nghiên cứu hiện nay vẫn tập trung đánh giá vào mô hình phân tích cảm xúc chủ yếu dựa trên độ chính xác tổng thể (Overall Accuracy), mà bỏ qua đánh giá quá trình huấn luyện giữa các mô hình. Điều này dẫn đến việc đánh giá toàn bộ quá trình xây dựng khung phương pháp từ khâu thu thập cho tới trực quan hóa vẫn chưa được toàn diện, đặc biệt trong bối cảnh ứng dụng thực tiễn của hệ thống lắng nghe mạng xã hội (Social Media Listening), nơi mà độ tin cậy của kết quả đầu ra phụ thuộc mật thiết vào tính xuyên suốt và sự liên kết chặt chẽ của từng mắt xích.
+
+Về mặt tổng quan trong các mô hình xử lý ngôn ngữ tự nhiên hiện đại, kiến trúc Transformer nổi bật nhờ cơ chế tự chú ý (Self-Attention) giúp giải quyết triệt để hạn chế về bộ nhớ dài hạn, cho phép nắm bắt toàn bộ ngữ cảnh một cách linh hoạt \parencite{vaswani2017attention}, trong khi các Mô hình ngôn ngữ lớn (LLMs) được biết đến với khả năng suy luận và hỗ trợ tự động hóa gán nhãn vượt trội. Mặc dù chưa có nhiều nghiên cứu chính thức tại Việt Nam áp dụng toàn diện sự kết hợp giữa hệ thống 27 + 1 nhãn cảm xúc vi mô và kiến trúc Transformer cho dữ liệu YouTube, nhưng trong các ngôn ngữ phổ biến trên thế giới, việc tích hợp này đã chứng minh được hiệu quả trong việc cải thiện độ chính xác và nắm bắt tâm lý phức tạp của người dùng. Do đó, nghiên cứu này kế thừa ý tưởng từ các thành tựu tiên tiến toàn cầu để đề xuất một chuỗi quy trình (pipeline) chuẩn hóa, nhằm tận dụng đồng thời năng lực học chuyển giao của các mô hình họ BERT và hệ thống phân loại hạt mịn, qua đó nâng cao hiệu suất nhận diện cảm xúc trong điều kiện dữ liệu thực tế đầy nhiễu và biến thiên.
+
+Trên cơ sở những khoảng trống nêu trên, đề tài "Khung phương pháp phân tích sắc thái cảm xúc của người dùng Việt Nam trên nền tảng YouTube dựa trên kiến trúc Transformer" không chỉ đóng góp về mặt học thuật thông qua việc đề xuất một quy trình kết hợp mới mẻ, mà còn có tiềm năng ứng dụng cao trong việc tối ưu hóa hệ thống lắng nghe mạng xã hội (Social Media Listening) cho các doanh nghiệp và nhà sáng tạo nội dung hiện nay.

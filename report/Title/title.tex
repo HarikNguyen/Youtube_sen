@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HARD TITLE - MAIN                                                                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+
+\begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Thick Border
+        \draw[line width = 5pt] ($(current page.north west) + (2.0cm,-2.0cm)$) rectangle ($(current page.south east) + (-1.5cm,2.0cm)$);
+        % Thin Border
+        \draw[line width = 0.5pt] ($(current page.north west) + (2.2cm,-2.2cm)$) rectangle ($(current page.south east) + (-1.7cm,2.2cm)$);
+    \end{tikzpicture}
+
+    \vspace{-1.0cm}
+    \fontsize{18}{15}\selectfont
+    \textbf{BỘ GIÁO DỤC VÀ ĐÀO TẠO}\\
+    \textbf{ĐẠI HỌC KINH TẾ THÀNH PHỐ HỒ CHÍ MINH}\\[-1.5ex]
+    % small line
+    \rule{8.5cm}{0.5pt}\\[3.5cm]
+
+    \fontsize{18}{18}\selectfont
+    \textbf{\MakeUppercase{\nameStudent}}\\[2.5cm]
+
+    \fontsize{16}{22}\selectfont
+    \textbf{\MakeUppercase{\topicName}}\\[3.5cm]
+
+    \fontsize{18}{18}\selectfont
+    \textbf{LUẬN VĂN THẠC SĨ}\\[4cm]
+
+    \vfill
+    \fontsize{16}{15}\selectfont
+    \textbf{Thành phố Hồ Chí Minh - Năm 2026}
+
+\end{center}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BREAKING TITLE PAGE                                                                  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\cleardoublepage
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SOFT TITLE - MAIN                                                                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[line width = 5pt] ($(current page.north west) + (2.0cm,-2.0cm)$) rectangle ($(current page.south east) + (-1.5cm,2.0cm)$);
+        \draw[line width = 0.5pt] ($(current page.north west) + (2.2cm,-2.2cm)$) rectangle ($(current page.south east) + (-1.7cm,2.2cm)$);
+    \end{tikzpicture}
+
+    \vspace{-1.0cm}
+    \fontsize{18}{15}\selectfont
+    \textbf{BỘ GIÁO DỤC VÀ ĐÀO TẠO}\\
+    \textbf{ĐẠI HỌC KINH TẾ THÀNH PHỐ HỒ CHÍ MINH}\\[-1.5ex]
+    \rule{8.5cm}{0.7pt}\\[2.5cm]
+
+    \fontsize{18}{15}\selectfont
+    \textbf{\MakeUppercase{\nameStudent}}\\[2cm]
+
+    \fontsize{16}{15}\selectfont
+    \textbf{\MakeUppercase{\topicName}}\\[1.5cm]
+    
+    \fontsize{16}{15}\selectfont
+    \begin{tabular}{ll}
+        Chuyên ngành:  \chuyenNganh\\
+        Hướng đào tạo: \huongDaoTao \\
+        Mã số: \maSoChuyenNganh
+    \end{tabular}\\[2cm]
+
+    \fontsize{18}{18}\selectfont
+    \textbf{LUẬN VĂN THẠC SĨ}\\[1.5cm]
+
+    \fontsize{16}{18}\selectfont
+    NGƯỜI HƯỚNG DẪN KHOA HỌC:\\
+    \MakeUppercase{\mentorName}\\[2cm]
+
+    \vfill
+    \fontsize{16}{15}\selectfont
+    \textbf{Thành phố Hồ Chí Minh - Năm 2026}
+
+\end{center}
+
+\end{titlepage}
