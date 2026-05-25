@@ -48,4 +48,4 @@
 \contentsline {chapter}{\numberline {5}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{54}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Kết luận chung}{54}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Hướng phát triển}{55}{section.5.2}%
-\contentsline {chapter}{DANH MỤC TÀI LIỆU THAM KHẢO}{57}{section*.19}%
+\contentsline {chapter}{DANH MỤC TÀI LIỆU THAM KHẢO TIẾNG ANH}{57}{section*.19}%

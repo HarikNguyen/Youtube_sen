@@ -263,13 +263,13 @@
 % In tài liệu tham khảo
 \clearpage
 \phantomsection
-\addcontentsline{toc}{chapter}{DANH MỤC TÀI LIỆU THAM KHẢO}
-\printbibheading[title={DANH MỤC TÀI LIỆU THAM KHẢO}]
-
-\printbibliography[heading=subbibliography, title={Tiếng Việt}, keyword=Viet, resetnumbers=true]
-
 \DeclareNameAlias{sortname}{family-given}
 \DeclareNameAlias{default}{family-given}
+\addcontentsline{toc}{chapter}{DANH MỤC TÀI LIỆU THAM KHẢO TIẾNG ANH}
+\printbibliography[heading=bibliography, title={DANH MỤC TÀI LIỆU THAM KHẢO TIẾNG ANH}, notkeyword=Viet, resetnumbers=true]
 
-\printbibliography[heading=subbibliography, title={Tiếng Anh}, notkeyword=Viet, resetnumbers=4] 
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{DANH MỤC TÀI LIỆU THAM KHẢO TIẾNG VIỆT}
+\printbibliography[heading=bibliography, title={DANH MỤC TÀI LIỆU THAM KHẢO TIẾNG VIỆT}, keyword=Viet, resetnumbers=true]
 \end{document} 

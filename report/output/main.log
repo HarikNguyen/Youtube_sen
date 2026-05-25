@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.3.15)  24 MAY 2026 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.3.15)  24 MAY 2026 20:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1844,7 +1844,7 @@ Overfull \hbox (3.03743pt too wide) detected at line 48
 
  (./Chapter1/chapter1.tex
 CHƯƠNG 1.
-<Images/decision_lab_iv_2025_re.png, id=471, 1284.8pt x 469.755pt>
+<Images/decision_lab_iv_2025_re.png, id=477, 1284.8pt x 469.755pt>
 File: Images/decision_lab_iv_2025_re.png Graphic file (type png)
 <use Images/decision_lab_iv_2025_re.png>
 Package pdftex.def Info: Images/decision_lab_iv_2025_re.png  used on input line
@@ -1880,8 +1880,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.33 
-      [3]
+l.32 D
+      ựa trên lược đồ cảm xúc do \textcite{demszky2020goemotions...
+[3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -1893,15 +1894,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 \item \textbf
-                  {Phạm vi phân loại cảm xúc:} Thay vì tiếp cận...
-[5]
-Overfull \hbox (0.76495pt too wide) in paragraph at lines 53--54
-\T5/qtm/m/n/13 s� M� h�nh ng�n ng� l�n ti�u bi�u hi�n nay (nh� Gem-ini Flash, L
-lama 3, Gemma).
- []
-
-
+l.47 \end{itemize}
+                   [5]
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -1912,8 +1906,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.77 \end{itemize}
-                   [7]
+l.75     \item H
+                iệu chỉnh mô hình với các kỹ thuật khử bất ...
+[7]
 LaTeX Font Info:    Trying to load font information for LMP2+qtm on input line 
 90.
 LaTeX Font Info:    No file LMP2qtm.fd. on input line 90.
@@ -1925,15 +1920,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.93     \item \textbf
-                      {Chương 4: Kết quả nghiên cứu và thảo lu�...
+l.92     \item \textbf
+                      {Chương 3: Phương pháp nghiên cứu} - Mô tả ...
 [8]
 pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.105 
-       [9]
+l.104 T
+       hứ hai, một trong những thách thức lớn trong bài toán l�...
+[9]
 pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
  been already used, duplicate ignored
 <to be read again> 
@@ -1977,19 +1973,19 @@ l.36 \end{itemize}
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13> not available
 (Font)              size <12> substituted on input line 56.
  [16] [17]
-<all-twemojis.pdf, id=596, page=1971, 27.10126pt x 27.10126pt>
+<all-twemojis.pdf, id=625, page=1971, 27.10126pt x 27.10126pt>
 File: all-twemojis.pdf Graphic file (type pdf)
 <use all-twemojis.pdf, page 1971>
 Package pdftex.def Info: all-twemojis.pdf , page1971 used on input line 79.
 (pdftex.def)             Requested size: 5.84981pt x 5.84999pt.
-<all-twemojis.pdf, id=597, page=2014, 27.10126pt x 27.10126pt>
+<all-twemojis.pdf, id=626, page=2014, 27.10126pt x 27.10126pt>
 File: all-twemojis.pdf Graphic file (type pdf)
 <use all-twemojis.pdf, page 2014>
 Package pdftex.def Info: all-twemojis.pdf , page2014 used on input line 79.
 (pdftex.def)             Requested size: 5.84981pt x 5.84999pt.
  [18 </usr/share/texlive/texmf-dist/tex/latex/twemojis/all-twemojis.pdf> </usr/
 share/texlive/texmf-dist/tex/latex/twemojis/all-twemojis.pdf>] [19]
-<Images/framework_sample.png, id=615, 749.80125pt x 391.4625pt>
+<Images/framework_sample.png, id=643, 749.80125pt x 391.4625pt>
 File: Images/framework_sample.png Graphic file (type png)
 <use Images/framework_sample.png>
 Package pdftex.def Info: Images/framework_sample.png  used on input line 109.
@@ -2001,13 +1997,13 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.119 
        <./Images/framework_sample.png>]
-<Images/attention.png, id=644, 3411.74625pt x 1671.24374pt>
+<Images/attention.png, id=672, 3411.74625pt x 1671.24374pt>
 File: Images/attention.png Graphic file (type png)
 <use Images/attention.png>
 Package pdftex.def Info: Images/attention.png  used on input line 139.
 (pdftex.def)             Requested size: 352.81552pt x 172.8209pt.
  [22]
-<Images/transformer.jpg, id=654, 391.4625pt x 557.08125pt>
+<Images/transformer.jpg, id=682, 391.4625pt x 557.08125pt>
 File: Images/transformer.jpg Graphic file (type jpg)
 <use Images/transformer.jpg>
 Package pdftex.def Info: Images/transformer.jpg  used on input line 147.
@@ -2036,16 +2032,13 @@ CHƯƠNG 3.
 
 
 ]) (./Chapter3/s2.tex [30]
-
-LaTeX Warning: Reference `alg:seed_expansion_basic' on page 31 undefined on inp
-ut line 9.
-
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 12.
-[31]
+ [31]
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 5
 1.
- (/usr/share/texlive/texmf-dist/tex/latex/vntex/t5cmtt.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/vntex/t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 Underfull \hbox (badness 3525) in paragraph at lines 51--51
@@ -2065,7 +2058,7 @@ as been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.2 
     ]
-<Images/prepare_process.png, id=726, 901.4478pt x 276.5532pt>
+<Images/prepare_process.png, id=755, 901.4478pt x 276.5532pt>
 File: Images/prepare_process.png Graphic file (type png)
 <use Images/prepare_process.png>
 Package pdftex.def Info: Images/prepare_process.png  used on input line 5.
@@ -2077,7 +2070,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.16 
       <./Images/prepare_process.png>] [34]) (./Chapter3/s4.tex [35]
-<Images/anno_proc.png, id=750, 843.6318pt x 467.8278pt>
+<Images/anno_proc.png, id=779, 843.6318pt x 467.8278pt>
 File: Images/anno_proc.png Graphic file (type png)
 <use Images/anno_proc.png>
 Package pdftex.def Info: Images/anno_proc.png  used on input line 7.
@@ -2089,12 +2082,12 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.22 \end{itemize}
                    <./Images/anno_proc.png>]) (./Chapter3/s5.tex [37]
-<Images/label_distribution.png, id=768, 1084.05pt x 505.89pt>
+<Images/label_distribution.png, id=797, 1084.05pt x 505.89pt>
 File: Images/label_distribution.png Graphic file (type png)
 <use Images/label_distribution.png>
 Package pdftex.def Info: Images/label_distribution.png  used on input line 7.
 (pdftex.def)             Requested size: 352.81552pt x 164.64388pt.
-<Images/label_dist_after_unsampling.png, id=769, 1084.05pt x 505.89pt>
+<Images/label_dist_after_unsampling.png, id=798, 1084.05pt x 505.89pt>
 File: Images/label_dist_after_unsampling.png Graphic file (type png)
 <use Images/label_dist_after_unsampling.png>
 Package pdftex.def Info: Images/label_dist_after_unsampling.png  used on input 
@@ -2155,7 +2148,7 @@ Underfull \hbox (badness 2828) in paragraph at lines 32--32
 
 
 ]
-<Images/comment_by_cate.png, id=819, 478.4274pt x 214.6419pt>
+<Images/comment_by_cate.png, id=849, 478.4274pt x 214.6419pt>
 File: Images/comment_by_cate.png Graphic file (type png)
 <use Images/comment_by_cate.png>
 Package pdftex.def Info: Images/comment_by_cate.png  used on input line 54.
@@ -2167,7 +2160,7 @@ as been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.59 
      ]
-<Images/vid_by_cate.png, id=825, 486.3771pt x 235.6002pt>
+<Images/vid_by_cate.png, id=855, 486.3771pt x 235.6002pt>
 File: Images/vid_by_cate.png Graphic file (type png)
 <use Images/vid_by_cate.png>
 Package pdftex.def Info: Images/vid_by_cate.png  used on input line 62.
@@ -2185,7 +2178,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.70 
       <./Images/comment_by_cate.png> <./Images/vid_by_cate.png>]
-<Images/stats_tk.png, id=831, 448.67625pt x 481.8pt>
+<Images/stats_tk.png, id=861, 448.67625pt x 481.8pt>
 File: Images/stats_tk.png Graphic file (type png)
 <use Images/stats_tk.png>
 Package pdftex.def Info: Images/stats_tk.png  used on input line 73.
@@ -2201,7 +2194,7 @@ File: Images/label_distribution.png Graphic file (type png)
 <use Images/label_distribution.png>
 Package pdftex.def Info: Images/label_distribution.png  used on input line 85.
 (pdftex.def)             Requested size: 352.81552pt x 164.64388pt.
-<Images/goemo_labeldist.png, id=838, 399.4925pt x 459.7175pt>
+<Images/goemo_labeldist.png, id=868, 399.4925pt x 459.7175pt>
 File: Images/goemo_labeldist.png Graphic file (type png)
 <use Images/goemo_labeldist.png>
 Package pdftex.def Info: Images/goemo_labeldist.png  used on input line 93.
@@ -2213,7 +2206,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.99 
      ]
-<Images/eps_mbert.png, id=844, 722.7pt x 433.62pt>
+<Images/eps_mbert.png, id=874, 722.7pt x 433.62pt>
 File: Images/eps_mbert.png Graphic file (type png)
 <use Images/eps_mbert.png>
 Package pdftex.def Info: Images/eps_mbert.png  used on input line 103.
@@ -2225,12 +2218,12 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.108 
        <./Images/goemo_labeldist.png>]
-<Images/eps_phobert.png, id=850, 722.7pt x 433.62pt>
+<Images/eps_phobert.png, id=879, 722.7pt x 433.62pt>
 File: Images/eps_phobert.png Graphic file (type png)
 <use Images/eps_phobert.png>
 Package pdftex.def Info: Images/eps_phobert.png  used on input line 111.
 (pdftex.def)             Requested size: 352.81552pt x 211.6883pt.
-<Images/eps_mmbert.png, id=851, 722.7pt x 433.62pt>
+<Images/eps_mmbert.png, id=880, 722.7pt x 433.62pt>
 File: Images/eps_mmbert.png Graphic file (type png)
 <use Images/eps_mmbert.png>
 Package pdftex.def Info: Images/eps_mmbert.png  used on input line 119.
@@ -2271,58 +2264,48 @@ CHƯƠNG 5.
 
 ] [55]) [56]
 
-Package biblatex Warning: Keyword 'Viet' not found on input line 269.
-
-
 Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'.
 (biblatex)                Ignoring 'resetnumbers=true' on input line 269.
 
 
-LaTeX Warning: Empty bibliography on input line 269.
-
-
-Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'.
-(biblatex)                Ignoring 'resetnumbers=true' on input line 274.
-
-
-Overfull \hbox (40.23349pt too wide) in paragraph at lines 274--274
+Overfull \hbox (40.23349pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Benveniste, Damien (2024). \T5/qtm/m/it/13 The Trans-former 
 Ar-chi-tec-ture (V2)\T5/qtm/m/n/13 . \T5/qtm/m/sc/13 url\T5/qtm/m/n/13 : []$\T5
 /cmtt/m/n/13 https : / / newsletter .
  []
 
 
-Overfull \hbox (12.94762pt too wide) in paragraph at lines 274--274
+Overfull \hbox (12.94762pt too wide) in paragraph at lines 269--269
 \T5/cmtt/m/n/13 theaiedge . io / p / the -[] transformer -[] architecture -[] v
 2$[] \T5/qtm/m/n/13 (vis-ited on 03/21/2026). 
  []
 
 
-Overfull \hbox (7.4659pt too wide) in paragraph at lines 274--274
+Overfull \hbox (7.4659pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Broder, An-drei Z, Charikar, Moses, Frieze, Alan M, and Mitz
 en-macher, Michael (1998).
  []
 
 
-Overfull \hbox (3.28201pt too wide) in paragraph at lines 274--274
+Overfull \hbox (3.28201pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/n/13 ``Min-wise in-de-pen-dent per-mu-ta-tions''. In: \T5/qtm/m/it/13
  Pro-ceed-ings of the thir-ti-eth an-nual ACM
  []
 
 
-Overfull \hbox (0.75778pt too wide) in paragraph at lines 274--274
+Overfull \hbox (0.75778pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Cui, Yin, Jia, Menglin, Lin, Tsung-Yi, Song, Yang, and Be-lo
 ngie, Serge (2019). ``Class-
  []
 
 
-Overfull \hbox (20.37701pt too wide) in paragraph at lines 274--274
+Overfull \hbox (20.37701pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/n/13 balanced loss based on ef-fec-tive num-ber of sam-ples''. In: \T
 5/qtm/m/it/13 Pro-ceed-ings of the IEEE/CVF
  []
 
 
-Overfull \hbox (35.17714pt too wide) in paragraph at lines 274--274
+Overfull \hbox (35.17714pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Decision Lab (2025). \T5/qtm/m/it/13 The con-nected con-sume
 r Q4 2025\T5/qtm/m/n/13 . \T5/qtm/m/sc/13 url\T5/qtm/m/n/13 : []$\T5/cmtt/m/n/1
 3 https : / / www . decisionlab .
@@ -2334,105 +2317,111 @@ r Q4 2025\T5/qtm/m/n/13 . \T5/qtm/m/sc/13 url\T5/qtm/m/n/13 : []$\T5/cmtt/m/n/1
 
 
 ]
-Overfull \hbox (23.47415pt too wide) in paragraph at lines 274--274
+Overfull \hbox (23.47415pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Ding, Wan-feng, Bhuiyan, Hanif, and Hos-sain, Md Khalid (202
 6). ``SCOPE: A Transformer-
  []
 
 
-Overfull \hbox (14.56387pt too wide) in paragraph at lines 274--274
+Overfull \hbox (14.56387pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Ducange, Pietro, Faz-zo-lari, Michela, Petroc-chi, Marinella
 , and Vec-chio, Mas-simo (2019).
  []
 
 
-Overfull \hbox (5.1388pt too wide) in paragraph at lines 274--274
+Overfull \hbox (5.1388pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 El Az-zouzy, Ous-sama, Chany-our, Tarik, and An-daloussi, Sa
 id Jai (2025). ``Transformer-
  []
 
 [58]
-Overfull \hbox (33.48433pt too wide) in paragraph at lines 274--274
+Overfull \hbox (33.48433pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Kemp, Si-mon (2026). \T5/qtm/m/it/13 Dig-i-tal 2026: Viet-na
 m\T5/qtm/m/n/13 . DataRe-por-tal. \T5/qtm/m/sc/13 url\T5/qtm/m/n/13 : []$\T5/cm
 tt/m/n/13 https : / / datareportal .
  []
 
 
-Overfull \hbox (0.474pt too wide) in paragraph at lines 274--274
+Overfull \hbox (0.474pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/n/13 Chan-nels''. In: \T5/qtm/m/it/13 In-ter-na-tional Con-fer-ence o
 n In-for-ma-tion and Com-mu-ni-ca-tion Tech-
  []
 
 
-Overfull \hbox (8.08116pt too wide) in paragraph at lines 274--274
+Overfull \hbox (8.08116pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 LeDoux, Joseph E (2013). ``Emo-tion cir-cuits in the brain''
 . In: \T5/qtm/m/it/13 Fear and anx-i-ety\T5/qtm/m/n/13 , pp. 259^^U
  []
 
-[59]
-Overfull \hbox (6.61003pt too wide) in paragraph at lines 274--274
+
+Overfull \hbox (6.61003pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/n/13 ro-bustly op-ti-mized bert pre-train-ing ap-proach''. In: \T5/qt
 m/m/it/13 arXiv preprint arXiv:1907.11692\T5/qtm/m/n/13 . 
  []
 
-
-Overfull \hbox (6.84303pt too wide) in paragraph at lines 274--274
+[59]
+Overfull \hbox (6.84303pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/it/13 Jour-nal of In-no-va-tion and Sus-tain-able De-vel-op-ment \T5/
 qtm/m/n/13 16.Spe-cial is-sue: ISDS, pp. 52^^U
  []
 
 [60]
-Overfull \hbox (12.8642pt too wide) in paragraph at lines 274--274
+Overfull \hbox (12.8642pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/n/13 Cross-Domain Aspect-Based Sen-ti-ment Anal-y-sis via Domain-Cont
 extualized Chain-
  []
 
 
-Overfull \hbox (130.01372pt too wide) in paragraph at lines 274--274
+Overfull \hbox (130.01372pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/n/13 umama-h-eswar-icse@kamarajengg.edu.in, 21ucs017@kamarajengg.edu.
 in, 21ucs012@kamarajengg.edu.in,
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 2
-74.
+69.
 (/usr/share/texmf/tex/latex/tex-gyre/ot1qtm.fd
 File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
 )
-Overfull \hbox (3.5496pt too wide) in paragraph at lines 274--274
+Overfull \hbox (3.5496pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Vaswani, Ashish, Shazeer, Noam, Par-mar, Niki, Uszko-r-eit, 
 Jakob, Jones, Llion, Gomez,
  []
 
 [61]
-Overfull \hbox (13.41663pt too wide) in paragraph at lines 274--274
+Overfull \hbox (13.41663pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Wang, Yizhong, Ko-rdi, Yeganeh, Mishra, Swa-roop, Liu, Al-is
 a, Smith, Noah A, Khashabi,
  []
 
-[62] [63] (output/main.aux (output/Appendix/reassurances.aux)
-(output/Appendix/thanks.aux) (output/Appendix/abstract.aux)
-(output/Chapter1/chapter1.aux) (output/Chapter2/chapter2.aux)
-(output/Chapter3/chapter3.aux) (output/Chapter4/chapter4.aux)
-(output/Chapter5/chapter5.aux))
+[62] [63]
+
+Package biblatex Warning: Keyword 'Viet' not found on input line 274.
+
+
+Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'.
+(biblatex)                Ignoring 'resetnumbers=true' on input line 274.
+
+
+LaTeX Warning: Empty bibliography on input line 274.
+
+(output/main.aux (output/Appendix/reassurances.aux) (output/Appendix/thanks.aux
+) (output/Appendix/abstract.aux) (output/Chapter1/chapter1.aux)
+(output/Chapter2/chapter2.aux) (output/Chapter3/chapter3.aux)
+(output/Chapter4/chapter4.aux) (output/Chapter5/chapter5.aux))
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A5A0D010C920F0E5800C36234241D8B6;12237.
+(rerunfilecheck)             Checksum: E9318323318D8427CE99C9EB62E96732;12296.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46672 strings out of 477466
- 935118 string characters out of 5828687
+ 46827 strings out of 477466
+ 937243 string characters out of 5828687
  1864330 words of memory out of 5000000
- 66017 multiletter control sequences out of 15000+600000
+ 66166 multiletter control sequences out of 15000+600000
  608878 words of font info for 80 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
  117i,17n,118p,2248b,1623s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2447,10 +2436,10 @@ are/texmf/fonts/type1/pctex/mtpro2/mt2syt.pfb></usr/share/texmf/fonts/type1/pub
 lic/tex-gyre/qtmb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></
 usr/share/texmf/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on output/main.pdf (79 pages, 2440102 bytes).
+Output written on output/main.pdf (79 pages, 2440932 bytes).
 PDF statistics:
- 1032 PDF objects out of 1200 (max. 8388607)
- 874 compressed objects within 9 object streams
- 201 named destinations out of 1000 (max. 500000)
+ 1063 PDF objects out of 1200 (max. 8388607)
+ 904 compressed objects within 10 object streams
+ 207 named destinations out of 1000 (max. 500000)
  530 words of extra memory for PDF output out of 10000 (max. 10000000)
 

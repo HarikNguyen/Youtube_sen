@@ -1,0 +1,1 @@
+Độ hạt mịn (Fine-grained): Đây là thuật ngữ chuẩn mực trong Khoa học máy tính và Nhận dạng mẫu. Đối lập với "Coarse-grained" (hạt thô - phân chia đại khái thành các mảng lớn), "Fine-grained" nghĩa là hạt được xay rất nhỏ, mịn, đại diện cho việc phân tách dữ liệu thành nhiều lớp nhỏ, có ranh giới sát nhau và đòi hỏi độ phân giải cao để nhận biết.
