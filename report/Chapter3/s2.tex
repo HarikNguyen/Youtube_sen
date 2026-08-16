@@ -1,12 +1,12 @@
-Hiện tại, các bộ ngữ liệu chuẩn (benchmark) dành cho bài toán phân tích sắc thái cảm xúc cho tiếng Việt thường gặp như ViLexNorm, với số lượng khoảng trên 10 ngàn cặp (câu - nhãn), UIT-VSMEC với số lượng khoảng 7 ngàn cặp, trong khi đó bộ ngữ liệu gần đây nhất ViGoEmotions được cho là lớn nhất cũng chỉ có số lượng cực kỳ hạn chế khoảng 21 ngàn cặp với 28 lớp cảm xúc, và được phân loại đa nhãn.
+Hiện nay, các bộ ngữ liệu đối sánh chuẩn (benchmark) cho việc phân tích sắc thái cảm xúc tiếng Việt khá khiêm tốn về quy mô: ViLexNorm chỉ có hơn 10 ngàn cặp (câu - nhãn), UIT-VSMEC khoảng 7 ngàn cặp; ngay cả bộ dữ liệu ViGoEmotions mới nhất vốn được xem là lớn nhất hiện có, cũng chỉ dừng ở khoảng 21 ngàn cặp trải trên 28 lớp cảm xúc, được gán nhãn theo hướng đa nhãn.
 
-Khi đặt lên bàn cân đối chiếu với các kho ngữ liệu quốc tế như YouNiverse \parencite{ribeiro2021youniverse} (hơn 8,6 tỷ lượt tương tác bình luận) hay Douban-Dushu \parencite{zhao2018lsicc} (hơn 37 triệu mẫu đánh giá từ nền tảng đọc sách), quy mô dữ liệu tiếng Việt hiện tại bộc lộ rõ sự chênh lệch sâu sắc. Hơn nữa, để khai thác triệt để năng lực biểu diễn ngữ nghĩa của các kiến trúc học sâu tiên tiến như Transformer, tập dữ liệu đầu vào đòi hỏi sự đáp ứng khắt khe không chỉ về "lượng" mà còn về "chất". Sự to lớn của dữ liệu ở đây phải được định hình thông qua tính đa dạng trong cấu trúc từ vựng, khả năng bao quát đa miền (multi-domain) và sự phong phú trong các tầng lớp ngữ nghĩa biểu đạt.
+So sánh với các kho ngữ liệu quốc tế như YouNiverse \parencite{ribeiro2021youniverse} (hơn 8,6 tỷ lượt tương tác bình luận) hay Douban-Dushu \parencite{zhao2018lsicc} (hơn 37 triệu mẫu đánh giá từ nền tảng đọc sách), quy mô dữ liệu tiếng Việt hiện có bộc lộ khoảng cách rất lớn. Trong khi đó, để phát huy tối đa năng lực biểu diễn ngữ nghĩa của các kiến trúc học sâu tiên tiến như Transformer, tập dữ liệu đầu vào cần thỏa mãn yêu cầu về quy mô lẫn chất lượng. Tính "lớn" ở đây không chỉ nằm ở số lượng, mà còn thể hiện qua sự đa dạng trong cấu trúc từ vựng, khả năng bao quát đa miền (multi-domain) và độ phong phú của các tầng ngữ nghĩa biểu đạt.
 
-Xuất phát từ thực tiễn đó, trong giai đoạn này, mục tiêu cốt lõi được đặt ra là thu thập hàng triệu dòng bình luận thô từ nền tảng YouTube. Nguồn dữ liệu quy mô lớn này sẽ là tiền đề vững chắc để xây dựng một bộ ngữ liệu chuẩn không chỉ mang đầy đủ tính đa dạng, đa miền, mà còn phản ánh chân thực tính phức tạp và độ nhiễu của ngôn ngữ mạng xã hội Việt Nam. Qua đó, nghiên cứu kỳ vọng tạo ra một không gian dữ liệu đủ sâu rộng, đáp ứng trọn vẹn yêu cầu huấn luyện các mô hình phân tích cảm xúc vi mô có độ chính xác và tính thích ứng cao.
+Xuất phát từ thực trạng này, mục tiêu cốt lõi của giai đoạn thu thập dữ liệu là thu về hàng triệu dòng bình luận thô từ YouTube, xem đây là tài liệu chuẩn để hình thành một tập dữ liệu chuẩn, vừa phong phú trên nhiều lĩnh vực, vừa phản ánh trung thực sự phức tạp và các đặc trưng nhiễu vốn có của văn phong trực tuyến tại Việt Nam. Qua đó, nghiên cứu kỳ vọng kiến tạo được một không gian dữ liệu đủ sâu rộng, đáp ứng trọn vẹn yêu cầu huấn luyện các mạng nơ-ron đánh giá cảm xúc ở cấp độ vi mô với độ chuẩn xác và tính linh hoạt vượt trội.
 
-Để thực hiện điều đó, ta cần phải thực hiện hai bước.
+Để hiện thực hóa mục tiêu này, toàn bộ quy trình được triển khai qua hai bước chính.
 
-\textbf{Bước 1}, xây dựng một danh sách hạt giống gồm danh sách các kênh phổ biến ở Việt Nam, trong tất cả các lĩnh vực mà YouTube định nghĩa đề xuất, cụ thể là, thông qua nền tảng thống kê mạng xã hội thứ ba nổi tiếng, \textit{socialblade} \parencite{socialblade}. Đồng thời áp dụng quy trình thuật toán \ref{alg:seed_channel_expansion} để mở rộng tập danh sách hạt giống.
+\textbf{Bước 1}, Danh sách hạt giống gồm các kênh phổ biến tại Việt Nam trải rộng trên mọi hạng mục mà nền tảng này phân loại, dựa vào sự hỗ trợ của hệ thống thống kê trung gian uy tín \textit{socialblade} \parencite{socialblade}, sau đó áp dụng thuật toán \ref{alg:seed_channel_expansion} để mở rộng tập danh sách hạt giống này.
 
 \begin{algorithm}[H]
 \caption{Thuật toán mở rộng tập dữ liệu kênh hạt giống dựa trên đề xuất của YouTube}
@@ -20,10 +20,10 @@ Xuất phát từ thực tiễn đó, trong giai đoạn này, mục tiêu cốt
 \While{$Q \neq \emptyset$} \Comment{Lặp cho tới khi duyệt hết danh sách kênh (hàng đợi rỗng)}
     \State $i \gets \text{Lấy (Pop) một kênh từ đầu hàng đợi } Q$
     \State $V_i \gets \text{Lấy danh sách các video thuộc kênh } i$
-    
+
     \For{\textbf{each} video $j \in V_i$} \Comment{Duyệt từng video $j$ của kênh $i$}
         \State $C_{rec} \gets \text{Lấy 3 kênh đề xuất mới từ YouTube liên quan đến video } j$
-        
+
         \For{\textbf{each} kênh $c \in C_{rec}$}
             \If{$c \notin S_{channel}$} \Comment{Đảm bảo kênh đề xuất chưa từng có trong tập hạt giống}
                 \State $S_{channel} \gets S_{channel} \cup \{c\}$ \Comment{Bổ sung ngay vào tập hạt giống}
@@ -37,9 +37,9 @@ Xuất phát từ thực tiễn đó, trong giai đoạn này, mục tiêu cốt
 \end{algorithmic}
 \end{algorithm}
 
-\textbf{Bước 2}, tiến hành duyệt toàn bộ các video của toàn bộ các kênh trong danh sách các đường dẫn hạt giống (URLs) nhằm thu thập siêu dữ liệu (metadata) của video và hệ thống các bình luận đi kèm. Để phục vụ bài toán phân tích sắc thái cảm xúc đa miền và quản lý hiệu quả cấu trúc dữ liệu mạng xã hội, các thông tin này được tổ chức theo mô hình phân cấp (hierarchical structure) tương tự như phương pháp luận do \textcite{ding2026scope} đề xuất. Mô hình này giúp phân tách rõ ràng giữa thực thể video (nút cha) và các luồng thảo luận (nút con), đồng thời bảo toàn cấu trúc phản hồi nhiều cấp (nested replies) của người dùng.
+\textbf{Bước 2}, duyệt toàn bộ video thuộc các kênh có trong danh sách đường dẫn hạt giống (URLs) để thu thập siêu dữ liệu (metadata) video cùng hệ thống bình luận đi kèm. Nhằm phục vụ việc đánh giá sắc thái cảm xúc trên đa lĩnh vực và kiểm soát tối ưu nguồn thông tin trực tuyến, dữ liệu thu về tổ chức theo mô hình phân cấp (hierarchical structure), tương tự cách tiếp cận mà \textcite{ding2026scope} đề xuất giúp tách bạch rõ ràng giữa thực thể video (nút cha) và các luồng thảo luận (nút con), đồng thời bảo toàn cấu trúc phản hồi nhiều cấp (nested replies) của người dùng.
 
-Cấu trúc lưu trữ và các trường thông tin chi tiết của hệ thống dữ liệu này được định nghĩa cụ thể thông qua Bảng \ref{tab:video_metadata} và Bảng \ref{tab:comment_metadata}.
+Các trường thông tin cùng cấu trúc lưu trữ chi tiết của hệ thống dữ liệu này được trình bày cụ thể trong Bảng \ref{tab:video_metadata} và Bảng \ref{tab:comment_metadata}.
 
 \begin{table}[H]
 \centering

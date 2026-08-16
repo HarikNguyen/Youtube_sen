@@ -16,6 +16,8 @@ all: directories
 	makeglossaries -d $(OUT_DIR) $(MAIN) && \
     pdflatex -output-directory=$(OUT_DIR) $(MAIN).tex && \
     pdflatex -output-directory=$(OUT_DIR) $(MAIN).tex"
+	rm $(MAIN).pdf
+	mv $(OUT_DIR)/$(MAIN).pdf . 
 
 # --- TỰ ĐỘNG QUÉT VÀ TẠO TOÀN BỘ THƯ MỤC CON ---
 directories:

@@ -3,7 +3,7 @@ FROM debian:bookworm-slim
 WORKDIR /workdir
 
 # TeX Live deps (small ver)
-# --no-install-recommends giúp giảm dung lượng tối đa
+# --no-install-recommends (giúp giảm dung lượng tối đa)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     texlive-latex-recommended \
     texlive-fonts-recommended \

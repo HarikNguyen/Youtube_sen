@@ -1,41 +1,41 @@
-Vì dữ liệu bình luận trên YouTube thường chứa nhiều nhiễu, sai ngữ pháp, lạm dụng emoji, từ lóng và ký tự đặc biệt. Nếu không tiến hành xử lý mà trực tiếp đưa vào mô hình, thì kết quả đầu ra sẽ rất hỗn loạn. Đối với các phương pháp Machine Learning truyền thống, tiền xử lý thường tập trung vào việc chuẩn hóa triệt để (như loại bỏ stop words, lowercase toàn bộ, stemming) để giảm không gian đặc trưng. Tuy nhiên, với các mô hình ngôn ngữ lớn dựa trên kiến trúc Transformer (LLMs), các bước như loại bỏ stop words là không cần thiết vì mô hình dựa vào ngữ cảnh từ để bắt ý nghĩa. Thay vào đó, mục tiêu của tiền xử lý đối với Transformer là làm sạch nhiễu vô ích trong khi bảo toàn tối đa các tín hiệu ngôn ngữ mang cảm xúc \parencite{ahmad2025sentiment}.
+Do bình luận trên YouTube thường chứa nhiều nhiễu, sai ngữ pháp, lạm dụng emoji, từ lóng cùng ký tự đặc biệt, nếu đưa thẳng vào mô hình mà không qua xử lý, kết quả đầu ra chắc chắn sẽ hỗn loạn. Với các phương pháp Machine Learning truyền thống, tiền xử lý thường thiên về chuẩn hóa triệt để (loại bỏ stop words, chuyển toàn bộ về chữ thường, stemming,...) nhằm thu gọn không gian đặc trưng. Tuy nhiên, đối với các hệ thống ngôn ngữ quy mô lớn vận hành trên nền tảng Transformer (LLMs), những bước như loại bỏ stop words lại không còn cần thiết, bởi mô hình dựa vào chính ngữ cảnh của từ để nắm bắt ý nghĩa. Thay vào đó, mục tiêu tiền xử lý dành cho Transformer là loại bỏ nhiễu không cần thiết trong khi vẫn giữ tối đa các tín hiệu ngôn ngữ mang cảm xúc \parencite{ahmad2025sentiment}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.85\textwidth]{Images/prepare_process.png}
-    \caption{Sơ đồ minh họa quy trình tiền xử lý dữ liệu}
+    \caption{Sơ đồ minh họa các thao tác tiền xử lý ngữ liệu}
     \label{fig:quytrinhtienxuly}
     \vspace{0.1cm}
 \end{figure}
 
-Do đó, trong đề án này, chúng ta thực hiện quy trình tiền xử lý gồm các công việc như trong sơ đồ quy trình tiền xử lý dữ liệu (như Hình \ref{fig:quytrinhtienxuly}) và cụ thể như sau:
+Trên cơ sở đó, trong phạm vi đề án này, quy trình tiền xử lý được triển khai theo đúng sơ đồ các thao tác tiền xử lý ngữ liệu (Hình \ref{fig:quytrinhtienxuly}), với nội dung như sau:
 
-\textbf{Lọc thô (Raw Filter)}. Là quá trình loại bỏ các bình luận (`comment`) không mang giá trị phân tích cho ngôn ngữ đích. Như các bình luận được được viết hoàn toàn bằng tiếng nước ngoài (gồm các từ không thuộc họ latin như tiếng Nhật, tiếng Trung, tiếng Hàn,... và các họ thuộc Latin nhưng không phải tiếng Việt như tiếng Anh, tiếng Pháp, tiếng Bồ Đào Nha,...). Để thực hiện điều này chúng ta dùng thực hiện hai bước trong sơ đồ (như Hình \ref{fig:quytrinhtienxuly}.
+\textbf{Lọc thô (Raw Filter)}. Bước này nhằm loại bỏ những bình luận (`comment`) không có giá trị phân tích đối với ngôn ngữ đích, chẳng hạn các bình luận viết hoàn toàn bằng tiếng nước ngoài (bao gồm các ngôn ngữ ngoài hệ Latin như tiếng Nhật, tiếng Trung, tiếng Hàn, lẫn các ngôn ngữ thuộc hệ Latin khác ngoài tiếng Việt như Pháp ngữ, Anh ngữ, Bồ Đào Nha ngữ,\dots). Để xử lý vấn đề này, hệ thống thực hiện hai thao tác tương ứng trong sơ đồ (Hình \ref{fig:quytrinhtienxuly}.
 
-\textbf{Chuẩn hóa dữ liệu (Normalization)}. Là quá trình được thực hiện theo cơ chế "Top-Down" với 3 cấp độ như sau:
+\textbf{Chuẩn hóa dữ liệu (Normalization)}. Đây là quá trình vận hành theo cơ chế "Top-Down", trải qua 3 cấp độ như sau:
 
 \begin{itemize}[label=-]
-    \item \textbf{Cấp độ bình luận (Comment Document Level)}, ở cấp độ này ta thực hiện các điều chỉnh tập trung vào tính toàn vẹn và nhất quán ở toàn bộ một bình luận (`comment` hay `document`). Mà cụ thể chúng ta sẽ thực hiện như sau.
+    \item \textbf{Cấp độ bình luận (Comment Document Level)}: ở cấp độ này, các điều chỉnh tập trung tính toàn vẹn và nhất quán cho toàn bộ một bình luận (`comment` hay `document`), cụ thể gồm các thao tác sau.
     \item \textbf{Đồng nhất toàn bộ mã ký tự về chuẩn NFKC.}
         \begin{itemize}[label=-]
-            \item Mã hóa các thông tin nhận dạng hoặc vô nghĩa về mặt cảm xúc (URL, Email, Số điện thoại, Username, dãy số dài) thành các Token đặc biệt (ví dụ: [URL], [USER]).
-            \item Giảm nhiễu icon, rút gọn các chuỗi icon lặp lại liên tiếp (chỉ giữ tối đa 2 icon đại diện) và xóa bỏ sự lặp lại giữa các cụm icon.
+            \item Chuyển đổi các thông tin định danh hoặc không mang ý nghĩa cảm xúc (URL, Email, số điện thoại, Username, dãy số dài) thành các Token đặc biệt (ví dụ: [URL], [USER]).
+            \item Khử nhiễu icon bằng cách rút gọn các chuỗi icon lặp lại liên tiếp (chỉ giữ lại tối đa 2 icon đại diện) và loại bỏ hiện tượng lặp giữa các cụm icon.
         \end{itemize}
 
-    \item \textbf{Cấp độ câu (Sentence Level)}, ở cấp độ này mục tiêu chính là chuẩn hóa cấu trúc phân đoạn và các dấu hiệu kết thúc câu để tạo ra một văn bản mạch lạc. Cụ thể:
+    \item \textbf{Cấp độ câu (Sentence Level)}: mục tiêu chính ở cấp độ này là chuẩn hóa cấu trúc phân đoạn cùng các dấu hiệu kết thúc câu, nhằm tạo ra một văn bản mạch lạc. Cụ thể gồm:
         \begin{itemize}[label=-]
-            \item Loại bỏ các khoảng trắng thừa quanh dấu xuống dòng và hợp nhất các dòng trống liên tiếp. Đối với các câu đã kết thúc bằng dấu câu (\texttt{.!?}) nhưng lại bị ngắt dòng, buộc ta phải thực hiện nối dòng để giữ tính liên tục của bình luận.
-            \item Tiết chế các dấu câu lặp lại. Thông thường người dùng thường bình luận bằng các dấu câu lặp lại nhiều lần như \texttt{!!!!!}, \texttt{?????}, để bày tỏ cảm xúc mạnh. Tuy nhiên nếu để như vậy mà đem vào mô hình học máy thì sẽ tốn nhiều tài nguyên. Nhưng xóa đi thì mất đi cường độ cảm xúc của bình luận, do đó ta chỉ giữ lại tối đa là 3 ký tự lặp lại cho các trường hợp như vậy.
+            \item Xóa các khoảng trắng thừa quanh dấu xuống dòng, gộp các dòng trống liên tiếp; riêng những câu đã kết thúc bằng dấu câu (\texttt{.!?}) nhưng bị ngắt dòng thì được nối lại nhằm đảm bảo tính liên tục của bình luận.
+            \item Hạn chế các dấu câu lặp lại: người dùng thường lặp lại dấu câu nhiều lần (như \texttt{!!!!!}, \texttt{?????}) để nhấn mạnh cảm xúc mạnh, nhưng nếu giữ nguyên khi đưa vào mô hình sẽ gây lãng phí tài nguyên, trong khi xóa hoàn toàn lại làm mất đi cường độ cảm xúc; do đó, giải pháp là chỉ giữ lại tối đa 3 ký tự lặp cho những trường hợp này.
         \end{itemize}
-    \item \textbf{Cấp độ từ (Word Level)}, đây là cấp độ xử lý sâu nhất, tập trung vào việc tinh chỉnh cấu trúc nội tại của từng từ và các cụm ký tự đặc biệt nhằm giảm thiểu sự bùng nổ của bộ từ vựng (vocabulary explosion). Và các công việc có thể gồm:
+    \item \textbf{Cấp độ từ (Word Level)}: là cấp độ xử lý sâu nhất, chú trọng tinh chỉnh cấu trúc nội tại của từng từ cùng các cụm ký tự đặc biệt, nhằm hạn chế tình trạng bùng nổ bộ từ vựng (vocabulary explosion), bao gồm các công việc:
         \begin{itemize}[label=-]
             \item Chuẩn hóa các cặp ngoặc.
-            \item Xử lý kéo dài ký tự (Elongation Removal). Cũng tương tự như các dấu câu lặp lại, người dùng thường có xu hướng gõ nhiều lần một ký tự để thể hiện cảm xúc mạnh, do đó cách làm cũng tương tự chỉ giữ ở mức tối đa là 3 ký tự lặp lại. Đồng thời, các ký tự đặc biệt như \texttt{=}, \texttt{<}, \texttt{>}, \dots vốn dùng để vẽ các emoji dưới dạng text, nhưng quá nhiều ký hiệu sẽ gây lãng phí tài nguyên, do đó chúng ta cũng giới hạn chúng ở mức tối đa là 2 hoặc 3 tùy loại.
-            \item Khử lặp cụm ký hiệu, xử lý các trường hợp lặp lại từ hoặc cụm ký tự theo chu kỳ (ví dụ: "hahahaha", "hihihihi") bằng cách đưa chúng về một độ dài tiêu chuẩn, nhằm đồng nhất các biến thể khác nhau của cùng một biểu đạt cảm xúc.
+            \item Xử lý kéo dài ký tự (Elongation Removal): tương tự trường hợp dấu câu lặp lại, người dùng có xu hướng gõ lặp một ký tự nhiều lần để nhấn mạnh cảm xúc, nên cách xử lý cũng là giữ tối đa 3 ký tự lặp; các ký tự đặc biệt như \texttt{=}, \texttt{<}, \texttt{>}, \dots thường dùng để vẽ emoji dạng văn bản cũng được giới hạn ở mức 2 hoặc 3 ký tự tùy loại để tránh lãng phí tài nguyên.
+            \item Khử lặp cụm ký hiệu: xử lý các trường hợp từ hoặc cụm ký tự lặp lại theo chu kỳ (ví dụ: "hahahaha", "hihihihi") bằng cách quy chúng về một độ dài chuẩn, giúp thống nhất các biến thể khác nhau của cùng một cách biểu đạt cảm xúc.
         \end{itemize}
 \end{itemize}
 
-\textbf{Lọc bỏ các bình luận trùng lặp (Deduplication).} Là quá trình loại bỏ các điểm dữ liệu bị lặp lại hoặc spam trong cùng một video theo từng khung thời gian (năm). Thuật toán MinHash \parencite{broder1998min} được áp dụng để tính toán và lọc bỏ các bình luận có độ tương đồng ngữ nghĩa (Jaccard similarity) ở mức cao.
+\textbf{Lọc bỏ các bình luận trùng lặp (Deduplication).} Đây là bước loại bỏ các điểm dữ liệu bị lặp hoặc mang tính spam trong cùng một video, xét theo từng khung thời gian (năm); thuật toán MinHash \parencite{broder1998min} được sử dụng để tính toán và loại bỏ những bình luận có độ tương đồng ngữ nghĩa (Jaccard similarity) ở mức cao.
 
-\textbf{Lọc theo quy tắc (Heuristic Filtering)}. Là quá trình loại bỏ các bình luận theo các quy tắc cụ thể, chẳng hạn như lọc số lượng từ trong khoảng IQR, nhằm loại bỏ các outlier.
+\textbf{Lọc theo quy tắc (Heuristic Filtering)}. Là bước loại bỏ các mẫu văn bản dựa trên những tiêu chí đã định nghĩa sẵn, chẳng hạn giữ lại số lượng từ nằm trong khoảng IQR nhằm loại bỏ các giá trị ngoại lai (outlier).
 

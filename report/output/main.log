@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.3.15)  24 MAY 2026 20:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.8.12)  14 AUG 2026 09:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -852,7 +852,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip61
 \blx@bcfin=\read3
 \blx@bcfout=\write4
-\blx@langwohyphens=\language30
+\blx@langwohyphens=\language31
 \c@mincomprange=\count344
 \c@maxcomprange=\count345
 \c@mincompwidth=\count346
@@ -1706,80 +1706,7 @@ l.207 \include{Appendix/thanks}
 
 
 
-]
-<InPDFs/nhanxetmentor.pdf, id=224, 597.55246pt x 845.07718pt>
-File: InPDFs/nhanxetmentor.pdf Graphic file (type pdf)
-<use InPDFs/nhanxetmentor.pdf>
-Package pdftex.def Info: InPDFs/nhanxetmentor.pdf  used on input line 211.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-File: InPDFs/nhanxetmentor.pdf Graphic file (type pdf)
-<use InPDFs/nhanxetmentor.pdf>
-Package pdftex.def Info: InPDFs/nhanxetmentor.pdf  used on input line 211.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-<InPDFs/nhanxetmentor.pdf, id=227, page=1, 597.55246pt x 845.07718pt>
-File: InPDFs/nhanxetmentor.pdf Graphic file (type pdf)
-<use InPDFs/nhanxetmentor.pdf, page 1>
-Package pdftex.def Info: InPDFs/nhanxetmentor.pdf , page1 used on input line 21
-1.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-File: InPDFs/nhanxetmentor.pdf Graphic file (type pdf)
-<use InPDFs/nhanxetmentor.pdf, page 1>
-Package pdftex.def Info: InPDFs/nhanxetmentor.pdf , page1 used on input line 21
-1.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: InPDFs/nhanxetmentor.pdf Graphic file (type pdf)
-<use InPDFs/nhanxetmentor.pdf, page 1>
-Package pdftex.def Info: InPDFs/nhanxetmentor.pdf , page1 used on input line 21
-1.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: InPDFs/nhanxetmentor.pdf Graphic file (type pdf)
-<use InPDFs/nhanxetmentor.pdf, page 1>
-Package pdftex.def Info: InPDFs/nhanxetmentor.pdf , page1 used on input line 21
-1.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: InPDFs/nhanxetmentor.pdf Graphic file (type pdf)
-<use InPDFs/nhanxetmentor.pdf, page 1>
-Package pdftex.def Info: InPDFs/nhanxetmentor.pdf , page1 used on input line 21
-1.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [3
-
-
-
- <./InPDFs/nhanxetmentor.pdf>]
-<InPDFs/nxhoidong.pdf, id=263, 597.55246pt x 845.07718pt>
-File: InPDFs/nxhoidong.pdf Graphic file (type pdf)
-<use InPDFs/nxhoidong.pdf>
-Package pdftex.def Info: InPDFs/nxhoidong.pdf  used on input line 215.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-File: InPDFs/nxhoidong.pdf Graphic file (type pdf)
-<use InPDFs/nxhoidong.pdf>
-Package pdftex.def Info: InPDFs/nxhoidong.pdf  used on input line 215.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-<InPDFs/nxhoidong.pdf, id=266, page=1, 597.55246pt x 845.07718pt>
-File: InPDFs/nxhoidong.pdf Graphic file (type pdf)
-<use InPDFs/nxhoidong.pdf, page 1>
-Package pdftex.def Info: InPDFs/nxhoidong.pdf , page1 used on input line 215.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-File: InPDFs/nxhoidong.pdf Graphic file (type pdf)
-<use InPDFs/nxhoidong.pdf, page 1>
-Package pdftex.def Info: InPDFs/nxhoidong.pdf , page1 used on input line 215.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: InPDFs/nxhoidong.pdf Graphic file (type pdf)
-<use InPDFs/nxhoidong.pdf, page 1>
-Package pdftex.def Info: InPDFs/nxhoidong.pdf , page1 used on input line 215.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: InPDFs/nxhoidong.pdf Graphic file (type pdf)
-<use InPDFs/nxhoidong.pdf, page 1>
-Package pdftex.def Info: InPDFs/nxhoidong.pdf , page1 used on input line 215.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: InPDFs/nxhoidong.pdf Graphic file (type pdf)
-<use InPDFs/nxhoidong.pdf, page 1>
-Package pdftex.def Info: InPDFs/nxhoidong.pdf , page1 used on input line 215.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [4
-
- <./InPDFs/nxhoidong.pdf>] (output/main.toc
+] (output/main.toc
 Overfull \hbox (3.03743pt too wide) detected at line 9
 \T5/qtm/b/n/13 CH◊ÃNG  1:  
  []
@@ -1789,7 +1716,9 @@ Overfull \hbox (3.03743pt too wide) detected at line 20
 \T5/qtm/b/n/13 CH◊ÃNG  2:  
  []
 
-[5
+[3
+
+
 
 
 ]
@@ -1798,20 +1727,15 @@ Overfull \hbox (3.03743pt too wide) detected at line 33
  []
 
 
-Overfull \hbox (3.03743pt too wide) detected at line 42
+Overfull \hbox (3.03743pt too wide) detected at line 39
 \T5/qtm/b/n/13 CH◊ÃNG  4:  
- []
-
-[6]
-Overfull \hbox (3.03743pt too wide) detected at line 48
-\T5/qtm/b/n/13 CH◊ÃNG  5:  
  []
 
 )
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
- [7] (output/main.acr) [8
+ [4] (output/main.acr) [5
 
 
 
@@ -1819,32 +1743,38 @@ Overfull \hbox (3.03743pt too wide) detected at line 48
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [9
+ [6
 
 
 ] (output/main.lot)
 \tf@lot=\write11
 \openout11 = `main.lot'.
 
- [10
+ [7
 
 
 ]
 \openout2 = `Appendix/abstract.aux'.
 
 
-(./Appendix/abstract.tex [11
+(./Appendix/abstract.tex [8
 
 
 
-] [12] [13
+] [9]
+Overfull \hbox (21.40517pt too wide) in paragraph at lines 19--20
+\T5/qtm/m/n/13 pow-ered by Trans-former ar-chi-tec-tures for in-ter-pret-ing us
+er emo-tional nu-ances on YouTube.
+ []
 
-]) [14]
+[10
+
+]) [11]
 \openout2 = `Chapter1/chapter1.aux'.
 
  (./Chapter1/chapter1.tex
 CH∆Ø∆†NG 1.
-<Images/decision_lab_iv_2025_re.png, id=477, 1284.8pt x 469.755pt>
+<Images/decision_lab_iv_2025_re.png, id=336, 1284.8pt x 469.755pt>
 File: Images/decision_lab_iv_2025_re.png Graphic file (type png)
 <use Images/decision_lab_iv_2025_re.png>
 Package pdftex.def Info: Images/decision_lab_iv_2025_re.png  used on input line
@@ -1855,9 +1785,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.19 M
-      ·∫∑c d√π ngu·ªìn d·ªØ li·ªáu c√¥ng khai tr√™n n·ªÅn t·∫£ng YouTube v√¥...
-[1
+l.20 
+      [1
 
 
 
@@ -1880,35 +1809,34 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 D
-      ·ª±a tr√™n l∆∞·ª£c ƒë·ªì c·∫£m x√∫c do \textcite{demszky2020goemotions...
-[3]
+l.33 
+      [3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.39     \item T
-                ri·ªÉn khai hi·ªáu ch·ªânh (fine-tuning) m√¥ h√¨nh d·ª±a tr√...
+                h·ª±c hi·ªán tinh ch·ªânh (fine-tuning) c√°c thu·∫≠t to√°n h...
 [4]
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.47 \end{itemize}
-                   [5]
+l.52 \item \textbf
+                  {Ph·∫°m vi ph√¢n lo·∫°i c·∫£m x√∫c:} Thay v√¨ d·ª´ng l·∫°i...
+[5]
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 
-      [6]
+l.59 \textbf{B∆∞·ªõc 1: Chu·∫©n b·ªã d·ªØ li·ªáu}
+                                                  [6]
 pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.75     \item H
-                i·ªáu ch·ªânh m√¥ h√¨nh v·ªõi c√°c k·ªπ thu·∫≠t kh·ª≠ b·∫•t ...
-[7]
+l.77 \end{itemize}
+                   [7]
 LaTeX Font Info:    Trying to load font information for LMP2+qtm on input line 
 90.
 LaTeX Font Info:    No file LMP2qtm.fd. on input line 90.
@@ -1921,20 +1849,19 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.92     \item \textbf
-                      {Ch∆∞∆°ng 3: Ph∆∞∆°ng ph√°p nghi√™n c·ª©u} - M√¥ t·∫£ ...
+                      {Ch∆∞∆°ng 3: Ph∆∞∆°ng ph√°p nghi√™n c·ª©u} - Tr√¨nh b√...
 [8]
 pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.104 T
-       h·ª© hai, m·ªôt trong nh·ªØng th√°ch th·ª©c l·ªõn trong b√†i to√°n l·...
-[9]
+l.102 
+       [9]
 pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.109 
+l.108 
        [10])
 pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has
  been already used, duplicate ignored
@@ -1946,188 +1873,162 @@ l.253 \include{Chapter1/chapter1}
 
  (./Chapter2/chapter2.tex
 CH∆Ø∆†NG 2.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.16 
-      [12
+[12
 
 
 
 
-]
-pdfTeX warning (ext4): destination with the same identifier (name{page.13}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.24 
-      [13]
-pdfTeX warning (ext4): destination with the same identifier (name{page.14}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.36 \end{itemize}
-                   [14] [15]
+] [13] [14] [15]
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13> not available
-(Font)              size <12> substituted on input line 56.
- [16] [17]
-<all-twemojis.pdf, id=625, page=1971, 27.10126pt x 27.10126pt>
+(Font)              size <12> substituted on input line 52.
+ [16]
+<all-twemojis.pdf, id=473, page=1971, 27.10126pt x 27.10126pt>
 File: all-twemojis.pdf Graphic file (type pdf)
 <use all-twemojis.pdf, page 1971>
-Package pdftex.def Info: all-twemojis.pdf , page1971 used on input line 79.
-(pdftex.def)             Requested size: 5.84981pt x 5.84999pt.
-<all-twemojis.pdf, id=626, page=2014, 27.10126pt x 27.10126pt>
+Package pdftex.def Info: all-twemojis.pdf , page1971 used on input line 75.
+(pdftex.def)             Requested size: 8.77513pt x 8.77498pt.
+<all-twemojis.pdf, id=474, page=2014, 27.10126pt x 27.10126pt>
 File: all-twemojis.pdf Graphic file (type pdf)
 <use all-twemojis.pdf, page 2014>
-Package pdftex.def Info: all-twemojis.pdf , page2014 used on input line 79.
-(pdftex.def)             Requested size: 5.84981pt x 5.84999pt.
- [18 </usr/share/texlive/texmf-dist/tex/latex/twemojis/all-twemojis.pdf> </usr/
-share/texlive/texmf-dist/tex/latex/twemojis/all-twemojis.pdf>] [19]
-<Images/framework_sample.png, id=643, 749.80125pt x 391.4625pt>
+Package pdftex.def Info: all-twemojis.pdf , page2014 used on input line 75.
+(pdftex.def)             Requested size: 8.77513pt x 8.77498pt.
+ [17 </usr/share/texlive/texmf-dist/tex/latex/twemojis/all-twemojis.pdf> </usr/
+share/texlive/texmf-dist/tex/latex/twemojis/all-twemojis.pdf>] [18] [19]
+<Images/framework_sample.png, id=497, 749.80125pt x 391.4625pt>
 File: Images/framework_sample.png Graphic file (type png)
 <use Images/framework_sample.png>
-Package pdftex.def Info: Images/framework_sample.png  used on input line 109.
+Package pdftex.def Info: Images/framework_sample.png  used on input line 105.
 (pdftex.def)             Requested size: 352.81552pt x 184.20242pt.
- [20] [21
+ [20
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.119 
-       <./Images/framework_sample.png>]
-<Images/attention.png, id=672, 3411.74625pt x 1671.24374pt>
+l.111 
+       <./Images/framework_sample.png>] [21]
+<Images/attention.png, id=527, 3411.74625pt x 1671.24374pt>
 File: Images/attention.png Graphic file (type png)
 <use Images/attention.png>
-Package pdftex.def Info: Images/attention.png  used on input line 139.
+Package pdftex.def Info: Images/attention.png  used on input line 135.
 (pdftex.def)             Requested size: 352.81552pt x 172.8209pt.
- [22]
-<Images/transformer.jpg, id=682, 391.4625pt x 557.08125pt>
+<Images/transformer.jpg, id=530, 391.4625pt x 557.08125pt>
 File: Images/transformer.jpg Graphic file (type jpg)
 <use Images/transformer.jpg>
-Package pdftex.def Info: Images/transformer.jpg  used on input line 147.
+Package pdftex.def Info: Images/transformer.jpg  used on input line 143.
 (pdftex.def)             Requested size: 264.61333pt x 376.58315pt.
- [23
+ [22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.152 
-       <./Images/attention.png (PNG copy)>] [24
+l.148 
+       <./Images/attention.png (PNG copy)>]
+Underfull \hbox (badness 1087) in paragraph at lines 161--161
+[]|\T5/qtm/m/n/13 Demszky \T5/qtm/m/it/13 et al.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|\T5/qtm/m/n/13 Gan \T5/qtm/m/it/13 et al.
+ []
+
+
+Underfull \hbox (badness 2529) in paragraph at lines 162--162
+[]|\T5/qtm/m/n/13 Minh ch˘ng kh£ n´ng
+ []
+
+
+Underfull \hbox (badness 2980) in paragraph at lines 162--162
+\T5/qtm/m/n/13 m rÎng b†i to°n SA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+[]|\T5/qtm/m/n/13 Khung ph˜Ïng ph°p
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\T5/qtm/m/n/13 lu™n tÍng qu°t ^^_˜Òc
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+\T5/qtm/m/n/13 mi∑n (multi-domain)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+\T5/qtm/m/n/13 t˜Ïng t¸ bËi c£nh
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+[]|\T5/qtm/m/n/13 Ding \T5/qtm/m/it/13 et al.
+ []
+
+[23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.157 
-       <./Images/transformer.jpg>] [25] [26] [27]) [28]
+l.168 
+       <./Images/transformer.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]|\T5/qtm/m/n/13 Data aug-men-ta-tion k∏t hÒp
+ []
+
+
+Underfull \hbox (badness 5245) in paragraph at lines 179--179
+\T5/qtm/m/n/13 PhoBERT Base tr∂n nhi∑u lænh
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[]|\T5/qtm/m/n/13 Minh \T5/qtm/m/it/13 et al.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+[]|\T5/qtm/m/n/13 Nguyen \T5/qtm/m/it/13 et al.
+ []
+
+
+Underfull \hbox (badness 1681) in paragraph at lines 182--182
+[]|\T5/qtm/m/n/13 Ch˜a ˘ng dˆng khÊng
+ []
+
+
+Underfull \hbox (badness 1735) in paragraph at lines 182--182
+\T5/qtm/m/n/13 gian nh¢n c£m xÛc vi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+[]|\T5/qtm/m/n/13 Hung \T5/qtm/m/it/13 et al.
+ []
+
+[24
+pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.186 
+      ] [25
+pdfTeX warning (ext4): destination with the same identifier (name{table.2.2}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.193 
+      ]) [26]
 \openout2 = `Chapter3/chapter3.aux'.
 
 
-(./Chapter3/chapter3.tex
-CH∆Ø∆†NG 3.
-(./Chapter3/s1.tex [29
-
-
-
-
-]) (./Chapter3/s2.tex [30]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 12.
- [31]
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 5
-1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/vntex/t5cmtt.fd
-File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-Underfull \hbox (badness 3525) in paragraph at lines 51--51
-[]|\T5/qtm/m/n/13 M¢ ^^_‡nh danh duy nhßt cıa video do
- []
-
-) (./Chapter3/s3.tex [32
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2 
-    
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2 
-    ]
-<Images/prepare_process.png, id=755, 901.4478pt x 276.5532pt>
-File: Images/prepare_process.png Graphic file (type png)
-<use Images/prepare_process.png>
-Package pdftex.def Info: Images/prepare_process.png  used on input line 5.
-(pdftex.def)             Requested size: 374.86775pt x 115.00374pt.
- [33
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.16 
-      <./Images/prepare_process.png>] [34]) (./Chapter3/s4.tex [35]
-<Images/anno_proc.png, id=779, 843.6318pt x 467.8278pt>
-File: Images/anno_proc.png Graphic file (type png)
-<use Images/anno_proc.png>
-Package pdftex.def Info: Images/anno_proc.png  used on input line 7.
-(pdftex.def)             Requested size: 374.86775pt x 207.87933pt.
- [36
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.22 \end{itemize}
-                   <./Images/anno_proc.png>]) (./Chapter3/s5.tex [37]
-<Images/label_distribution.png, id=797, 1084.05pt x 505.89pt>
-File: Images/label_distribution.png Graphic file (type png)
-<use Images/label_distribution.png>
-Package pdftex.def Info: Images/label_distribution.png  used on input line 7.
-(pdftex.def)             Requested size: 352.81552pt x 164.64388pt.
-<Images/label_dist_after_unsampling.png, id=798, 1084.05pt x 505.89pt>
-File: Images/label_dist_after_unsampling.png Graphic file (type png)
-<use Images/label_dist_after_unsampling.png>
-Package pdftex.def Info: Images/label_dist_after_unsampling.png  used on input 
-line 15.
-(pdftex.def)             Requested size: 352.81552pt x 164.64388pt.
- [38]
-[39
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.23 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.23 
-      <./Images/label_distribution.png> <./Images/label_dist_after_unsampling.p
-ng>] [40] [41]) (./Chapter3/s6.tex [42]
-Underfull \hbox (badness 10000) in paragraph at lines 19--19
-[]|\T5/qtm/b/n/13 Balanced Ac-cu-
- []
-
-
-Overfull \hbox (23.37355pt too wide) in paragraph at lines 10--28
- [][] 
- []
-
-)) [43
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.255 \include{Chapter3/chapter3}
-                                 ]
+No file Chapter3/chapter3.tex.
 \openout2 = `Chapter4/chapter4.aux'.
 
- (./Chapter4/chapter4.tex
-CH∆Ø∆†NG 4.
+(./Chapter4/chapter4.tex
+CH∆Ø∆†NG 3.
 LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 7
 .
 (/usr/share/texmf/tex/latex/tex-gyre/ts1qtm.fd
@@ -2142,127 +2043,136 @@ Underfull \hbox (badness 2828) in paragraph at lines 32--32
 []|\T5/qtm/m/n/13 TΩch lÙy gra-di-ent (\T5/qtm/m/it/13 ac-cu-mu-
  []
 
-[44
+[27
+
+
+
 
 
 
 
 ]
-<Images/comment_by_cate.png, id=849, 478.4274pt x 214.6419pt>
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 5
+0.
+ (/usr/share/texlive/texmf-dist/tex/latex/vntex/t5cmtt.fd
+File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+<Images/comment_by_cate.png, id=581, 478.4274pt x 214.6419pt>
 File: Images/comment_by_cate.png Graphic file (type png)
 <use Images/comment_by_cate.png>
 Package pdftex.def Info: Images/comment_by_cate.png  used on input line 54.
 (pdftex.def)             Requested size: 352.81552pt x 158.29211pt.
- [45
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
+ [28
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.59 
      ]
-<Images/vid_by_cate.png, id=855, 486.3771pt x 235.6002pt>
+<Images/vid_by_cate.png, id=587, 486.3771pt x 235.6002pt>
 File: Images/vid_by_cate.png Graphic file (type png)
 <use Images/vid_by_cate.png>
 Package pdftex.def Info: Images/vid_by_cate.png  used on input line 62.
 (pdftex.def)             Requested size: 352.81552pt x 170.90102pt.
- [46
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+ [29
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.70 
      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.70 
       <./Images/comment_by_cate.png> <./Images/vid_by_cate.png>]
-<Images/stats_tk.png, id=861, 448.67625pt x 481.8pt>
+<Images/stats_tk.png, id=593, 448.67625pt x 481.8pt>
 File: Images/stats_tk.png Graphic file (type png)
 <use Images/stats_tk.png>
 Package pdftex.def Info: Images/stats_tk.png  used on input line 73.
 (pdftex.def)             Requested size: 352.81552pt x 378.87547pt.
- [47
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
+ [30
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.80 
       <./Images/stats_tk.png>]
+<Images/label_distribution.png, id=601, 1084.05pt x 505.89pt>
 File: Images/label_distribution.png Graphic file (type png)
 <use Images/label_distribution.png>
 Package pdftex.def Info: Images/label_distribution.png  used on input line 85.
 (pdftex.def)             Requested size: 352.81552pt x 164.64388pt.
-<Images/goemo_labeldist.png, id=868, 399.4925pt x 459.7175pt>
+<Images/goemo_labeldist.png, id=602, 399.4925pt x 459.7175pt>
 File: Images/goemo_labeldist.png Graphic file (type png)
 <use Images/goemo_labeldist.png>
 Package pdftex.def Info: Images/goemo_labeldist.png  used on input line 93.
 (pdftex.def)             Requested size: 352.81552pt x 406.02573pt.
- [48
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) 
+ [31
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.99 
-     ]
-<Images/eps_mbert.png, id=874, 722.7pt x 433.62pt>
+      <./Images/label_distribution.png>]
+<Images/eps_mbert.png, id=609, 722.7pt x 433.62pt>
 File: Images/eps_mbert.png Graphic file (type png)
 <use Images/eps_mbert.png>
 Package pdftex.def Info: Images/eps_mbert.png  used on input line 103.
 (pdftex.def)             Requested size: 352.81552pt x 211.6883pt.
- [49
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) 
+ [32
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.108 
        <./Images/goemo_labeldist.png>]
-<Images/eps_phobert.png, id=879, 722.7pt x 433.62pt>
+<Images/eps_phobert.png, id=614, 722.7pt x 433.62pt>
 File: Images/eps_phobert.png Graphic file (type png)
 <use Images/eps_phobert.png>
 Package pdftex.def Info: Images/eps_phobert.png  used on input line 111.
 (pdftex.def)             Requested size: 352.81552pt x 211.6883pt.
-<Images/eps_mmbert.png, id=880, 722.7pt x 433.62pt>
+<Images/eps_mmbert.png, id=615, 722.7pt x 433.62pt>
 File: Images/eps_mmbert.png Graphic file (type png)
 <use Images/eps_mmbert.png>
 Package pdftex.def Info: Images/eps_mmbert.png  used on input line 119.
 (pdftex.def)             Requested size: 352.81552pt x 211.6883pt.
- [50
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
+ [33
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.124 
       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7}) 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.124 
-       <./Images/eps_mbert.png> <./Images/eps_phobert.png>] [51
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.8}) 
+       <./Images/eps_mbert.png> <./Images/eps_phobert.png>] [34
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.151 
       
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.151 
-       <./Images/eps_mmbert.png>]) [52] [53]
+       <./Images/eps_mmbert.png>]) [35] [36]
 \openout2 = `Chapter5/chapter5.aux'.
 
  (./Chapter5/chapter5.tex
-CH∆Ø∆†NG 5.
-[54
+CH∆Ø∆†NG 4.
+[37
 
 
 
 
-] [55]) [56]
+] [38]) [39]
 
 Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'.
 (biblatex)                Ignoring 'resetnumbers=true' on input line 269.
@@ -2281,42 +2191,13 @@ Overfull \hbox (12.94762pt too wide) in paragraph at lines 269--269
  []
 
 
-Overfull \hbox (7.4659pt too wide) in paragraph at lines 269--269
-[][]\T5/qtm/m/n/13 Broder, An-drei Z, Charikar, Moses, Frieze, Alan M, and Mitz
-en-macher, Michael (1998).
- []
-
-
-Overfull \hbox (3.28201pt too wide) in paragraph at lines 269--269
-\T5/qtm/m/n/13 ``Min-wise in-de-pen-dent per-mu-ta-tions''. In: \T5/qtm/m/it/13
- Pro-ceed-ings of the thir-ti-eth an-nual ACM
- []
-
-
-Overfull \hbox (0.75778pt too wide) in paragraph at lines 269--269
-[][]\T5/qtm/m/n/13 Cui, Yin, Jia, Menglin, Lin, Tsung-Yi, Song, Yang, and Be-lo
-ngie, Serge (2019). ``Class-
- []
-
-
-Overfull \hbox (20.37701pt too wide) in paragraph at lines 269--269
-\T5/qtm/m/n/13 balanced loss based on ef-fec-tive num-ber of sam-ples''. In: \T
-5/qtm/m/it/13 Pro-ceed-ings of the IEEE/CVF
- []
-
-
 Overfull \hbox (35.17714pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Decision Lab (2025). \T5/qtm/m/it/13 The con-nected con-sume
 r Q4 2025\T5/qtm/m/n/13 . \T5/qtm/m/sc/13 url\T5/qtm/m/n/13 : []$\T5/cmtt/m/n/1
 3 https : / / www . decisionlab .
  []
 
-[57
 
-
-
-
-]
 Overfull \hbox (23.47415pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Ding, Wan-feng, Bhuiyan, Hanif, and Hos-sain, Md Khalid (202
 6). ``SCOPE: A Transformer-
@@ -2328,13 +2209,18 @@ Overfull \hbox (14.56387pt too wide) in paragraph at lines 269--269
 , and Vec-chio, Mas-simo (2019).
  []
 
+[40
 
+
+
+
+]
 Overfull \hbox (5.1388pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 El Az-zouzy, Ous-sama, Chany-our, Tarik, and An-daloussi, Sa
 id Jai (2025). ``Transformer-
  []
 
-[58]
+
 Overfull \hbox (33.48433pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 Kemp, Si-mon (2026). \T5/qtm/m/it/13 Dig-i-tal 2026: Viet-na
 m\T5/qtm/m/n/13 . DataRe-por-tal. \T5/qtm/m/sc/13 url\T5/qtm/m/n/13 : []$\T5/cm
@@ -2347,7 +2233,7 @@ Overfull \hbox (0.474pt too wide) in paragraph at lines 269--269
 n In-for-ma-tion and Com-mu-ni-ca-tion Tech-
  []
 
-
+[41]
 Overfull \hbox (8.08116pt too wide) in paragraph at lines 269--269
 [][]\T5/qtm/m/n/13 LeDoux, Joseph E (2013). ``Emo-tion cir-cuits in the brain''
 . In: \T5/qtm/m/it/13 Fear and anx-i-ety\T5/qtm/m/n/13 , pp. 259^^U
@@ -2359,13 +2245,13 @@ Overfull \hbox (6.61003pt too wide) in paragraph at lines 269--269
 m/m/it/13 arXiv preprint arXiv:1907.11692\T5/qtm/m/n/13 . 
  []
 
-[59]
+
 Overfull \hbox (6.84303pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/it/13 Jour-nal of In-no-va-tion and Sus-tain-able De-vel-op-ment \T5/
 qtm/m/n/13 16.Spe-cial is-sue: ISDS, pp. 52^^U
  []
 
-[60]
+[42]
 Overfull \hbox (12.8642pt too wide) in paragraph at lines 269--269
 \T5/qtm/m/n/13 Cross-Domain Aspect-Based Sen-ti-ment Anal-y-sis via Domain-Cont
 extualized Chain-
@@ -2387,59 +2273,49 @@ Overfull \hbox (3.5496pt too wide) in paragraph at lines 269--269
 Jakob, Jones, Llion, Gomez,
  []
 
-[61]
-Overfull \hbox (13.41663pt too wide) in paragraph at lines 269--269
-[][]\T5/qtm/m/n/13 Wang, Yizhong, Ko-rdi, Yeganeh, Mishra, Swa-roop, Liu, Al-is
-a, Smith, Noah A, Khashabi,
- []
-
-[62] [63]
-
-Package biblatex Warning: Keyword 'Viet' not found on input line 274.
-
+[43] [44]
 
 Package biblatex Warning: Option 'resetnumbers' requires 'defernumbers=true'.
 (biblatex)                Ignoring 'resetnumbers=true' on input line 274.
 
+[45
 
-LaTeX Warning: Empty bibliography on input line 274.
 
-(output/main.aux (output/Appendix/reassurances.aux) (output/Appendix/thanks.aux
-) (output/Appendix/abstract.aux) (output/Chapter1/chapter1.aux)
-(output/Chapter2/chapter2.aux) (output/Chapter3/chapter3.aux)
-(output/Chapter4/chapter4.aux) (output/Chapter5/chapter5.aux))
+] (output/main.aux (output/Appendix/reassurances.aux)
+(output/Appendix/thanks.aux) (output/Appendix/abstract.aux)
+(output/Chapter1/chapter1.aux) (output/Chapter2/chapter2.aux)
+(output/Chapter3/chapter3.aux) (output/Chapter4/chapter4.aux)
+(output/Chapter5/chapter5.aux))
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E9318323318D8427CE99C9EB62E96732;12296.
+(rerunfilecheck)             Checksum: 1F782C69C60A5ABAD5E38E037736EAA6;10214.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46827 strings out of 477466
- 937243 string characters out of 5828687
- 1864330 words of memory out of 5000000
- 66166 multiletter control sequences out of 15000+600000
- 608878 words of font info for 80 fonts, out of 8000000 for 9000
- 309 hyphenation exceptions out of 8191
- 117i,17n,118p,2248b,1623s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 46579 strings out of 477452
+ 931788 string characters out of 5828127
+ 1865330 words of memory out of 5000000
+ 65993 multiletter control sequences out of 15000+600000
+ 606869 words of font info for 79 fonts, out of 8000000 for 9000
+ 311 hyphenation exceptions out of 8191
+ 117i,12n,118p,2248b,1623s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/e
 nc/dvips/tex-gyre/q-t5-sc.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-t5.enc}</usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/share/texmf/fonts/type1/
-pctex/mtpro2/mt2exa.pfb></usr/local/share/texmf/fonts/type1/pctex/mtpro2/mt2mis
-.pfb></usr/local/share/texmf/fonts/type1/pctex/mtpro2/mt2mit.pfb></usr/local/sh
-are/texmf/fonts/type1/pctex/mtpro2/mt2syt.pfb></usr/share/texmf/fonts/type1/pub
-lic/tex-gyre/qtmb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></
-usr/share/texmf/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf
--dist/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on output/main.pdf (79 pages, 2440932 bytes).
+pctex/mtpro2/mt2mit.pfb></usr/local/share/texmf/fonts/type1/pctex/mtpro2/mt2syt
+.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf/f
+onts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/public/tex-gy
+re/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vntt12.pfb>
+Output written on output/main.pdf (58 pages, 1781518 bytes).
 PDF statistics:
- 1063 PDF objects out of 1200 (max. 8388607)
- 904 compressed objects within 10 object streams
- 207 named destinations out of 1000 (max. 500000)
- 530 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 776 PDF objects out of 1000 (max. 8388607)
+ 671 compressed objects within 7 object streams
+ 164 named destinations out of 1000 (max. 500000)
+ 411 words of extra memory for PDF output out of 10000 (max. 10000000)
 

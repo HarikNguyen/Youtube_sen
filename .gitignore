@@ -2,6 +2,7 @@ __pycache__/
 cookies/
 temp_data/
 .env
+*.zip
 
 prepare/**/*.parquet
 prepare/**/*.txt
@@ -20,3 +21,6 @@ annotation/**/*.zip
 
 models/**/*.parquet
 models/**/*.pth
+
+report/output/
+report/*.pdf

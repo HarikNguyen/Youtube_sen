@@ -1,30 +1,30 @@
-Sau khi đã huấn luyện tinh chỉnh, các mô hình cần được đánh giá dựa trên các tiêu chí khách quan nhằm đưa ra góc nhìn về khả năng tổng quát hóa, đồng thời khi đánh giá thực nghiệm cũng sẽ làm giảm các rủi ro khi triển khai mô hình trong thực tế.
+Sau giai đoạn huấn luyện, tinh chỉnh, các mô hình cần được đánh giá trên những tiêu chí khách quan nhằm phản ánh khả năng tổng quát hóa; đồng thời, việc đánh giá thực nghiệm kỹ lưỡng còn giúp hạn chế rủi ro khi đưa mô hình vào thực tế.
 
-Dựa trên các độ đo được trình bày trong các nghiên cứu \parencite{demszky2020goemotions, hung2026vigoemotions}, mô hình phải được đánh giá trên các tiêu chí trong bảng tổng hợp các độ đo đánh giá hiệu năng mô hình (Bảng \ref{tab:eval_metrics}.
+Dựa trên các độ đo đã sử dụng trong những nghiên cứu \parencite{demszky2020goemotions, hung2026vigoemotions}, mô hình trong đề án này được đánh giá theo những tiêu chí tổng hợp tại Bảng \ref{tab:eval_metrics}.
 
 \begin{table}[htbp]
     \centering
-    \renewcommand{\arraystretch}{2.2} 
+    \renewcommand{\arraystretch}{2.2}
     \caption{Tổng hợp các độ đo đánh giá hiệu năng mô hình.}
     \label{tab:eval_metrics}
     \begin{tabular}{|p{3.5cm}|p{5.5cm}|p{6cm}|}
         \hline
         \textbf{Độ đo} & \textbf{Ý nghĩa} & \textbf{Công thức} \\
         \hline
-        \textbf{F1-Macro} & 
-        Trung bình cộng của các chỉ số F1-Score tính riêng biệt cho từng lớp, không phụ thuộc vào số lượng mẫu của lớp đó. & 
+        \textbf{F1-Macro} &
+        Trung bình cộng của các chỉ số F1-Score tính riêng biệt cho từng lớp, không phụ thuộc vào số lượng mẫu của lớp đó. &
         $\displaystyle F1_c = 2 \times \frac{\text{Precision}_c \times \text{Recall}_c}{\text{Precision}_c + \text{Recall}_c}$ \newline
         $\displaystyle F1_{\text{macro}} = \frac{1}{N} \sum_{i=1}^{N} F1_{c_i}$ \\
         \hline
-        \textbf{Balanced Accuracy} \newline (Độ chính xác cân bằng) & 
-        Được thiết kế đặc biệt cho tập dữ liệu mất cân bằng, tính toán trung bình dựa trên độ nhạy (Recall) của từng lớp. & 
+        \textbf{Balanced Accuracy} \newline (Độ chính xác cân bằng) &
+        Được thiết kế đặc biệt cho tập dữ liệu mất cân bằng, tính toán trung bình dựa trên độ nhạy (Recall) của từng lớp. &
         $\displaystyle \text{Balanced Acc} = \frac{1}{N} \sum_{i=1}^{N} \text{Recall}_{c_i}$ \\
         \hline
-        \textbf{Overall Accuracy} \newline (Độ chính xác tổng thể) & 
-        Độ chính xác truyền thống, thể hiện tỷ lệ các mẫu được dự đoán đúng trên toàn bộ tập dữ liệu. & 
+        \textbf{Overall Accuracy} \newline (Độ chính xác tổng thể) &
+        Độ chính xác truyền thống, thể hiện tỷ lệ các mẫu được dự đoán đúng trên toàn bộ tập dữ liệu. &
         $\displaystyle \text{Accuracy} = \frac{\text{T}}{\text{N}}$ với $A$ là tổng số mẫu dự đoán đúng, $N$ là tổng số mẫu.\\
         \hline
     \end{tabular}
 \end{table}
 
-Ngoài ra, vì mục tiêu đề án là nghiên cứu xây dựng một khung phương pháp, cho nên ngoài các độ đo định lượng đánh giá các mô hình riêng lẻ, cần phải đánh giá định tính mức độ hành vi trong quá trình học của các mô hình. Nhằm đưa ra góc nhìn khách quan về tính ổn định, tốc độ hội tụ, và mức độ hiệu quả của hàm mất mát hỗn hợp (Mixture Loss) trong việc điều hướng sự chú ý của mô hình vào các nhãn thiểu số; từ đó khẳng định tính đúng đắn, độ tin cậy và khả năng mở rộng của khung phương pháp đề xuất trên nhiều kiến trúc Transformer khác nhau.
+Bên cạnh đó, do mục tiêu cốt lõi của đề án là xây dựng một khung phương pháp hoàn chỉnh, việc đánh giá không thể chỉ dừng ở các độ đo định lượng cho từng mô hình riêng lẻ, mà còn cần xem xét định tính hành vi học của mô hình trong quá trình huấn luyện, nhằm có cái nhìn khách quan về tính ổn định, tốc độ hội tụ, cũng như mức độ hiệu quả của hàm mất mát hỗn hợp (Mixture Loss) trong việc điều hướng sự chú ý của mô hình về phía các nhãn thiểu số. Qua đó, tính đúng đắn, độ tin cậy và mở rộng của khung phương pháp đề xuất được khẳng định trên nhiều kiến trúc Transformer khác nhau.

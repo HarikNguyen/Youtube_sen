@@ -2,17 +2,17 @@
 \label{Chapter4}
 
 \section{Quy trình thực nghiệm}
-Toàn bộ quy trình triển khai và đánh giá thực nghiệm tất cả các khâu trong khung phương pháp (framework) đều được lập trình bằng ngôn ngữ Python, kết hợp cùng framework học sâu PyTorch và thư viện mã nguồn mở Transformers (Hugging Face).
+Toàn bộ quy trình triển khai và đánh giá thực nghiệm cho các khâu trong khung phương pháp (framework) đều được hiện thực bằng ngôn ngữ Python, kết hợp cùng framework học sâu PyTorch và thư viện mã nguồn mở Transformers (Hugging Face).
 
-Về môi trường phần cứng, quá trình huấn luyện và kiểm thử các mô hình (\textbf{mBERT}, \textbf{PhoBERT} và \textbf{mModernBERT}) được thực hiện trên hệ thống máy chủ hiệu năng cao. Hệ thống này được trang bị vi xử lý CPU Intel Xeon® E5-2686 v4 (72 cores), dung lượng bộ nhớ trong (RAM) lên đến 258 GB, cùng bộ xử lý đồ họa (GPU) NVIDIA GeForce RTX 3090 sở hữu 24GB VRAM (năng lực tính toán đạt 35.3 TFLOPS), đảm bảo khả năng xử lý song song khối lượng dữ liệu lớn.
+Về mặt hạ tầng phần cứng, việc huấn luyện và kiểm thử ba mô hình \textbf{mBERT}, \textbf{PhoBERT} và \textbf{mModernBERT} được thực hiện trên một hệ thống máy chủ hiệu năng cao, gồm CPU Intel Xeon® E5-2686 v4 (72 nhân), bộ nhớ RAM lên đến 258 GB, cùng GPU NVIDIA GeForce RTX 3090 với 24GB VRAM (năng lực tính toán 35.3 TFLOPS), đảm bảo có thể xử lý song song trên khối lượng lớn.
 
-Đối với khâu chuẩn bị dữ liệu, tập ngữ liệu sau khi trải qua quá trình gán nhãn và giảm mẫu đa số (Undersampling) được phân chia ngẫu nhiên thành ba tập con độc lập: tập huấn luyện (Training set), tập kiểm định (Validation set) và tập kiểm thử (Test set) với tỷ lệ phân bổ tương ứng là 90:5:5.
+Ở khâu chuẩn bị dữ liệu, sau khi đã gán nhãn và giảm mẫu đa số (Undersampling) được chia thành ba tập con độc lập gồm tập huấn luyện (Training set), tập kiểm định (Validation set) và tập kiểm thử (Test set), theo tỷ lệ 90:5:5.
 
-Về quá trình huấn luyện, cấu hình của ba mô hình được thiết lập chi tiết dựa trên các siêu tham số trình bày tại Bảng \ref{tab:hyperparameters_detail}. Nhằm tối ưu hóa thời gian tính toán và ngăn chặn hiện tượng quá khớp (overfitting), kỹ thuật dừng sớm (Early Stopping) được tích hợp vào quy trình. Cụ thể, tiến trình huấn luyện sẽ tự động chấm dứt nếu độ đo hiệu năng trên tập kiểm định không ghi nhận sự cải thiện nào sau hai chu kỳ (epochs) liên tiếp.
+Quá trình huấn luyện, cấu hình chi tiết của ba mô hình trên các siêu tham số được liệt kê tại Bảng \ref{tab:hyperparameters_detail}. Để tối ưu thời gian tính toán và ngăn ngừa hiện tượng quá khớp (overfitting), kỹ thuật dừng sớm (Early Stopping) được tích hợp vào quy trình: tiến trình huấn luyện sẽ tự động dừng lại nếu độ đo hiệu năng trên tập kiểm định không cải thiện sau hai chu kỳ (epochs) liên tiếp.
 
 \begin{table}[H]
     \centering
-    \renewcommand{\arraystretch}{1.5} 
+    \renewcommand{\arraystretch}{1.5}
     \caption{Cấu hình siêu tham số chi tiết cho từng mô hình thực nghiệm.}
     \label{tab:hyperparameters_detail}
     \begin{tabular}{|p{5.5cm}|c|c|c|}
@@ -47,12 +47,12 @@ Về quá trình huấn luyện, cấu hình của ba mô hình được thiết
 \section{Kết quả thực nghiệm}
 
 \subsection{Kết quả quá trình thu thập, xây dựng, tiền xử lý và gán nhãn dữ liệu}
-Thông qua các biểu đồ phân phối tập dữ liệu sau quá trình thu thập và xây dựng, tiền xử lý (Hình \ref{fig:first_cbc} và Hình \ref{fig:first_vbc}) đều có thể thấy được tập ngữ liệu mang đặc tính mất cân bằng sâu sắc mang tính tự nhiên (Long-tail distribution). Các chủ đề mang tính thời sự hoặc giải trí cao (như \texttt{news}, \texttt{music}) thu hút lượng tương tác áp đảo, trong khi các danh mục khác lại vô cùng hạn chế. Sự phân bố không cân bằng này chính là minh chứng cho thấy nếu sử dụng phương pháp luận truyền thống, mô hình sẽ hoàn toàn bị thiên kiến (bias) theo các chủ đề phổ biến. Do đó, việc framework tích hợp \textbf{cơ chế gán nhãn bán tự động} (kết hợp luật từ vựng và sinh dữ liệu nhân tạo) cùng \textbf{hàm mất mát hỗn hợp (Mixture Loss)} là một bước đi mang tính chiến lược và bắt buộc.
+Nhìn vào các biểu đồ phân phối dữ liệu sau giai đoạn thu thập, xây dựng và tiền xử lý (Hình \ref{fig:first_cbc} và Hình \ref{fig:first_vbc}), có thể thấy tập ngữ liệu mang đặc tính mất cân bằng tự nhiên khá sâu sắc (Long-tail distribution): các chủ đề gắn tính thời sự hay giải trí cao (như \texttt{news}, \texttt{music}) thu hút lượng tương tác áp đảo, trong khi những danh mục còn lại rất hạn chế. Sự phân bố lệch này cho thấy nếu áp dụng phương pháp luận truyền thống, mô hình chắc chắn sẽ bị thiên kiến (bias) về phía các chủ đề phổ biến. Đây chính là lý do việc framework tích hợp \textbf{cơ chế gán nhãn bán tự động} (kết hợp luật từ vựng và sinh dữ liệu nhân tạo) cùng \textbf{hàm mất mát hỗn hợp (Mixture Loss)} trở thành một bước đi chiến lược và bắt buộc.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Images/comment_by_cate.png}
-    \caption{Phân phối dữ liệu số lượng bình luận sau quá trình thu thập và tiền xử lý theo các danh mục.}
+    \caption{Phân phối số lượng bình luận theo từng danh mục, ghi nhận sau giai đoạn thu thập và tiền xử lý.}
     \label{fig:first_cbc}
     \vspace{0.1cm}
 \end{figure}
@@ -60,13 +60,13 @@ Thông qua các biểu đồ phân phối tập dữ liệu sau quá trình thu 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Images/vid_by_cate.png}
-    \caption{Phân phối dữ liệu số lượng video sau quá trình thu thập và tiền xử lý theo các danh mục.}
+    \caption{Phân phối số lượng video theo từng danh mục, ghi nhận sau giai đoạn thu thập và tiền xử lý dữ liệu.}
     \label{fig:first_vbc}
     \vspace{0.1cm}
 \end{figure}
 
-Biểu đồ violin (Hình \ref{fig:first_cmt_violin}) chỉ ra rằng tuyệt đại đa số bình luận của người dùng mạng xã hội Việt Nam thường có độ dài vô cùng ngắn (tập trung ở ngưỡng dưới 20 từ, kể cả icons). Việc phân loại cảm xúc vi mô (fine-grained emotions) trên các đoạn văn bản thiếu hụt ngữ cảnh trầm trọng là một thách thức cực đại đối với học máy. Tuy nhiên, giới hạn này lại làm nổi bật tính đúng đắn trong việc lựa chọn và thiết kế framework. Nhờ việc tinh chỉnh các \textbf{kiến trúc Transformer tiên tiến (như mModernBERT với cơ chế Attention tối ưu)}, framework có đủ độ nhạy bén để trích xuất các dấu hiệu ngữ nghĩa tinh tế nhất chỉ từ một vài từ khóa, vượt qua rào cản về độ dài văn bản mà các mô hình biểu diễn ngữ nghĩa truyền thống thường thất bại.
-Ngoài ra, sự xuất hiện của các điểm dị thường (outliers) kéo dài lên tới 250 tokens cho thấy độ nhiễu và tính đa dạng hóa của tập ngữ liệu.
+Biểu đồ violin (Hình \ref{fig:first_cmt_violin}) cho thấy phần lớn bình luận có độ dài rất ngắn, tập trung dưới ngưỡng 20 từ (kể cả icon). Điều này khiến việc phân loại cảm xúc vi mô (fine-grained emotions) trên những đoạn văn bản thiếu hụt ngữ cảnh trầm trọng trở nên thách thức đối với học máy. Tuy vậy, chính giới hạn này lại càng củng cố tính đúng trong việc lựa chọn và thiết kế framework: nhờ tinh chỉnh các \textbf{kiến trúc Transformer tiên tiến (như mModernBERT với cơ chế Attention tối ưu)}, framework vẫn đủ nhạy bén để trích xuất những dấu hiệu ngữ nghĩa tinh tế nhất chỉ từ vài từ khóa, vượt qua rào cản về độ dài văn bản mà các mô hình biểu diễn ngữ nghĩa truyền thống thường gặp phải.
+Sự xuất hiện của các điểm dị thường (outliers) kéo dài tới 250 tokens cũng phản ánh độ nhiễu và tính đa dạng của tập ngữ liệu.
 
 \begin{figure}[H]
     \centering
@@ -76,9 +76,9 @@ Ngoài ra, sự xuất hiện của các điểm dị thường (outliers) kéo 
     \vspace{0.1cm}
 \end{figure}
 
-Kết quả của quá trình gán nhãn bán tự động được thể hiện qua phân phối dữ liệu dựa theo các nhóm cảm xúc (Hình \ref{fig:label_anno_dist}) bộc lộ rõ rệt cấu trúc phân phối đuôi dài (long-tail distribution) mang tính tự nhiên. Các nhãn thuộc nhóm tích cực áp đảo hoàn toàn các nhãn thuộc nhóm tiêu cực. Đồng thời, việc số lượng nhãn trung tính (neutral) đột biến lại là một tín hiệu tốt và mang tính bảo chứng. Vì thực tế trên mạng xã hội (YouTube, TikTok, Facebook), 70\% - 80\% bình luận thực tế là vô thưởng vô phạt, ngắn gọn, hoặc thuần túy trần thuật (ví dụ: "video hay", "chấm", "đã xem", "ông A đi xe màu đỏ").
+Kết quả gán nhãn bán tự động, thể hiện qua phân phối dữ liệu theo các nhóm cảm xúc (Hình \ref{fig:label_anno_dist}), bộc lộ rõ cấu trúc phân phối đuôi dài (long-tail distribution) mang tính tự nhiên: các nhãn thuộc nhóm tích cực áp đảo hoàn toàn nhóm tiêu cực. Đáng chú ý, việc số lượng nhãn trung tính (neutral) tăng đột biến lại là một tín hiệu tích cực, mang tính bảo chứng cho chất lượng gán nhãn, bởi trên thực tế các nền tảng (YouTube, TikTok, Facebook), có tới 70\% - 80\% bình luận chỉ mang tính vô thưởng vô phạt, ngắn gọn hoặc thuần túy trần thuật (ví dụ: "video hay", "chấm", "đã xem", "ông A đi xe màu đỏ").
 
-Đồng thời, bức tranh phân bố cảm xúc cũng cho thấy sự tương đồng với tập dữ liệu GoEmotions đã được kiểm chứng nghiêm ngặt (như Hình \ref{fig:label_goemo_dist}). Sự nhất quán về mặt phân phối này khẳng định rằng sự kết hợp giữa luật từ vựng (rule-based) và mô hình ngôn ngữ (Encoder) trong khung phương pháp đã thành công trong việc chuyển giao tri thức (knowledge transfer) từ chuyên gia con người sang hệ thống máy tính với độ sai số được kiểm soát chặt chẽ.
+Bên cạnh đó, bức tranh phân bố cảm xúc thu được cũng cho thấy sự tương đồng đáng kể với tập dữ liệu GoEmotions đã được kiểm chứng nghiêm ngặt (Hình \ref{fig:label_goemo_dist}). Sự nhất quán này là minh chứng cho thấy việc kết hợp giữa luật từ vựng (rule-based) và mô hình ngôn ngữ (Encoder) trong khung phương pháp đã chuyển giao tri thức (knowledge transfer) thành công từ chuyên gia con người sang hệ thống máy tính, với độ sai số được kiểm soát chặt chẽ.
 
 \begin{figure}[H]
     \centering
@@ -122,16 +122,16 @@ Kết quả của quá trình gán nhãn bán tự động được thể hiện
     \vspace{0.1cm}
 \end{figure}
 
-Từ ba biểu đồ quá trình huấn luyện trên tập dữ liệu lớn với gần 3 triệu điểm dữ liệu và trên 28 lớp không cân bằng (imbalance) (Hình \ref{fig:eps_mbert}, Hình \ref{fig:eps_phobert} và Hình \ref{fig:eps_modernbert}) cho thấy hiện tượng phân kỳ sớm của giá trị mất mát kiểm định. Tuy nhiên, nếu ta đi vào phân tích sâu hơn, thì có thể nhận thấy rằng đây hoàn toàn là đặc trưng toán học mong muốn khi kết hợp giữa CB-Loss và GHM Loss nhằm bảo vệ các lớp thiểu số.
+Ba biểu đồ quá trình huấn luyện tập dữ liệu (gần 3 triệu điểm dữ liệu, trải trên 28 lớp không cân bằng) tại Hình \ref{fig:eps_mbert}, Hình \ref{fig:eps_phobert} và Hình \ref{fig:eps_modernbert} cho thấy hiện tượng phân kỳ sớm ở giá trị mất mát kiểm định. Tuy nhiên, khi phân tích sâu hơn, có thể thấy đây hoàn toàn là đặc trưng toán học mong đợi khi kết hợp CB-Loss với GHM-Loss nhằm bảo vệ các lớp thiểu số.
 
-Đồng thời, hiệu năng thực tế của mô hình (thể hiện qua F1-Macro và Balanced Accuracy) vẫn không hề suy giảm mà vẫn tăng trưởng ổn định. Đặc biệt, các kết quả cũng cho thấy rằng điểm dừng lý tưởng (Early Stopping) rơi vào khoảng 3-5 epoch đầu tiên.
+Trong khi đó, hiệu năng thực tế của mô hình (thể hiện qua F1-Macro và Balanced Accuracy) không hề suy giảm mà vẫn duy trì đà tăng trưởng ổn định. Đáng chú ý, kết quả cũng cho thấy điểm dừng lý tưởng (Early Stopping) thường rơi vào khoảng 3-5 epoch đầu tiên.
 
 
 \subsection{Kết quả quá trình kiểm thử mô hình}
 
 \begin{table}[H]
     \centering
-    \renewcommand{\arraystretch}{1.3} 
+    \renewcommand{\arraystretch}{1.3}
     \caption{Kết quả đánh giá hiệu năng tổng thể của các mô hình trên tập kiểm thử.}
     \label{tab:overall_results}
     \begin{tabular}{|l|c|c|c|}
@@ -147,10 +147,10 @@ Từ ba biểu đồ quá trình huấn luyện trên tập dữ liệu lớn v�
     \end{tabular}
 \end{table}
 
-Kết quả từ Bảng \ref{tab:overall_results} cho thấy mô hình \textbf{mModernBERT} đạt hiệu năng cao nhất trên toàn bộ các thang đo, bỏ xa hai mô hình còn lại. Với chỉ số F1-Macro đạt $88.94\%$ và độ chính xác tổng thể (Overall Accuracy) lên tới $91.53\%$, mModernBERT chứng minh khả năng biểu diễn ngôn ngữ vượt trội. Sự chênh lệch này có thể được lý giải bởi các cải tiến kiến trúc cốt lõi của ModernBERT, bao gồm cơ chế mã hóa vị trí tương đối RoPE (Rotary Position Embedding) và khả năng xử lý ngữ cảnh dài. Những cải tiến này giúp mô hình nắm bắt tốt hơn cấu trúc ngữ pháp lỏng lẻo và các phụ tố cảm xúc phức tạp đặc trưng của ngôn ngữ mạng xã hội.
+Số liệu tại Bảng \ref{tab:overall_results} cho thấy \textbf{mModernBERT} đạt hiệu năng vượt trội trên toàn bộ các thang đo, bỏ xa hai mô hình còn lại: chỉ số F1-Macro đạt $88.94\%$, độ chính xác tổng thể (Overall Accuracy) lên tới $91.53\%$, minh chứng cho năng lực biểu diễn ngôn ngữ ưu việt của mô hình này. Sự chênh lệch đó có thể lý giải bởi các cải tiến kiến trúc cốt lõi của ModernBERT, gồm cơ chế mã hóa vị trí tương đối RoPE (Rotary Position Embedding) và năng lực xử lý ngữ cảnh dài, giúp mô hình nắm bắt tốt hơn cấu trúc ngữ pháp lỏng lẻo cùng các phụ tố cảm xúc phức tạp đặc trưng của ngôn ngữ mạng xã hội.
 
-Khi đối chiếu giữa mBERT và PhoBERT, có thể thấy PhoBERT mang lại kết quả nhỉnh hơn ở cả ba độ đo (F1-Macro đạt $82.99\%$ so với $82.19\%$ của mBERT). Mặc dù có cùng chung nền tảng kiến trúc Encoder cơ sở, PhoBERT được hưởng lợi lớn từ việc tiền huấn luyện (pre-training) hoàn toàn trên ngữ liệu tiếng Việt khổng lồ, kết hợp cùng cơ chế phân đoạn từ (word segmentation).
+So sánh giữa mBERT và PhoBERT, có thể thấy PhoBERT nhỉnh hơn ở cả ba độ đo (F1-Macro đạt $82.99\%$, so với $82.19\%$ của mBERT). Dù cùng chung nền tảng kiến trúc Encoder, PhoBERT được hưởng lợi đáng kể từ việc tiền huấn luyện (pre-training) hoàn toàn trên kho ngữ liệu tiếng Việt đồ sộ, kết hợp với cơ chế phân đoạn từ (word segmentation).
 
-Một điểm sáng cực kỳ quan trọng trong Bảng \ref{tab:overall_results} là sự đồng đều giữa các độ đo \textbf{Overall Accuracy} và \textbf{F1-Macro / Balanced Accuracy}. Thông thường, trên một tập dữ liệu phân phối đuôi dài , một mô hình kém sẽ có Overall Accuracy rất cao (do đoán bừa nhãn đa số) nhưng F1-Macro lại sụt giảm nghiêm trọng. Tuy nhiên, ở đây chỉ số F1-Macro và Balanced Accuracy của cả ba mô hình đều duy trì ở mức $>82\%$ (riêng mModernBERT tiệm cận $90\%$). Kết quả này là bảo chứng mạnh mẽ nhất cho thấy việc kết hợp kỹ thuật giảm mẫu (Undersampling) và hàm điều chuẩn \textbf{Mixture Loss (CB-Loss + GHM-Loss)} đã phát huy tác dụng triệt để. Mô hình không bị rơi vào hiện tượng quá khớp với nhãn đa số mà thực sự học được cách phân loại các nhãn cảm xúc thiểu số một cách công bằng.
+Điểm đáng chú ý khác trong Bảng \ref{tab:overall_results} là sự đồng đều giữa độ đo \textbf{Overall Accuracy} và nhóm \textbf{F1-Macro / Balanced Accuracy}. Thông thường, trên một tập dữ liệu phân phối đuôi dài, một mô hình kém vẫn có thể đạt Overall Accuracy rất cao (do chỉ đoán theo nhãn đa số) trong khi F1-Macro lại sụt giảm nghiêm trọng. Thế nhưng ở đây, chỉ số F1-Macro và Balanced Accuracy của cả ba mô hình đều duy trì trên $>82\%$ (riêng mModernBERT tiệm cận $90\%$), đây là căn cứ thuyết phục cho thấy việc kết hợp giữa kỹ thuật giảm mẫu (Undersampling) và hàm điều chuẩn \textbf{Mixture Loss (CB-Loss + GHM-Loss)} đã phát huy hiệu quả triệt để: mô hình không rơi vào tình trạng quá khớp với nhãn đa số mà thực sự học được cách phân loại công bằng các nhãn cảm xúc thiểu số.
 
-Độ lệch chuẩn (standard deviation - các giá trị $\pm$) thu được từ quá trình đánh giá chéo trên các thang đo đều duy trì ở mức rất thấp, dao động trong khoảng từ $0.14\%$ đến $0.44\%$. Phương sai nhỏ này minh chứng cho tính ổn định (robustness) của hệ thống trong suốt quá trình học. Các mô hình đã hội tụ tốt, không bị nhạy cảm (sensitive) với các thay đổi ngẫu nhiên của các lô dữ liệu (batch) và có khả năng tổng quát hóa (generalization) cao khi đối mặt với dữ liệu chưa từng thấy trong tập kiểm thử.
+Độ lệch chuẩn (các giá trị $\pm$) thu được từ quá trình đánh giá chéo trên các thang đo đều ở mức rất thấp, dao động từ $0.14\%$ đến $0.44\%$, phương sai nhỏ này là minh chứng cho tính ổn định (robustness) của hệ thống trong suốt quá trình học. Các mô hình đã hội tụ tốt, không nhạy cảm (sensitive) trước những biến động ngẫu nhiên giữa các lô dữ liệu (batch), đồng thời thể hiện tổng quát hóa (generalization) cao khi đối mặt với dữ liệu chưa từng gặp trong tập kiểm thử.

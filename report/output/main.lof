@@ -1,21 +1,16 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Biểu đồ tỷ lệ thâm nhập của các nền tảng mạng xã hội dẫn đầu tại Việt Nam, từ Decision Lab, quý IV 2025}}{2}{figure.1.1}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Khung phương pháp luận chung cho bài toán phân tích sắc thái cảm xúc.}}{21}{figure.2.1}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Minh họa cơ chế tự chú ý (Self-Attention).}}{23}{figure.2.2}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Kiến trúc tổng thể của Transformer với các lớp Encoder và Decoder.}}{24}{figure.2.3}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Hình minh họa phương pháp luận chung cho \gls {sa}.}}{20}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Minh họa cơ chế tự chú ý (Self-Attention).}}{22}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Kiến trúc tổng thể của Transformer với các lớp Encoder và Decoder.}}{23}{figure.2.3}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Sơ đồ minh họa quy trình tiền xử lý dữ liệu}}{33}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Quy trình gán nhãn bán tự động}}{36}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Phân phối dữ liệu theo đầu vào các nhóm cảm xúc: tích cực (xanh), tiêu cực (đỏ) và mập mờ (vàng).}}{39}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Phân phối dữ liệu theo các nhóm cảm xúc sau khi giảm mẫu (Unsampling). Tích cực (xanh), tiêu cực (đỏ) và mập mờ (vàng).}}{39}{figure.3.4}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Phân phối dữ liệu số lượng bình luận sau quá trình thu thập và tiền xử lý theo các danh mục.}}{46}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Phân phối dữ liệu số lượng video sau quá trình thu thập và tiền xử lý theo các danh mục.}}{46}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Biểu đồ violin phân phối số lượng từ trong từng bình luận.}}{47}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Biểu đồ phân phối dữ liệu theo các nhóm cảm xúc (xanh - tích cực, đỏ - tiêu cực, vàng - nhập nhằng, xám - trung tính) sau khi được gán nhãn.}}{48}{figure.4.4}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Biểu đồ phân phối dữ liệu theo các cảm xúc vi mô trong tập GoEmotions.}}{49}{figure.4.5}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Biểu đồ hành vi trong quá trình hiệu chỉnh mô hình mBERT.}}{50}{figure.4.6}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Quá trình hiệu chỉnh mô hình phoBERT.}}{50}{figure.4.7}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Quá trình hiệu chỉnh mô hình mModernBERT.}}{51}{figure.4.8}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Phân phối số lượng bình luận theo từng danh mục, ghi nhận sau giai đoạn thu thập và tiền xử lý.}}{29}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Phân phối số lượng video theo từng danh mục, ghi nhận sau giai đoạn thu thập và tiền xử lý dữ liệu.}}{29}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Biểu đồ violin phân phối số lượng từ trong từng bình luận.}}{30}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Biểu đồ phân phối dữ liệu theo các nhóm cảm xúc (xanh - tích cực, đỏ - tiêu cực, vàng - nhập nhằng, xám - trung tính) sau khi được gán nhãn.}}{31}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Biểu đồ phân phối dữ liệu theo các cảm xúc vi mô trong tập GoEmotions.}}{32}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Biểu đồ hành vi trong quá trình hiệu chỉnh mô hình mBERT.}}{33}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Quá trình hiệu chỉnh mô hình phoBERT.}}{33}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Quá trình hiệu chỉnh mô hình mModernBERT.}}{34}{figure.3.8}%
 \addvspace {10\p@ }

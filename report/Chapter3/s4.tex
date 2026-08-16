@@ -1,6 +1,6 @@
-Mặc dù dữ liệu đã được chuẩn hóa và loại bỏ nhiễu trong khi vẫn bảo toàn được phần lớn thông tin, bước gán nhãn dữ liệu (data labeling) vẫn là một yêu cầu bắt buộc. Theo các phương pháp truyền thống, quá trình này đòi hỏi sự tham gia độc lập của ít nhất ba chuyên gia để đảm bảo tính khách quan và độ tin cậy. Tuy nhiên, cách tiếp cận này tiêu tốn nhiều thời gian, chi phí và khó có thể mở rộng cho các tập ngữ liệu quy mô lớn lên đến hàng triệu mẫu.
+Mặc dù dữ liệu đã trải qua quá trình chuẩn hóa, khử nhiễu và vẫn giữ được các đặc trưng gốc, bước gán nhãn (data labeling) vẫn là công đoạn bắt buộc không thể bỏ qua. Theo cách làm truyền thống, công đoạn này đòi hỏi sự đánh giá độc lập từ ít nhất ba chuyên gia để đảm bảo độ chuẩn xác và tính trung lập; tuy nhiên, cách tiếp cận này tiêu tốn đáng kể nhân lực và ngân sách, đồng thời khó lòng mở rộng khi áp dụng cho những tập ngữ liệu lên đến hàng triệu mẫu.
 
-Do đó, việc phát triển một quy trình gán nhãn bán tự động (semi-automated labeling) kết hợp giữa con người và máy tính là một yêu cầu cấp thiết. Cùng với sự phát triển mạnh mẽ của các Mô hình Ngôn ngữ Lớn (LLMs), phương pháp này đã được nhiều công trình nghiên cứu áp dụng như một quy trình chuẩn \parencite{hung2026vigoemotions, ding2026scope, wang2023self, ratner2017snorkel}.
+Bởi vậy, xây dựng quy trình gán nhãn bán tự động (semi-automated labeling), kết hợp giữa sức mạnh tính toán của máy móc và tri thức chuyên gia, đang trở thành tất yếu. Những bước tiến vượt bậc của \acrlong{llm}, được áp dụng rộng rãi như một quy trình chuẩn trong nhiều dự án học thuật \parencite{hung2026vigoemotions, ding2026scope, wang2023self, ratner2017snorkel}.
 
 \begin{figure}[htbp]
     \centering
@@ -10,31 +10,31 @@ Do đó, việc phát triển một quy trình gán nhãn bán tự động (sem
     \vspace{0.1cm}
 \end{figure}
 
-Dựa trên phương pháp tiếp cận của \textcite{ding2026scope}, quy trình gán nhãn bán tự động trong nghiên cứu này được thực hiện theo sơ đồ minh họa tại Hình \ref{fig:gannhanbantudong}. Quá trình này được triển khai theo các bước sau:
+Dựa trên cách tiếp cận của \textcite{ding2026scope}, quy trình gán nhãn bán tự động trong đề án được minh họa chi tiết qua Hình \ref{fig:gannhanbantudong}, với các bước như sau:
 
 \textbf{Xây dựng tập hạt giống và cân bằng dữ liệu.}
 
-Ban đầu, một tập dữ liệu hạt giống (seed dataset) gồm 10.000 mẫu được trích xuất ngẫu nhiên từ tập dữ liệu đã qua tiền xử lý. Để giải quyết vấn đề mất cân bằng dữ liệu đối với các nhãn hiếm (ví dụ: \texttt{grief}, \texttt{nervousness}, \texttt{remorse}, \dots), phương pháp trích xuất dựa trên tập luật từ vựng (rule-based) được tích hợp nhằm thu thập thêm mẫu. Cụ thể:
+Ban đầu, một tập dữ liệu hạt giống (seed dataset) gồm 10.000 mẫu được lấy theo xác suất đồng đều từ kho dữ liệu đã qua tiền xử lý. Để khắc phục tình trạng phân phối lệch ở các nhãn hiếm gặp (như "\texttt{grief}", "\texttt{nervousness}", "\texttt{remorse}", \dots), một phương pháp trích xuất dựa trên tập luật từ vựng (rule-based) được tích hợp thêm nhằm bổ sung mẫu. Cụ thể:
 
 \begin{itemize}[label=-]
-    \item Các văn bản chứa những từ khóa như \textit{"chia buồn"}, \textit{"xót xa"}, \textit{"mất mát"}, \textit{"vĩnh biệt"} hoặc \textit{"rip"} có xác suất cao thuộc nhãn \texttt{grief}.
-    \item Các từ khóa \textit{"xin lỗi"}, \textit{"hối hận"}, \textit{"cắn rứt"} được sử dụng để lọc các mẫu có khả năng thuộc nhãn \texttt{remorse}.
+    \item Những văn bản chứa các từ khóa như \textit{"chia buồn"}, \textit{"xót xa"}, \textit{"mất mát"}, \textit{"vĩnh biệt"} hay \textit{"rip"} có khả năng cao thuộc về nhãn \texttt{grief}.
+    \item Tương tự, các từ khóa \textit{"xin lỗi"}, \textit{"hối hận"}, \textit{"cắn rứt"} được dùng để lọc ra những mẫu khả năng cao thuộc nhãn \texttt{remorse}.
 \end{itemize}
 
-Kế tiếp, tập hạt giống được bổ sung thêm dữ liệu từ bộ ngữ liệu \textbf{ViGoEmotions} nhằm gia tăng sự đa dạng về cả số lượng lẫn chất lượng. Hơn nữa, do sự chênh lệch tỷ lệ phân bố lớn (khoảng 1:30) giữa các nhãn hiếm và nhãn phổ biến, kỹ thuật sinh dữ liệu nhân tạo (synthetic data generation) thông qua các mô hình LLMs (như Gemini, GPT, \dots) cũng được áp dụng để làm phong phú thêm tập huấn luyện.
+Tiếp đó, tập hạt giống được mở rộng thêm dữ liệu từ bộ ngữ liệu \textbf{ViGoEmotions} nhằm gia tăng độ phong phú cả về quy mô lẫn chiều sâu ngữ nghĩa. Bên cạnh đó, do độ chênh lệch phân bố lớn (khoảng 1:30) giữa nhãn hiếm và nhãn phổ biến, kỹ thuật sinh dữ liệu nhân tạo (synthetic data generation) thông qua các mô hình LLMs (như Gemini, GPT, \dots) áp dụng làm giàu thêm tập dữ liệu huấn luyện.
 
-\textbf{Lựa chọn mô hình huấn luyện.}
+\textbf{Thiết lập mô hình nền tảng.}
 
-Sau khi xây dựng thành công tập hạt giống, một mô hình ngôn ngữ dựa trên kiến trúc Encoder – cụ thể là ViSoBert \parencite{nguyen2023visobert}, mô hình đã được huấn luyện trước (pre-trained) trên ngữ liệu mạng xã hội tiếng Việt – được lựa chọn để thực hiện nhiệm vụ phân loại.
+Khi hoàn tất tập hạt giống, đề án lựa chọn một hệ thống xử lý ngôn ngữ tự nhiên từ kiến trúc Encoder. Cụ thể là ViSoBert \parencite{nguyen2023visobert}, mô hình đã huấn luyện (pre-trained) trên ngữ liệu mạng xã hội Việt Nam để đảm nhiệm nhiệm vụ gán nhãn.
 
 \textbf{Vòng lặp gán nhãn giả (Iterative Pseudo-labeling)}
 
-Quy trình lặp (iteration) của hệ thống gán nhãn bắt đầu bằng việc tinh chỉnh (fine-tuning) mô hình trên tập hạt giống nhằm tối ưu hóa hiệu suất (hướng tới việc cực đại hóa chỉ số F1-macro). Sau đó, mô hình đã qua tinh chỉnh được sử dụng để dự đoán (gán nhãn giả - pseudo labeling) cho toàn bộ phần dữ liệu chưa gán nhãn còn lại.
+Vòng lặp (iteration) của hệ thống gán nhãn khởi động bằng việc tinh chỉnh (fine-tuning) mô hình trên tập hạt giống nhằm tối đa hóa năng lực phân loại, với mục tiêu trọng tâm là cực đại hóa chỉ số F1-macro. Phiên bản mô hình sau tinh chỉnh này sau đó đảm nhận vai trò gán nhãn tự động (gán nhãn giả - pseudo labeling) cho toàn bộ phần ngữ liệu thô còn lại.
 
-Dựa trên kết quả dự đoán, các mẫu dữ liệu mới được trích xuất để cập nhật vào tập huấn luyện cho vòng lặp tiếp theo bằng chiến lược chọn mẫu động:
+Căn cứ vào kết quả dự đoán, các mẫu dữ liệu mới được trích xuất và cập nhật vào tập huấn luyện cho vòng lặp kế tiếp, theo chiến lược chọn mẫu động:
 
 \begin{itemize}[label=-]
-    \item \textbf{Giai đoạn đầu (khi tập mồi < 100.000 mẫu hoặc phân bố nhãn chưa đồng đều)}: Thuật toán sẽ trích xuất \texttt{K\_SAMPLE} mẫu có độ tin cậy dự đoán (prediction probability) cao nhất cho mỗi nhãn để đưa vào tập huấn luyện mới.
-    \item \textbf{Giai đoạn sau (khi tập huấn luyện đã đạt kích thước đủ lớn)}: Quy trình tiếp tục bằng việc chỉ trích xuất những mẫu có xác suất dự đoán vượt qua một ngưỡng tin cậy cố định (ví dụ: $> 0.85$ hoặc $> 0.9$).
+    \item \textbf{Giai đoạn đầu (khi tập mồi < 100.000 mẫu hoặc phân bố nhãn chưa đồng đều)}: thuật toán trích xuất \texttt{K\_SAMPLE} mẫu có độ tin cậy dự đoán (prediction probability) cao nhất ứng với mỗi nhãn để bổ sung cho tập huấn luyện mới.
+    \item \textbf{Giai đoạn sau (khi tập huấn luyện đã đạt kích thước đủ lớn)}: chỉ những mẫu có xác suất dự đoán vượt một ngưỡng tin cậy cố định (ví dụ: $> 0.85$ hoặc $> 0.9$) mới tiếp tục được trích xuất.
 \end{itemize}
 
